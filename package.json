@@ -1,0 +1,19 @@
+{
+  "name": "first_pet",
+  "version": "1.0.0",
+  "description": "The simple registration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vasyl1312/first_pet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vasyl1312/first_pet/issues"
+  },
+  "homepage": "https://github.com/vasyl1312/first_pet#readme"
+}
