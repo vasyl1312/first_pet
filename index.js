@@ -1,18 +1,21 @@
-const express = require('express')
+var express = require('express')
+var bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-
 const keys = require('./config/keys.json')
 const homeRoutes = require('./routes/homeRoutes')
-const loginRoutes = require('./routes/loginRoutes')
-const registerRoutes = require('./routes/registerRoutes')
 
-const PORT = process.env.PORT || 5000
-const app = express()
+const PORT = process.env.PORT || 3000
+var app = express()
 
-app.set('view engine', 'ejs')
+app.use(bodyParser.json())
+app.use(express.static('public'))
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+)
+
 app.use('/', homeRoutes)
-app.use('/login', loginRoutes)
-app.use('/register', registerRoutes)
 
 const start = async () => {
   try {
