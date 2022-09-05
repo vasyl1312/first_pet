@@ -19,7 +19,7 @@ app.use(
 
 app.use('/', homeRoutes)
 app.use('/register', registerRoutes)
-// app.use('/login', loginRoutes)
+app.use('/login', loginRoutes)
 
 const start = async () => {
   try {

@@ -21,7 +21,7 @@ router.post('/', async function (req, res) {
         password: hashPassword,
       })
       await user.save()
-      return res.redirect('welcome.html')
+      return res.redirect('login.html')
     }
   } catch (e) {
     console.log(e)
