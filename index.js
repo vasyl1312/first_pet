@@ -3,8 +3,10 @@ var bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const keys = require('./config/keys.json')
 const homeRoutes = require('./routes/homeRoutes')
+const registerRoutes = require('./routes/registerRoutes')
+const loginRoutes = require('./routes/loginRoutes')
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || keys.PORT
 var app = express()
 
 app.use(bodyParser.json())
@@ -16,6 +18,8 @@ app.use(
 )
 
 app.use('/', homeRoutes)
+app.use('/register', registerRoutes)
+// app.use('/login', loginRoutes)
 
 const start = async () => {
   try {

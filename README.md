@@ -6,3 +6,4 @@ The simple registration
 2. Simple routes
 3. Some html css things
 4. Register with mongoose connection
+5. Add Schema, update html register and home page
