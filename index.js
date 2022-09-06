@@ -5,6 +5,7 @@ const keys = require('./config/keys.json')
 const homeRoutes = require('./routes/homeRoutes')
 const registerRoutes = require('./routes/registerRoutes')
 const loginRoutes = require('./routes/loginRoutes')
+const welcomeRoutes = require('./routes/welcomeRoutes')
 
 const PORT = process.env.PORT || keys.PORT
 var app = express()
@@ -21,6 +22,7 @@ app.use(
 app.use('/', homeRoutes)
 app.use('/register', registerRoutes)
 app.use('/login', loginRoutes)
+app.use('/welcome', welcomeRoutes)
 
 const start = async () => {
   try {

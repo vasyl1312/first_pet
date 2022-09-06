@@ -1,10 +1,11 @@
 const { Router } = require('express')
 const User = require('../models/User')
+const bcrypt = require('bcryptjs')
+
 const router = new Router()
 
 router.get('/', (req, res) => {
   res.render('login')
-  // return res.redirect('login.html')
 })
 
 router.post('/', async (req, res) => {
@@ -14,11 +15,16 @@ router.post('/', async (req, res) => {
 
     const candidate = await User.findOne({ email }) //перевірка чи існує користувач з таким email
     if (!candidate) {
-      return res.redirect('/')
+      //нема такого користувача
+      return res.redirect('/register')
     } else {
-      //перевірити і розхешити пароль
-      res.render('welcome')
-      //return res.redirect('welcome.html')
+      const areSame = await bcrypt.compare(password, candidate.password) //перевірка і розхеш пароль
+      if (!areSame) {
+        //неправильний пароль
+        return res.redirect('/login')
+      }
+
+      return res.redirect('/welcome')
     }
   } catch (e) {
     console.log(e)

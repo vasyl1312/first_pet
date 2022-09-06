@@ -1,6 +1,6 @@
 # first_pet
 
-The simple registration
+`The simple registration`
 
 1. Initialization (express, nodemon, connect to Mongo)
 2. Simple routes
@@ -9,3 +9,4 @@ The simple registration
 5. Add Schema, update html register and home page
 6. Login page, update routing from pages
 7. Remove /.. .html from routes
+8. Login logics
