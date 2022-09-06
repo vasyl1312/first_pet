@@ -21,7 +21,8 @@ router.post('/', async function (req, res) {
         password: hashPassword,
       })
       await user.save()
-      return res.redirect('login.html')
+      res.render('login')
+      //      return res.redirect('login.html')
     }
   } catch (e) {
     console.log(e)
@@ -29,7 +30,8 @@ router.post('/', async function (req, res) {
 })
 
 router.get('/', function (req, res) {
-  return res.redirect('register.html')
+  res.render('register')
+  //return res.redirect('register.html')
 })
 
 module.exports = router

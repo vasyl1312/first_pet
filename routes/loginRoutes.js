@@ -3,7 +3,8 @@ const User = require('../models/User')
 const router = new Router()
 
 router.get('/', (req, res) => {
-  return res.redirect('login.html')
+  res.render('login')
+  // return res.redirect('login.html')
 })
 
 router.post('/', async (req, res) => {
@@ -16,8 +17,8 @@ router.post('/', async (req, res) => {
       return res.redirect('/')
     } else {
       //перевірити і розхешити пароль
-
-      return res.redirect('welcome.html')
+      res.render('welcome')
+      //return res.redirect('welcome.html')
     }
   } catch (e) {
     console.log(e)

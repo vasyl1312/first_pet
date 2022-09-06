@@ -1,3 +1,6 @@
 node_modules
-config/keys.json
-app.js
+# = mongo url; port
+config/keys.json 
+
+#some plans, how to update this site
+config/have_to_do.txt

@@ -10,7 +10,8 @@ const PORT = process.env.PORT || keys.PORT
 var app = express()
 
 app.use(bodyParser.json())
-app.use(express.static('public'))
+app.engine('html', require('ejs').renderFile)
+app.set('view engine', 'html')
 app.use(
   bodyParser.urlencoded({
     extended: true,

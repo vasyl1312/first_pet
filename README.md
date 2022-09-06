@@ -8,3 +8,4 @@ The simple registration
 4. Register with mongoose connection
 5. Add Schema, update html register and home page
 6. Login page, update routing from pages
+7. Remove /.. .html from routes
