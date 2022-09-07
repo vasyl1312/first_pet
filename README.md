@@ -11,3 +11,4 @@
 7. Remove /.. .html from routes
 8. Login logics
 9. From html to EJS
+10. Check correct input name(>3) and password(>6)
