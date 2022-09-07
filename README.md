@@ -10,3 +10,4 @@
 6. Login page, update routing from pages
 7. Remove /.. .html from routes
 8. Login logics
+9. From html to EJS
