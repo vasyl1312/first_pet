@@ -1,0 +1,23 @@
+<h1>Add new</h1>
+
+<form action="/add" method="POST">
+  <div class="input-field">
+    <input id="title" name="title" type="text" class="validate" required />
+    <label for="title">Name of the dish</label>
+    <span class="helper-text" data-error="Please enter the name of the dish"> </span>
+  </div>
+
+  <div class="input-field">
+    <input id="img" name="img" type="text" class="validate" required />
+    <label for="img">URL image of this dish</label>
+    <span class="helper-text" data-error="Please enter a valid URL"> </span>
+  </div>
+
+  <div class="input-field">
+    <input id="description" name="description" type="text" class="validate" required />
+    <label for="description">Description</label>
+    <span class="helper-text" data-error="Please enter a description"> </span>
+  </div>
+
+  <button class="btn btn-primary">Add</button>
+</form>
