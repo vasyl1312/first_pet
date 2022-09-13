@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
       userId,
     })
     await recipe.save()
-    res.render('recipies')
+    res.render('recipes')
   } catch (e) {
     console.log(e)
   }

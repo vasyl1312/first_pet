@@ -14,3 +14,4 @@
 10. Check correct input name(>3) and password(>6)
 11. Add bootstrap html and update home/login/register page
 12. Create model for new recipe and add routes
+13. Renaming

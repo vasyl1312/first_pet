@@ -77,38 +77,16 @@
     <header class="bg-dark py-3">
       <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
-          <h1 class="display-4 fw-bolder">Add</h1>
-          <p class="lead fw-normal text-white-50 mb-0">
-            Just type the name description and a link to image
-          </p>
+          <h1 class="display-4 fw-bolder">All</h1>
+          <p class="lead fw-normal text-white-50 mb-0">On this site, you can see all recipes</p>
         </div>
       </div>
     </header>
 
-    <div class="container px-4 px-lg-5 my-5">
-      <div class="text-center text-white">
-      <form action="/add" method="POST">
-        <div class="input-field">
-          <input id="title" name="title" type="text" class="validate" required />
-          <label for="title">Name of the dish</label>
-          <span class="helper-text" data-error="Please enter the name of the dish"> </span>
-        </div>
+    <%if (recipes.length > 0) { %>
+    <h1>recipessgsgesg</h1>
 
-        <div class="input-field">
-          <input id="img" name="img" type="text" class="validate" required />
-          <label for="img">URL image of this dish</label>
-          <span class="helper-text" data-error="Please enter a valid URL"> </span>
-        </div>
-
-        <div class="input-field">
-          <input id="description" name="description" type="text" class="validate" required />
-          <label for="description">Description</label>
-          <span class="helper-text" data-error="Please enter a description"> </span>
-        </div>
-
-        <button class="btn btn-primary">Add</button>
-      </form>
-      <!-- </div> -->
-    </div>
+    <% } %>
+    <h1>All</h1>
   </body>
 </html>

@@ -7,7 +7,7 @@ const registerRoutes = require('./routes/registerRoutes')
 const loginRoutes = require('./routes/loginRoutes')
 const welcomeRoutes = require('./routes/welcomeRoutes')
 const addRoutes = require('./routes/addRoutes')
-const recipiesRoutes = require('./routes/recipiesRoutes')
+const recipesRoutes = require('./routes/recipesRoutes')
 
 const PORT = process.env.PORT || keys.PORT
 var app = express()
@@ -27,7 +27,7 @@ app.use('/register', registerRoutes)
 app.use('/login', loginRoutes)
 app.use('/welcome', welcomeRoutes)
 app.use('/add', addRoutes)
-// app.use('/recipies', recipiesRoutes)
+app.use('/recipes', recipesRoutes)
 
 const start = async () => {
   try {

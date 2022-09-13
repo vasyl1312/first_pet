@@ -5,9 +5,7 @@ const User = require('../models/User')
 const router = new Router()
 
 router.get('/', (req, res) => {
-  res.render('login', {
-    // loginError: 'loginErrorttttttttttt',
-  })
+  res.render('login', {})
 })
 
 router.post('/', async (req, res) => {
@@ -28,7 +26,7 @@ router.post('/', async (req, res) => {
         return res.redirect('/login')
       }
 
-      return res.redirect('/welcome')
+      return res.redirect('/')
     }
   } catch (e) {
     console.log(e)
