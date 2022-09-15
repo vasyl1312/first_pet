@@ -16,8 +16,9 @@ router.post('/', async (req, res) => {
       description,
       userId,
     })
+
     await recipe.save()
-    res.render('recipes')
+    return res.redirect('/recipes')
   } catch (e) {
     console.log(e)
   }

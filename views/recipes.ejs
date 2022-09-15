@@ -83,10 +83,21 @@
       </div>
     </header>
 
-    <%if (recipes.length > 0) { %>
-    <h1>recipessgsgesg</h1>
-
-    <% } %>
-    <h1>All</h1>
+    <%if (recipes.length > 0) { %> <% recipes.forEach((recipe)=> { %>
+    <div class="row">
+      <div class="col s6 offset-s3">
+        <p><%= recipe.title %></p>
+        <div class="card-image">
+          <img src="<%= recipe.img %>" />
+        </div>
+        <div class="card-content">
+          <h2><%= recipe.description %></h2>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <% }) %> <% } else {%>
+    <h1>Empty</h1>
+    <%}%>
   </body>
 </html>

@@ -5,9 +5,7 @@ const router = Router()
 router.get('/', async (req, res) => {
   try {
     const recipes = await Recipe.find()
-    res.render('recipes', {
-      recipes: recipes,
-    })
+    res.render('recipes', { recipes })
   } catch (e) {
     console.error(e)
   }

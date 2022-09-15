@@ -15,3 +15,4 @@
 11. Add bootstrap html and update home/login/register page
 12. Create model for new recipe and add routes
 13. Renaming
+14. Show all recipes when add new
