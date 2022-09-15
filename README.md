@@ -16,3 +16,4 @@
 12. Create model for new recipe and add routes
 13. Renaming
 14. Show all recipes when add new
+15. Add style for all recipes and in home page link to my social media
