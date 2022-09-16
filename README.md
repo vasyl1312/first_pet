@@ -17,3 +17,4 @@
 13. Renaming
 14. Show all recipes when add new
 15. Add style for all recipes and in home page link to my social media
+16. Add alert when we have a problem in client
