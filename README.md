@@ -2,6 +2,7 @@
 
 `The simple registration`
 
+<h1>This is short description of each commit</h1>
 1. Initialization (express, nodemon, connect to Mongo)
 2. Simple routes
 3. Some html css things
@@ -13,8 +14,9 @@
 9. From html to EJS
 10. Check correct input name(>3) and password(>6)
 11. Add bootstrap html and update home/login/register page
-12. Create model for new recipe and add routes
+12. Create model for new product and add routes
 13. Renaming
-14. Show all recipes when add new
-15. Add style for all recipes and in home page link to my social media
+14. Show all products when add new
+15. Add style for all products and in home page link to my social media
 16. Add alert when we have a problem in client
+17. Add btn to open product and style to this; price for product

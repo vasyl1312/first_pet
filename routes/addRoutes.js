@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const Recipe = require('../models/Recipe')
+const Product = require('../models/Product')
 const router = new Router()
 
 router.get('/', (req, res) => {
@@ -8,17 +8,18 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const { title, img, description, userId } = req.body
+    const { title, price, img, description, userId } = req.body
 
-    const recipe = new Recipe({
+    const product = new Product({
       title,
+      price,
       img,
       description,
       userId,
     })
 
-    await recipe.save()
-    return res.redirect('/recipes')
+    await product.save()
+    return res.redirect('/products')
   } catch (e) {
     console.log(e)
   }

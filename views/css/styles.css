@@ -11621,3 +11621,43 @@ fieldset:disabled .btn {
     display: none !important;
   }
 }
+
+.img-main {
+  height: 300px;
+}
+
+.img-header {
+  height: 100px;
+}
+
+.product-info {
+  margin: auto;
+  width: 30%;
+  background-color: #767474;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.product-info h1 {
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Helvetica', serif;
+}
+
+.product-info img {
+  margin: auto;
+  width: 100%;
+}
+
+.product-info .price.big {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.product-info .product-description {
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Helvetica', serif;
+}

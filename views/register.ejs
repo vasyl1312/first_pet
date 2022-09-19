@@ -23,18 +23,16 @@
     <br />
     <br />
     <br />
-    <!-- alerts --> 
+    <!-- alerts -->
     <%if (alert.type.length > 0) { %>
-      <div class="container">
-        <div class="alert alert-<%=alert.type %> alert-dismissible">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <div class="text-center">
-            <strong>Message:</strong> <%=alert.message %>
-          </div>
-        </div>  
-      </div>  
+    <div class="container">
+      <div class="alert alert-<%=alert.type %> alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <div class="text-center"><strong>Message:</strong> <%=alert.message %></div>
+      </div>
+    </div>
     <%}%>
-    
+
     <div class="container">
       <div class="row">
         <div class="col-md-3"></div>
@@ -73,7 +71,7 @@
             <input type="submit" id="submitDetails" name="submitDetails" value="Submit" /><br />
           </form>
           <nav class="routes-btn">
-            <a href="/welcome" class="home-btn">Return to shop?</a></a>
+            <a href="/welcome" class="home-btn">Return to site?</a>
             <a href="/login" class="login-btn">Already have an account?</a>
           </nav>
         </div>

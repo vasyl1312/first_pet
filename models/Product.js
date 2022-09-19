@@ -1,11 +1,15 @@
 const { Schema, model } = require('mongoose')
 
-const recipeSchema = new Schema({
+const productSchema = new Schema({
   title: {
     type: String,
     required: true, //позначаємо що це поле є обов'язковим
   },
   img: String,
+  price: {
+    type: Number,
+    required: true,
+  },
   description: {
     type: String,
     required: true,
@@ -17,11 +21,11 @@ const recipeSchema = new Schema({
 })
 
 //щоб справити помилку-id при видаленні курсу
-// recipeSchema.method('toClient', function () {
+// productSchema.method('toClient', function () {
 //   const recipe = this.toObject()
 //   recipe.id = recipe._id
 //   delete recipe._id
 //   return recipe
 // })
 
-module.exports = model('Recipe', recipeSchema)
+module.exports = model('Product', productSchema)

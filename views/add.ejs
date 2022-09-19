@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Recipe site</title>
+    <title>Keps'ko site</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="./assets/calzone.png" />
-    <!-- My icons (have to add)-->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
       rel="stylesheet"
@@ -49,7 +48,7 @@
                 >Categories</a
               >
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/recipes">All Products</a></li>
+                <li><a class="dropdown-item" href="/products">All Products</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="#!">Drinks</a></li>
                 <li><a class="dropdown-item" href="#!">Foods</a></li>
@@ -77,38 +76,57 @@
     <header class="bg-dark py-3">
       <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
-          <h1 class="display-4 fw-bolder">Add</h1>
+          <h1 class="display-4 fw-bolder">Add new product</h1>
           <p class="lead fw-normal text-white-50 mb-0">
-            Just type the name description and a link to image
+            On this page, you can add new product with image
           </p>
         </div>
       </div>
     </header>
 
-    <div class="container px-4 px-lg-5 my-5">
-      <div class="text-center text-white">
-      <form action="/add" method="POST">
-        <div class="input-field">
-          <input id="title" name="title" type="text" class="validate" required />
-          <label for="title">Name of the dish</label>
-          <span class="helper-text" data-error="Please enter the name of the dish"> </span>
-        </div>
+    <!-- Section-->
+    <section class="py-5">
+      <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+          <form action="/add" method="POST">
+            <div class="input-field">
+              <input id="title" name="title" type="text" class="validate" required />
+              <label for="title">Name of the product</label>
+              <span class="helper-text" data-error="Please enter the name of the product"> </span>
+            </div>
 
-        <div class="input-field">
-          <input id="img" name="img" type="text" class="validate" required />
-          <label for="img">URL image of this dish</label>
-          <span class="helper-text" data-error="Please enter a valid URL"> </span>
-        </div>
+            <div class="input-field">
+              <input id="img" name="img" type="text" class="validate" required />
+              <label for="img">URL image of this product</label>
+              <span class="helper-text" data-error="Please enter a valid URL"> </span>
+            </div>
 
-        <div class="input-field">
-          <input id="description" name="description" type="text" class="validate" required />
-          <label for="description">Description</label>
-          <span class="helper-text" data-error="Please enter a description"> </span>
-        </div>
+            <div class="input-field">
+              <input id="price" name="price" type="text" class="validate" required min="1" />
+              <label for="price">Price of product in $</label>
+              <span class="helper-text" data-error="Enter a valid price in $"> </span>
+            </div>
 
-        <button class="btn btn-primary">Add</button>
-      </form>
-      <!-- </div> -->
-    </div>
+            <div class="input-field">
+              <input id="description" name="description" type="text" class="validate" required />
+              <label for="description">Description</label>
+              <span class="helper-text" data-error="Please enter a description"> </span>
+            </div>
+
+            <button class="btn btn-primary">Add</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; My Website 2022</p>
+      </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
   </body>
 </html>
