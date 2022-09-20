@@ -17,12 +17,12 @@ router.post('/', async (req, res) => {
     const password = req.body.password
     if (name.length < 3) {
       alert.type = 'info'
-      alert.message = 'Ім`я повинне мати більше ніж 3 літери'
+      alert.message = 'Your name must be at least 3 characters long'
       return res.redirect('/register')
     }
     if (password.length < 6) {
       alert.type = 'info'
-      alert.message = 'Пароль повинен мати більше ніж 6 символів'
+      alert.message = 'Your password must be at least 6 characters long'
       return res.redirect('/register')
     }
     //шифруємо пароль коли реєструємось, 10 це ніби рівень шифрування чим більше тим важче і довше
@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
     const candidate = await User.findOne({ email }) //перевірка чи існує користувач з таким email
     if (candidate) {
       alert.type = 'warning'
-      alert.message = 'Користувач з таким email уже існує, будь ласка, спробуйте інший email'
+      alert.message = 'This email address is already, please choose a different email address'
       return res.redirect('/register')
     } else {
       //якщо користувача нема то реєcтруємо його
@@ -41,7 +41,7 @@ router.post('/', async (req, res) => {
       })
       await user.save()
       alert.type = 'success'
-      alert.message = 'Акаунт було успішно створено'
+      alert.message = 'Account has been created'
       res.render('login', { alert })
     }
   } catch (e) {

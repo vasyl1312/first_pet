@@ -18,13 +18,13 @@ router.post('/', async (req, res) => {
     const candidate = await User.findOne({ email }) //перевірка чи існує користувач з таким email
     if (!candidate) {
       alert.type = 'warning'
-      alert.message = 'Користувача з таким email немає, будь ласка, спробуйте ще раз'
+      alert.message = 'This email is not exists, please try again'
       return res.redirect('/login')
     } else {
       const areSame = await bcrypt.compare(password, candidate.password) //перевірка і розхеш пароль
       if (!areSame) {
         alert.type = 'danger'
-        alert.message = 'Пароль неправильний, спробуйте ще раз'
+        alert.message = 'This password is incorrect'
         return res.redirect('/login')
       }
 

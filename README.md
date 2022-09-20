@@ -1,8 +1,12 @@
 # first_pet
 
-`The simple registration`
+`Keps'ko site`
 
-<h1>This is short description of each commit</h1>
+Here: I should to type description about this site and author and guide of this site
+...
+
+# This is short description of each commit
+
 1. Initialization (express, nodemon, connect to Mongo)
 2. Simple routes
 3. Some html css things
@@ -20,3 +24,4 @@
 15. Add style for all products and in home page link to my social media
 16. Add alert when we have a problem in client
 17. Add btn to open product and style to this; price for product
+18. When url is uncorrect and work with input price, name has be shorter than 45 letters
