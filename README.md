@@ -25,3 +25,5 @@ Here: I should to type description about this site and author and guide of this 
 16. Add alert when we have a problem in client
 17. Add btn to open product and style to this; price for product
 18. When url is uncorrect and work with input price, name has be shorter than 45 letters
+19. Add max width to image in all page; editing products
+<!-- html css to add form -->
