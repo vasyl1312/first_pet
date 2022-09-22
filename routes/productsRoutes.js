@@ -50,4 +50,10 @@ router.post('/edit', async (req, res) => {
   }
 })
 
+router.post('/:id/remove', async (req, res) => {
+  let productId = req.body.productId
+  const products = await Product.deleteOne({ _id: productId })
+  res.redirect('/products')
+})
+
 module.exports = router

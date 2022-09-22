@@ -153,10 +153,13 @@
 
             <!-- id, that to know, which product we have to edit-->
             <input type="hidden" name="id" value="<%= product.id %>" />
-
-            <button class="btn btn-primary">Update Product</button>
+            <button type="submit" class="btn btn-outline-dark mt-auto">Update Product</button>
           </form>
         </div>
+        <form action="remove" method="POST">
+          <input type="hidden" name="productId" value="<%= product._id %>" />
+          <button type="submit" class="btn btn-outline-dark mt-auto">Delete this product</button>
+        </form>
       </div>
     </section>
     <!-- Footer-->

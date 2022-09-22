@@ -29,3 +29,4 @@ Here: I should to type description about this site and author and guide of this 
 20. Add to cart; output id products in the cart
 21. Show and attribute products in the cart
 22. Delete products from the cart (resolve bugs)
+23. Delete products from all list
