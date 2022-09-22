@@ -8,6 +8,7 @@ const loginRoutes = require('./routes/loginRoutes')
 const welcomeRoutes = require('./routes/welcomeRoutes')
 const addRoutes = require('./routes/addRoutes')
 const productsRoutes = require('./routes/productsRoutes')
+const cardRoutes = require('./routes/cardRoutes')
 
 const PORT = process.env.PORT || keys.PORT
 var app = express()
@@ -28,6 +29,7 @@ app.use('/login', loginRoutes)
 app.use('/welcome', welcomeRoutes)
 app.use('/add', addRoutes)
 app.use('/products', productsRoutes)
+app.use('/card', cardRoutes)
 
 const start = async () => {
   try {

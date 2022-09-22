@@ -18,7 +18,7 @@
     <script src="js/scripts.js"></script>
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/css/styles.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="./css/register.css" />
+    <link rel="stylesheet" type="text/css" href="/css/register.css" />
   </head>
   <body>
     <!-- Navigation-->
@@ -63,14 +63,14 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
               <li class="nav-item"><a class="nav-link" href="/add">Add new</a></li>
             </ul>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+              <form class="d-flex">
+                <li class="nav-item">
+                  <a class="nav-link" href="/card"> <i class="bi-cart-fill"></i> </a>
+                </li>
+              </form>
+            </ul>
           </ul>
-          <form class="d-flex">
-            <button class="btn btn-outline-dark" type="submit">
-              <i class="bi-cart-fill me-1"></i>
-              Favourite
-              <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-            </button>
-          </form>
         </div>
       </div>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
@@ -94,6 +94,7 @@
         <div class="text-center text-white">
           <form action="/products/edit" method="POST">
             <div class="input-field">
+              <label for="title">Title of product</label>
               <input
                 id="title"
                 name="title"
@@ -102,11 +103,11 @@
                 required
                 value="<%= product.title %>"
               />
-              <label for="title">Title of product</label>
               <span class="helper-text" data-error="Enter title"> </span>
             </div>
 
             <div class="input-field">
+              <label for="price">Product Price</label>
               <input
                 id="price"
                 name="price"
@@ -117,12 +118,14 @@
                 max="1000000"
                 value="<%= product.price %>"
               />
-              <label for="price">Product Price</label>
               <span class="helper-text" data-error="Enter price in ₴ (value must be integer)">
               </span>
             </div>
 
             <div class="input-field">
+              <label for="img"
+                >Please enter a valid URL image of this product or type anything</label
+              >
               <input
                 id="img"
                 name="img"
@@ -131,14 +134,12 @@
                 required
                 value="<%= product.img %>"
               />
-              <label for="img"
-                >Please enter a valid URL image of this product or type anything</label
-              >
               <span class="helper-text" data-error="Enter a valid URL image of this product">
               </span>
             </div>
 
             <div class="input-field">
+              <label for="description">Description or info about the product</label>
               <input
                 id="description"
                 name="description"
@@ -147,7 +148,6 @@
                 required
                 value="<%= product.description %>"
               />
-              <label for="description">Description or info about the product</label>
               <span class="helper-text" data-error="Please enter a description"> </span>
             </div>
 

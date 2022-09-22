@@ -11,6 +11,7 @@
 input {
   font-family: 'Helvetica', serif;
   width: 100%;
+  height: auto;
   font-size: 20px;
   padding: 12px 20px;
   margin: 8px 0;

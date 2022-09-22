@@ -63,14 +63,14 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
               <li class="nav-item"><a class="nav-link" href="/add">Add new</a></li>
             </ul>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+              <form class="d-flex">
+                <li class="nav-item">
+                  <a class="nav-link" href="/card"> <i class="bi-cart-fill"></i> </a>
+                </li>
+              </form>
+            </ul>
           </ul>
-          <form class="d-flex">
-            <button class="btn btn-outline-dark" type="submit">
-              <i class="bi-cart-fill me-1"></i>
-              Favourite
-              <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-            </button>
-          </form>
         </div>
       </div>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
@@ -119,7 +119,7 @@
 
             <div class="input-field">
               <label for="price">Enter price in ₴ (value must be integer)</label>
-              <input type="number" id="price" name="price" min="0" max="1000000" />
+              <input type="number" id="price" name="price" min="1" max="1000000" />
               <span class="helper-text" data-error="Enter a valid price in ₴"> </span>
             </div>
 
