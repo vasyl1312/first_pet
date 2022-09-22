@@ -25,7 +25,8 @@ router.post('/add', async (req, res) => {
 })
 
 router.post('/remove/:id', async (req, res) => {
-  const card = await Card.deleteOne(req.body.id)
+  let productId = req.body.productId
+  const card = await Card.deleteOne({ _id: productId })
   res.redirect('/card')
 })
 
