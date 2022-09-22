@@ -27,3 +27,4 @@ Here: I should to type description about this site and author and guide of this 
 18. When url is uncorrect and work with input price, name has be shorter than 45 letters
 19. Add max width to image in all page; editing products
 20. Add to cart; output id products in the cart
+21. Show and attribute products in the cart

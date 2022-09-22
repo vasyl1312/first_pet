@@ -6,11 +6,17 @@ const router = new Router()
 
 router.post('/add', async (req, res) => {
   try {
-    const productId = await Product.findById(req.body.id) //отримуємо id об'єкта якого хочемо купити
-    const product = await Product.findOne({ productId })
+    let { productId, title, img, price } = req.body
+
     const card = new Card({
-      productId,
+      products: {
+        productId,
+        title,
+        price,
+        img,
+      },
     })
+
     await card.save()
     res.redirect('/card')
   } catch (e) {

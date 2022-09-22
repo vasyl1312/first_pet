@@ -95,24 +95,23 @@
           <div class="col mb-5">
             <div class="card h-100">
               <!-- Product image-->
-              <img class="card-img-top" src="<%= product.img %>" alt="..." />
+              <img class="card-img-top" src="<%= product.products.img %>" alt="..." />
               <!-- Product details-->
               <div class="card-body p-4">
                 <div class="text-center">
-                  <h5 class="fw-bolder"><%= product.title %></h5>
-                  <h7><%= product.price %>₴</h7>
+                  <h5 class="fw-bolder">Title:</h5>
+                  <h6><%= product.products.title %></h6>
+                  <h5 class="fw-bolder">Price:</h5>
+                  <%= product.products.price %>₴
                   <!-- Product author-->
-                  <%= product.id %>
+                  <!-- <%= product.products.id %> -->
                 </div>
               </div>
               <!-- Product actions-->
               <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                 <div class="text-center">
-                  <a class="btn btn-outline-dark mt-auto" href="/products/<%= product.id %>">Buy</a>
-
-                  <a class="btn btn-outline-dark mt-auto" href="/products/<%= product.id %>"
-                    >Remove
-                  </a>
+                  <a class="btn btn-outline-dark mt-auto" href="">Buy</a>
+                  <a class="btn btn-outline-dark mt-auto" href="">Remove </a>
                 </div>
               </div>
             </div>

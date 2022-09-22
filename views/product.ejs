@@ -95,8 +95,10 @@
 
         <div class="text-center">
           <form action="/card/add" method="POST">
-            <input type="hidden" name="id" value="<%= product.id %>" />
-            <input type="hidden" name="title" value="<%= product.title %>" />
+            <input type="hidden" name="productId" value="<%= product._id %>" />
+            <input type="hidden" name="title" value="<%= product.title%>" />
+            <input type="hidden" name="img" value="<%= product.img%>" />
+            <input type="hidden" name="price" value="<%= product.price%>" />
             <button type="submit" class="btn btn-outline-dark mt-auto">Add to cart</button>
           </form>
         </div>
