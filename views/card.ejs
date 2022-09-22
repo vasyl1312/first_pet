@@ -111,7 +111,10 @@
               <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                 <div class="text-center">
                   <a class="btn btn-outline-dark mt-auto" href="">Buy</a>
-                  <a class="btn btn-outline-dark mt-auto" href="">Remove </a>
+                  <form action="card/remove/:id" method="POST">
+                    <input type="hidden" name="productId" value="<%= product._id %>" />
+                    <button type="submit" class="btn btn-outline-dark mt-auto">Remove</button>
+                  </form>
                 </div>
               </div>
             </div>

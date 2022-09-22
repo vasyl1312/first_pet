@@ -24,6 +24,11 @@ router.post('/add', async (req, res) => {
   }
 })
 
+router.post('/remove/:id', async (req, res) => {
+  const card = await Card.deleteOne(req.body.id)
+  res.redirect('/card')
+})
+
 router.get('/', async (req, res) => {
   const card = await Card.find()
   res.render('card', { card })
