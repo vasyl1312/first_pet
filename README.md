@@ -7,6 +7,8 @@ Here: I should to type description about this site and author and guide of this 
 
 # This is short description of each commit
 
+`Simple registration`
+
 1. Initialization (express, nodemon, connect to Mongo)
 2. Simple routes
 3. Some html css things
@@ -18,6 +20,9 @@ Here: I should to type description about this site and author and guide of this 
 9. From html to EJS
 10. Check correct input name(>3) and password(>6)
 11. Add bootstrap html and update home/login/register page
+
+`Work with db and logics`
+
 12. Create model for new product and add routes
 13. Renaming
 14. Show all products when add new
@@ -30,3 +35,4 @@ Here: I should to type description about this site and author and guide of this 
 21. Show and attribute products in the cart
 22. Delete products from the cart (resolve bugs)
 23. Delete products from all list
+24. Add msg when edit/delete/add product; update method - edit product

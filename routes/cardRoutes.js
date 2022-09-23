@@ -18,6 +18,8 @@ router.post('/add', async (req, res) => {
     })
 
     await card.save()
+    alert.type = 'success'
+    alert.message = 'This product has been successfully added to cart'
     res.redirect('/card')
   } catch (e) {
     console.log(e)
@@ -25,14 +27,23 @@ router.post('/add', async (req, res) => {
 })
 
 router.post('/remove/:id', async (req, res) => {
-  let productId = req.body.productId
-  const card = await Card.deleteOne({ _id: productId })
-  res.redirect('/card')
+  try {
+    let productId = req.body.productId
+    const card = await Card.deleteOne({ _id: productId })
+    alert.type = 'success'
+    alert.message = 'This product has been successfully removed from cart'
+    res.redirect('/card')
+  } catch (e) {
+    console.log(e)
+  }
 })
 
+let alert = { type: '', message: '' }
 router.get('/', async (req, res) => {
   const card = await Card.find()
-  res.render('card', { card })
+  res.render('card', { card, alert })
+  alert.type = ''
+  alert.message = ''
 })
 
 module.exports = router
