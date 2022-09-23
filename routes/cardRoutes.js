@@ -6,14 +6,16 @@ const router = new Router()
 
 router.post('/add', async (req, res) => {
   try {
-    let { productId, title, img, price } = req.body
-
+    let { productId, title, img, price, userId } = req.body
     const card = new Card({
       products: {
         productId,
         title,
         price,
         img,
+        user: {
+          userId,
+        },
       },
     })
 
@@ -28,8 +30,7 @@ router.post('/add', async (req, res) => {
 
 router.post('/remove/:id', async (req, res) => {
   try {
-    let productId = req.body.productId
-    const card = await Card.deleteOne({ _id: productId })
+    const card = await Card.deleteOne({ _id: req.body.productId })
     alert.type = 'success'
     alert.message = 'This product has been successfully removed from cart'
     res.redirect('/card')

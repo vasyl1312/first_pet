@@ -1,5 +1,6 @@
 const { Router } = require('express')
 const Product = require('../models/Product')
+const User = require('../models/User')
 const empty = require('../config/keys.json')
 const router = new Router()
 
@@ -12,7 +13,7 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    let { title, price, img, description, userId } = req.body
+    let { title, price, img, description } = req.body
     if (title.length > 45) {
       alert.type = 'info'
       alert.message = 'Your name of the product is too long ( >45 symbols)'
@@ -36,6 +37,7 @@ router.post('/', async (req, res) => {
       img = empty.EmptyImg
     }
 
+    const userId = await User.findById('631710599ef60667c848ba19')
     const product = new Product({
       title,
       price,

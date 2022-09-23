@@ -4,26 +4,30 @@ const cardSchema = new Schema({
   products: {
     productId: {
       type: Schema.Types.ObjectId,
-      ref: 'Product', //на модель користувача
-      // required: true,
+      // ref: 'Product',
+      required: true,
     },
+
     title: {
       type: String,
-      // required: true, //позначаємо що це поле є обов'язковим
+      required: true, //позначаємо що це поле є обов'язковим
     },
+
     img: String,
+
     price: {
       type: Number,
-      // required: true,
+      required: true,
     },
-    // user: {
-    //   name: String,
-    //   userId: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'User', //на модель користувача
-    //     required: true,
-    //   },
-    // },
+
+    user: {
+      name: String,
+      userId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User', //на модель користувача
+        required: true,
+      },
+    },
     // date: {
     //   type: Date,
     //   default: Date.now(),

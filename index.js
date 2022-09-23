@@ -9,6 +9,7 @@ const welcomeRoutes = require('./routes/welcomeRoutes')
 const addRoutes = require('./routes/addRoutes')
 const productsRoutes = require('./routes/productsRoutes')
 const cardRoutes = require('./routes/cardRoutes')
+const User = require('./models/User')
 
 const PORT = process.env.PORT || keys.PORT
 var app = express()
@@ -23,6 +24,16 @@ app.use(
   })
 )
 
+app.use(async (req, res, next) => {
+  try {
+    const user = await User.findById('631710599ef60667c848ba19')
+    req.user = user
+    next()
+  } catch (e) {
+    console.log(e)
+  }
+})
+
 app.use('/', homeRoutes)
 app.use('/register', registerRoutes)
 app.use('/login', loginRoutes)
@@ -34,6 +45,18 @@ app.use('/card', cardRoutes)
 const start = async () => {
   try {
     await mongoose.connect(`${keys.MongoUri}`)
+
+    const candidate = await User.findOne()
+    //якщо в нас нема користувачів то створюємо
+    if (!candidate) {
+      const user = new User({
+        email: 'vasylhrytseeeeee@knu.ua',
+        name: 'fffffff',
+        cart: { items: [] },
+      })
+      await user.save()
+    }
+
     app.listen(PORT, () => {
       console.log(`Listening on port ${PORT}`)
     })

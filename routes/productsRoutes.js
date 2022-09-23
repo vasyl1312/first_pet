@@ -5,7 +5,9 @@ const router = Router()
 let alert = { type: '', message: '' }
 router.get('/', async (req, res) => {
   try {
-    const products = await Product.find()
+    const products = await Product.find().populate('userId', 'email name') //populate отримуємо(а select певні)дані про user
+    // .select('price title img')
+    // console.log(products)
     res.render('products', { products, alert })
     alert.type = ''
     alert.message = ''
@@ -52,8 +54,7 @@ router.post('/edit', async (req, res) => {
 })
 
 router.post('/:id/remove', async (req, res) => {
-  let productId = req.body.productId
-  const products = await Product.deleteOne({ _id: productId })
+  const products = await Product.deleteOne({ _id: req.body.productId })
   alert.type = 'success'
   alert.message = 'Your product has been successfully deleted'
   res.redirect('/products')
