@@ -85,79 +85,12 @@
       <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
           <!-- alerts -->
-          <h1 class="display-4 fw-bolder">It's your cart:</h1>
+          <h1 class="display-4 fw-bolder">It's your order page:</h1>
           <p class="lead fw-normal text-white-50 mb-0">History</p>
         </div>
       </div>
     </header>
 
-    <!-- alerts -->
-    <%if (alert.type.length > 0) { %>
-    <div class="container px-4 px-lg-5 my-5">
-      <div class="alert alert-<%=alert.type %> alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <div class="text-center"><strong>Message:</strong> <%=alert.message %></div>
-      </div>
-    </div>
-    <%}%>
-
-    <!-- Section-->
-    <section class="py-5">
-      <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-          <%if (card.length > 0) { %> <% card.forEach((product)=> { %>
-          <div class="col mb-5">
-            <div class="card h-100">
-              <!-- Product image-->
-              <img class="card-img-top" src="<%= product.products.img %>" alt="..." />
-              <!-- Product details-->
-              <div class="card-body p-4">
-                <div class="text-center">
-                  <h5 class="fw-bolder">Title:</h5>
-                  <h6><%= product.products.title %></h6>
-                  <h5 class="fw-bolder">Price:</h5>
-                  <%= product.products.price %>₴
-                  <!-- Product author-->
-                  <!-- <%= product.products.id %> -->
-                </div>
-              </div>
-              <!-- Product actions-->
-              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center">
-                  <form action="/orders" method="POST">
-                    <input type="hidden" name="productId" value="<%= product._id %>" />
-                    <input type="hidden" name="title" value="<%= product.title%>" />
-                    <input type="hidden" name="img" value="<%= product.img%>" />
-                    <input type="hidden" name="price" value="<%= product.price%>" />
-                    <input type="hidden" name="userId" value="<%= product.userId%>" />
-                    <button type="submit" class="btn btn-outline-dark mt-auto">
-                      Contact this candidate
-                    </button>
-                  </form>
-                  <!-- <a class="btn btn-outline-dark mt-auto" href="">Contact this candidate</a> -->
-                </div>
-              </div>
-            </div>
-            <div class="text-center">
-              <form action="card/remove/:id" method="POST">
-                <input type="hidden" name="productId" value="<%= product._id %>" />
-                <button type="submit" class="btn btn-outline-dark mt-auto">
-                  Remove from this card
-                </button>
-              </form>
-            </div>
-          </div>
-          <% }) %> <% } else {%>
-          <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
-              <h1 class="display-4 fw-bolder">Opps</h1>
-              <p class="lead fw-normal text-white-50 mb-0">At this moment, card is an empty</p>
-            </div>
-          </div>
-          <%}%>
-        </div>
-      </div>
-    </section>
     <!-- Footer-->
     <footer class="py-5 bg-dark">
       <div class="container">

@@ -9,6 +9,7 @@ const welcomeRoutes = require('./routes/welcomeRoutes')
 const addRoutes = require('./routes/addRoutes')
 const productsRoutes = require('./routes/productsRoutes')
 const cardRoutes = require('./routes/cardRoutes')
+const ordersRoutes = require('./routes/ordersRoutes')
 const User = require('./models/User')
 
 const PORT = process.env.PORT || keys.PORT
@@ -41,6 +42,7 @@ app.use('/welcome', welcomeRoutes)
 app.use('/add', addRoutes)
 app.use('/products', productsRoutes)
 app.use('/card', cardRoutes)
+app.use('/orders', ordersRoutes)
 
 const start = async () => {
   try {
