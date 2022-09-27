@@ -1,22 +1,16 @@
 const { Router } = require('express')
 const Card = require('../models/Card')
-const Product = require('../models/Product')
+const User = require('../models/User')
 
 const router = new Router()
 
 router.post('/add', async (req, res) => {
   try {
-    let { productId, title, img, price, userId } = req.body
+    let { productId, title, userId } = req.body
     const card = new Card({
-      products: {
-        productId,
-        title,
-        price,
-        img,
-        user: {
-          userId,
-        },
-      },
+      productId,
+      title,
+      ownerId: userId,
     })
 
     await card.save()
