@@ -28,6 +28,8 @@ router.post('/', async (req, res) => {
         return res.redirect('/login')
       }
 
+      const user = await User.findById('633339e0f1b90408b2b88c6d')
+      req.session.user = user
       req.session.isAuthenticated = true
       return res.redirect('/')
     }

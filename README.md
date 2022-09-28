@@ -42,3 +42,4 @@ Here: I should to type description about this site and author and guide of this 
 `Session`
 
 1. Add session, hidding pages for non- auth user and show for auth
+2. Save session, delete our temporary user

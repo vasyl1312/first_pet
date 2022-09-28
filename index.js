@@ -25,16 +25,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(session({ secret: 'some secret value', resave: false, saveUninitialized: false }))
 app.use(varMiddlware)
 
-app.use(async (req, res, next) => {
-  try {
-    const user = await User.findById('633339e0f1b90408b2b88c6d')
-    req.user = user
-    next()
-  } catch (e) {
-    console.log(e)
-  }
-})
-
 app.use('/', homeRoutes)
 app.use('/register', registerRoutes)
 app.use('/login', loginRoutes)
@@ -48,16 +38,16 @@ const start = async () => {
   try {
     await mongoose.connect(`${keys.MongoUri}`)
 
-    const candidate = await User.findOne()
-    //якщо в нас нема користувачів то створюємо
-    if (!candidate) {
-      const user = new User({
-        email: 'vasylhrytseeeeee@knu.ua',
-        name: 'fffffff',
-        cart: { items: [] },
-      })
-      await user.save()
-    }
+    // const candidate = await User.findOne()
+    // //якщо в нас нема користувачів то створюємо
+    // if (!candidate) {
+    //   const user = new User({
+    //     email: 'vasylhrytseeeeee@knu.ua',
+    //     name: 'fffffff',
+    //     cart: { items: [] },
+    //   })
+    //   await user.save()
+    // }
 
     app.listen(PORT, () => {
       console.log(`Listening on port ${PORT}`)
