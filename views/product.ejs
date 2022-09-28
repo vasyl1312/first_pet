@@ -55,6 +55,8 @@
                 <li><a class="dropdown-item" href="#!">Sweets</a></li>
               </ul>
             </li>
+
+            <% if (isAuth) {%>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
               <li class="nav-item"><a class="nav-link" href="/add">Add new</a></li>
             </ul>
@@ -68,12 +70,19 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
               <li class="nav-item"><a class="nav-link" href="/orders">Orders</a></li>
             </ul>
+            <%}%>
           </ul>
         </div>
       </div>
+      <% if (isAuth) {%>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-        <li class="nav-item"><a class="nav-link" href="/login">Log out</a></li>
+        <li class="nav-item"><a class="nav-link" href="/logout">Log out</a></li>
       </ul>
+      <%} else {%>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+        <li class="nav-item"><a class="nav-link" href="/login">Sign in</a></li>
+      </ul>
+      <%}%>
     </nav>
     <!-- Header -->
     <header class="bg-dark py-3">
@@ -95,7 +104,7 @@
         <p class="price big"><%= product.price %> ₴</p>
         <!-- <p class="owner big"><%= product.owner %></p> -->
         <p><%= product.description %></p>
-
+        <%if (isAuth) {%>
         <div class="text-center">
           <form action="/card/add" method="POST">
             <input type="hidden" name="productId" value="<%= product._id %>" />
@@ -104,6 +113,7 @@
             <button type="submit" class="btn btn-outline-dark mt-auto">Add to cart</button>
           </form>
         </div>
+        <%}%>
       </div>
     </section>
 
