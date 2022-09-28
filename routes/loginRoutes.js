@@ -28,6 +28,7 @@ router.post('/', async (req, res) => {
         return res.redirect('/login')
       }
 
+      req.session.isAuthenticated = true
       return res.redirect('/')
     }
   } catch (e) {

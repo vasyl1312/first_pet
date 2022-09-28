@@ -38,3 +38,7 @@ Here: I should to type description about this site and author and guide of this 
 24. Add msg when edit/delete/add product; update method - edit product
 25. When add new product or add to cart remember a user
 26. 1. Some updates to the cart
+
+`Session`
+
+1. Add session, hidding pages for non- auth user and show for auth

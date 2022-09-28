@@ -112,10 +112,23 @@
                 <div class="text-center">
                   <h5 class="fw-bolder">Title:</h5>
                   <h6><%= product.title %></h6>
-                  <%= product.productId %>
+                  <h5 class="fw-bolder">product:</h5>
+                  <h6><%= product.productId %></h6>
                   <!-- Product author-->
-                  <h6>owner <%= product.ownerId %></h6>
+                  <h5 class="fw-bolder">owner:</h5>
+                  <h6><%= product.ownerId %></h6>
                 </div>
+
+                <form action="/orders" method="POST">
+                  <input type="hidden" name="productId" value="<%= product._id %>" />
+                  <input type="hidden" name="title" value="<%= product.title%>" />
+                  <input type="hidden" name="img" value="<%= product.img%>" />
+                  <input type="hidden" name="price" value="<%= product.price%>" />
+                  <input type="hidden" name="userId" value="<%= product.userId%>" />
+                  <button type="submit" class="btn btn-outline-dark mt-auto">
+                    Contact this candidate
+                  </button>
+                </form>
               </div>
             </div>
             <div class="text-center">
