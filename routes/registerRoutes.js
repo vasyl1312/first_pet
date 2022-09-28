@@ -47,7 +47,7 @@ router.post('/', async (req, res) => {
       await user.save()
       alert.type = 'success'
       alert.message = 'Account has been created'
-      await sgMail.send(regMail(email)).catch((error) => {
+      await sgMail.send(regMail(email, name)).catch((error) => {
         console.error(error)
       })
       res.render('login', { alert })

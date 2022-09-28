@@ -50,3 +50,4 @@ Here: I should to type description about this site and author and guide of this 
 
 7. Object configuration(create file with constants)
 8. Setting email service when user do a registration(sendgrid=>have to register in sendgrid, verify email, answer the questions for what you want to use sendgrid, create api key, verify sending-email, connect for node)
+9. Update mail, when user register on this site
