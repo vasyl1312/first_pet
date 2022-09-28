@@ -1,7 +1,7 @@
 var express = require('express')
 var bodyParser = require('body-parser')
-const mongoose = require('mongoose')
 const session = require('express-session')
+const mongoose = require('mongoose')
 const MongoSession = require('connect-mongodb-session')(session)
 
 const keys = require('./config/keys.json')
@@ -28,17 +28,17 @@ app.engine('ejs', require('ejs').renderFile)
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(
-  session({ secret: 'some secret value', resave: false, saveUninitialized: false, mongoSession })
+  session({ secret: keys.SESSION_SECRET, resave: false, saveUninitialized: false, mongoSession })
 )
 app.use(varMiddlware)
 app.use(userMiddlware)
 
 app.use('/', homeRoutes)
-app.use('/register', registerRoutes)
-app.use('/login', loginRoutes)
 app.use('/add', addRoutes)
-app.use('/products', productsRoutes)
 app.use('/card', cardRoutes)
+app.use('/login', loginRoutes)
+app.use('/register', registerRoutes)
+app.use('/products', productsRoutes)
 
 const start = async () => {
   try {

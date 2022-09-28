@@ -5,16 +5,14 @@ const router = new Router()
 
 let alert = { type: '', message: '' }
 router.get('/', (req, res) => {
-  res.render('login', { alert })
+  res.render('login', { alert, isLogin: true })
   alert.type = ''
   alert.message = ''
 })
 
 router.post('/', async (req, res) => {
   try {
-    const email = req.body.email
-    const password = req.body.password
-
+    const { email, password } = req.body
     const candidate = await User.findOne({ email }) //перевірка чи існує користувач з таким email
     if (!candidate) {
       alert.type = 'warning'
@@ -28,10 +26,15 @@ router.post('/', async (req, res) => {
         return res.redirect('/login')
       }
 
-      const user = await User.findById('633339e0f1b90408b2b88c6d')
-      req.session.user = user
-      req.session.isAuthenticated = true
-      return res.redirect('/')
+      req.session.user = candidate //додаємо користувача якщо все ок
+      req.session.isAuthenticated = true // для того щоб деякі могли міняти контент а деякі не мають дозволу
+      await req.session.save((err) => {
+        if (err) {
+          console.log(err)
+          throw err
+        }
+      })
+      res.redirect('/')
     }
   } catch (e) {
     console.log(e)

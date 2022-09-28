@@ -1,6 +1,4 @@
-# first_pet
-
-`Keps'ko site`
+# first_pet `Keps'ko site`
 
 Here: I should to type description about this site and author and guide of this site
 ...
@@ -46,3 +44,8 @@ Here: I should to type description about this site and author and guide of this 
 3. Session in DB, hidding buttons 'edit' 'add to cart' for non-authenticated user
 4. Secure routes, that means, when non-auth user try to go on routes like card
 5. Add middleware for user, and logout routes move to main routes
+6. When the user is logged in, save the session
+
+`Work with email`
+
+7. Object configuration(create file with constants)
