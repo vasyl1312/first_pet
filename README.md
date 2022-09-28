@@ -49,3 +49,4 @@ Here: I should to type description about this site and author and guide of this 
 `Work with email`
 
 7. Object configuration(create file with constants)
+8. Setting email service when user do a registration(sendgrid=>have to register in sendgrid, verify email, answer the questions for what you want to use sendgrid, create api key, verify sending-email, connect for node)
