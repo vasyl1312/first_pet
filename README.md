@@ -44,3 +44,4 @@ Here: I should to type description about this site and author and guide of this 
 1. Add session, hidding pages for non- auth user and show for auth
 2. Save session, delete our temporary user
 3. Session in DB, hidding buttons 'edit' 'add to cart' for non-authenticated user
+4. Secure routes, that means, when non-auth user try to go on routes like card

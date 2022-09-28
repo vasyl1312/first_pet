@@ -1,7 +1,8 @@
 const { Router } = require('express')
+const isAuth = require('../middleware/isAuth')
 const router = new Router()
 
-router.get('/', async (req, res) => {
+router.get('/', isAuth, async (req, res) => {
   //ощичуємо сесію
   req.session.destroy(() => {
     res.redirect('/login')

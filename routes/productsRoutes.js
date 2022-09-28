@@ -1,5 +1,6 @@
 const { Router } = require('express')
 const Product = require('../models/Product')
+const isAuth = require('../middleware/isAuth')
 const router = Router()
 
 let alert = { type: '', message: '' }
@@ -27,7 +28,7 @@ router.get('/:id', async (req, res) => {
 })
 
 //для редагування курсів переходимо на саму сторінку
-router.get('/:id/edit', async (req, res) => {
+router.get('/:id/edit', isAuth, async (req, res) => {
   if (!req.query.allow) return res.redirect('/') //allow потім для розподілу між клієнтом і власником
 
   try {
@@ -39,7 +40,7 @@ router.get('/:id/edit', async (req, res) => {
 })
 
 //тут редагування
-router.post('/edit', async (req, res) => {
+router.post('/edit', isAuth, async (req, res) => {
   try {
     const { id } = req.body //забираємо нижнє _ щоб було не _id а id
     delete req.body.id //щоб передати все оновлене окрім id-його залишити
@@ -53,7 +54,7 @@ router.post('/edit', async (req, res) => {
   }
 })
 
-router.post('/:id/remove', async (req, res) => {
+router.post('/:id/remove', isAuth, async (req, res) => {
   const products = await Product.deleteOne({ _id: req.body.productId })
   alert.type = 'success'
   alert.message = 'Your product has been successfully deleted'

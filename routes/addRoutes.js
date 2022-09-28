@@ -2,16 +2,17 @@ const { Router } = require('express')
 const Product = require('../models/Product')
 const User = require('../models/User')
 const empty = require('../config/keys.json')
+const isAuth = require('../middleware/isAuth') //якщо користувач зареєстрований то доступні роути
 const router = new Router()
 
 let alert = { type: '', message: '' }
-router.get('/', (req, res) => {
+router.get('/', isAuth, (req, res) => {
   res.render('add', { alert })
   alert.type = ''
   alert.message = ''
 })
 
-router.post('/', async (req, res) => {
+router.post('/', isAuth, async (req, res) => {
   try {
     let { title, price, img, description } = req.body
     if (title.length > 45) {
