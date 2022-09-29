@@ -53,3 +53,4 @@ Here: I should to type description about this site and author and guide of this 
 9. Update mail, when user register on this site
 10. Password recovery(on login page add button - forgot a password); add btn, check email in db, generate a random key, send message to email for reset password
 11. Add page for new password(add route, when we have to reset password)
+12. Changing password(check user, token, hash new password)

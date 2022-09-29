@@ -1,9 +1,13 @@
 const { Router } = require('express')
 const crypto = require('crypto') //для рандом знач для коду
+const mongoose = require('mongoose')
+
+const bcrypt = require('bcryptjs')
 const sgMail = require('@sendgrid/mail')
 const User = require('../models/User')
 const keys = require('../config/keys.json')
 const resetPassword = require('../email/resetPassword')
+const { log } = require('console')
 const router = new Router()
 
 let alert = { type: '', message: '' }
@@ -15,7 +19,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   try {
-    //для самого скидання паролю(генеруємо рандом ключ і відправляємо на пошту користувачу, якщо він за певний час перейде по посиланню і введе той код то можна ввести новий пароль)
+    //для самого скидання паролю(генеруємо рандом ключ і відправляємо на пошту користувачу, якщо він за певний час перейде по посиланню (токен перевіряється автоматично на час життя і чи email) то можна ввести новий пароль)
     crypto.randomBytes(32, async (err, buffer) => {
       if (err) {
         alert.type = 'danger'
@@ -36,7 +40,9 @@ router.post('/', (req, res) => {
           console.error(error)
         })
 
-        res.redirect('/login')
+        alert.type = 'success'
+        alert.message = 'Please, check your email'
+        return res.redirect('/login/reset')
       } else {
         alert.type = 'warning'
         alert.message = 'This email doesn`t have an account, please try again'
@@ -68,6 +74,30 @@ router.get('/password/:token', async (req, res) => {
         userId: user._id.toString(),
         token: req.params.token,
       })
+    }
+  } catch (e) {
+    console.log(e)
+  }
+})
+
+router.post('/password', async (req, res) => {
+  try {
+    const user = await User.findOne({
+      _id: req.body.userId,
+      resetToken: req.body.token,
+      resetTokenExp: { $gt: Date.now() },
+    }) //перевірка користувача та токена
+
+    if (user) {
+      user.password = await bcrypt.hash(req.body.password, 10) //якщо користувача знайдено то міняємо пароль
+      user.resetToken = undefined //видаляємо всі дані токена відновлення
+      user.resetTokenExp = undefined
+      await user.save()
+
+      //add msg, that we have success
+      return res.redirect('/login')
+    } else {
+      return res.redirect('/login')
     }
   } catch (e) {
     console.log(e)
