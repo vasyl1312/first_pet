@@ -4,6 +4,8 @@ const userSchema = new Schema({
   name: String,
   email: { type: String, required: true },
   password: { type: String, required: true },
+  resetToken: String,
+  resetTokenExp: Date,
   cart: [
     {
       productId: { type: Schema.Types.ObjectId, ref: 'Product', required: true },
