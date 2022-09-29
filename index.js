@@ -5,14 +5,15 @@ const mongoose = require('mongoose')
 const MongoSession = require('connect-mongodb-session')(session)
 
 const keys = require('./config/keys.json')
-const homeRoutes = require('./routes/homeRoutes')
-const registerRoutes = require('./routes/registerRoutes')
-const loginRoutes = require('./routes/loginRoutes')
 const addRoutes = require('./routes/addRoutes')
-const productsRoutes = require('./routes/productsRoutes')
+const homeRoutes = require('./routes/homeRoutes')
 const cardRoutes = require('./routes/cardRoutes')
-const varMiddlware = require('./middleware/variables')
 const userMiddlware = require('./middleware/user')
+const loginRoutes = require('./routes/loginRoutes')
+const varMiddlware = require('./middleware/variables')
+const registerRoutes = require('./routes/registerRoutes')
+const productsRoutes = require('./routes/productsRoutes')
+const resetPassword = require('./routes/resetPasswordRoutes')
 
 const PORT = process.env.PORT || keys.PORT
 var app = express()
@@ -39,6 +40,7 @@ app.use('/card', cardRoutes)
 app.use('/login', loginRoutes)
 app.use('/register', registerRoutes)
 app.use('/products', productsRoutes)
+app.use('/login/reset', resetPassword)
 
 const start = async () => {
   try {

@@ -52,3 +52,4 @@ Here: I should to type description about this site and author and guide of this 
 8. Setting email service when user do a registration(sendgrid=>have to register in sendgrid, verify email, answer the questions for what you want to use sendgrid, create api key, verify sending-email, connect for node)
 9. Update mail, when user register on this site
 10. Password recovery(on login page add button - forgot a password); add btn, check email in db, generate a random key, send message to email for reset password
+11. Add page for new password(add route, when we have to reset password)
