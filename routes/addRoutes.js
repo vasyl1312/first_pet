@@ -38,13 +38,12 @@ router.post('/', isAuth, async (req, res) => {
       img = empty.EmptyImg
     }
 
-    const userId = await User.findById('631710599ef60667c848ba19')
     const product = new Product({
       title,
       price,
       img,
       description,
-      userId,
+      userId: req.user,
     })
 
     await product.save()

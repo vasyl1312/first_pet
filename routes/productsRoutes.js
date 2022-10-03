@@ -3,13 +3,19 @@ const Product = require('../models/Product')
 const isAuth = require('../middleware/isAuth')
 const router = Router()
 
+//функція для розподілу, якщо користувач створив курс то редагує - інші перегляд і придбання
+function isOwner(product, req) {
+  return product.userId.toString() === req.user._id.toString()
+}
+
 let alert = { type: '', message: '' }
 router.get('/', async (req, res) => {
   try {
-    const products = await Product.find().populate('userId', 'email name') //populate отримуємо(а select певні)дані про user
-    // .select('price title img')
-    // console.log(products)
-    res.render('products', { products, alert })
+    const products = await Product.find()
+      .populate('userId', 'email name') //populate отримуємо(а select певні)дані про user
+      .select('price title img')
+
+    res.render('products', { alert, products })
     alert.type = ''
     alert.message = ''
   } catch (e) {
@@ -33,6 +39,11 @@ router.get('/:id/edit', isAuth, async (req, res) => {
 
   try {
     const product = await Product.findById(req.params.id)
+    //забороняємо переходити на сторінку зміни продукту якщо по id не я його створив
+    if (!isOwner(product, req)) {
+      return res.redirect('/products')
+    }
+
     res.render('productEdit', { product })
   } catch (e) {
     console.log(e)
@@ -45,7 +56,13 @@ router.post('/edit', isAuth, async (req, res) => {
     const { id } = req.body //забираємо нижнє _ щоб було не _id а id
     delete req.body.id //щоб передати все оновлене окрім id-його залишити
 
-    await Product.findByIdAndUpdate(id, req.body)
+    const product = await Product.findById(id)
+    if (!isOwner(product, req)) {
+      return res.redirect('/products')
+    }
+
+    Object.assign(product, req.body)
+    await product.save()
     alert.type = 'success'
     alert.message = 'Your product has been successfully edited'
     res.redirect('/products')
