@@ -91,7 +91,7 @@
       <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
           <img class="img-header" src="./assets/calzone.png" />
-          <p class="lead fw-normal text-white-50 mb-0">Keps'ko website</p>
+          <p class="lead fw-normal text-white-50 mb-0">It's my profile page</p>
         </div>
       </div>
     </header>
@@ -99,8 +99,48 @@
     <section class="py-5">
       <div class="container px-4 px-lg-5 mt-5">
         <div class="text-center text-white">
-          <img class="img-main" src="./assets/oops.png" />
-          <h1 class="display-4 fw-bolder">This route is not supported</h1>
+          <h1>Profile</h1>
+
+          <div class="row">
+            <div class="col-s6">
+              <img
+                class="avatar"
+                src="https://i.ibb.co/dkyFvhZ/photo-2022-07-15-14-48-44.jpg"
+                alt=""
+              />
+              <p>Аватарки немає</p>
+            </div>
+
+            <div class="col-s6">
+              <form action="/profile" method="POST">
+                <p>Ваш email: <strong><%= user.email %></strong></p>
+
+                <div class="input-field">
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    class="validate"
+                    required
+                    value="<%= user.name %>"
+                  />
+                  <label for="name">Ваше ім`я</label>
+                  <span class="helper-text" data-error="Ім`я не може бути пустим"> </span>
+                </div>
+
+                <div class="file-field input-field">
+                  <div class="btn">
+                    <span>Аватар</span>
+                    <input type="file" name="avatar" />
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" />
+                  </div>
+                </div>
+                <button type="submit" class="btn">Змінити</button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -54,5 +54,9 @@ Here: I should to type description about this site and author and guide of this 
 10. Password recovery(on login page add button - forgot a password); add btn, check email in db, generate a random key, send message to email for reset password
 11. Add page for new password(add route, when we have to reset password)
 12. Changing password(check user, token, hash new password)
+
+`Updating website`
+
 13. When user add product, for another user don't allow edit btn; secure delete
 14. Error 404(when user input unexisted route)
+15. Create profile page(routes, beauty, page, upload avatar)
