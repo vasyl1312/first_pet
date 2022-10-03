@@ -10,6 +10,7 @@ const homeRoutes = require('./routes/homeRoutes')
 const cardRoutes = require('./routes/cardRoutes')
 const userMiddlware = require('./middleware/user')
 const loginRoutes = require('./routes/loginRoutes')
+const errorMiddleware = require('./middleware/error')
 const varMiddlware = require('./middleware/variables')
 const registerRoutes = require('./routes/registerRoutes')
 const productsRoutes = require('./routes/productsRoutes')
@@ -41,6 +42,8 @@ app.use('/login', loginRoutes)
 app.use('/register', registerRoutes)
 app.use('/products', productsRoutes)
 app.use('/login/reset', resetPassword)
+
+app.use(errorMiddleware) //вкінці бо деякі роути будуть не доступні(для того щоб не можна на невідомі роути)
 
 const start = async () => {
   try {
