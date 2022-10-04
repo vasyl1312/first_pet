@@ -102,17 +102,16 @@
           <h1>Profile</h1>
 
           <div class="row">
-            <div class="col-s6">
-              <img
-                class="avatar"
-                src="https://i.ibb.co/dkyFvhZ/photo-2022-07-15-14-48-44.jpg"
-                alt=""
-              />
+            <div class="col s6">
+              <% if (user.avatarUrl) {%>
+              <img class="avatar" src="/<%= user.avatarUrl %>" alt="avatar-<%= user.name %>" />
+              <%} else {%>
               <p>Аватарки немає</p>
+              <%}%>
             </div>
 
-            <div class="col-s6">
-              <form action="/profile" method="POST">
+            <div class="col s6">
+              <form action="/profile" method="POST" enctype="multipart/form-data">
                 <p>Ваш email: <strong><%= user.email %></strong></p>
 
                 <div class="input-field">
@@ -133,9 +132,9 @@
                     <span>Аватар</span>
                     <input type="file" name="avatar" />
                   </div>
-                  <div class="file-path-wrapper">
+                  <!-- <div class="file-path-wrapper">
                     <input class="file-path validate" type="text" />
-                  </div>
+                  </div> add for user can to add link for avatar-->
                 </div>
                 <button type="submit" class="btn">Змінити</button>
               </form>
@@ -150,29 +149,25 @@
         <p class="m-0 text-center text-white">
           If you have any questions, feel free:
           <a href="https://djinni.co/q/d9b5f577b1/" target="_blank">
-            <img
-              src="http://djinni.co/static/favicons/v03/favicon-196x196.png"
-              alt="Djinni Badge"
-              width="50"
-            />
+            <img src="https://i.ibb.co/2gpxDSC/favicon-196x196.png" alt="Djinni Badge" width="50" />
           </a>
           <a href="https://www.instagram.com/vasyllko/" target="_blank">
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/768px-Instagram_logo_2016.svg.png"
+              src="https://i.ibb.co/M6FY241/768px-Instagram-logo-2016-svg.png"
               alt="Instagram Badge"
               width="50"
             />
           </a>
           <a href="https://t.me/vasylkoo" target="_blank">
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png"
+              src="https://i.ibb.co/WfRFLYF/2048px-Telegram-logo-svg.png"
               alt="Telegram Badge"
               width="50"
             />
           </a>
           <a href="https://github.com/vasyl1312" target="_blank">
             <img
-              src="https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU"
+              src="https://i.ibb.co/X89G0b8/PCp-Xdqv-UWf-CW1m-Xh-H1-Y-98y-Bpgs-Wxu-TSTofy3-NGMo9y-BTATDyz-Vkq-U580bf-Sln50b-FU.png"
               alt="GitHub Badge"
               width="50"
             />

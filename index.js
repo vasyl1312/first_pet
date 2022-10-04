@@ -11,6 +11,7 @@ const homeRoutes = require('./routes/homeRoutes')
 const cardRoutes = require('./routes/cardRoutes')
 const userMiddlware = require('./middleware/user')
 const loginRoutes = require('./routes/loginRoutes')
+const fileMiddleware = require('./middleware/file')
 const errorMiddleware = require('./middleware/error')
 const varMiddlware = require('./middleware/variables')
 const registerRoutes = require('./routes/registerRoutes')
@@ -22,6 +23,7 @@ var app = express()
 
 app.use(bodyParser.json())
 app.use(express.static(__dirname + '/views'))
+app.use('/images', express.static(__dirname + '/images'))
 const mongoSession = new MongoSession({
   collection: 'sessions',
   uri: keys.MongoUri,
@@ -33,6 +35,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(
   session({ secret: keys.SESSION_SECRET, resave: false, saveUninitialized: false, mongoSession })
 )
+app.use(fileMiddleware.single('avatar'))
 app.use(varMiddlware)
 app.use(userMiddlware)
 

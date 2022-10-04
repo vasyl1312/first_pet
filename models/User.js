@@ -6,6 +6,7 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   resetToken: String,
   resetTokenExp: Date,
+  avatarUrl: String,
   cart: [
     {
       productId: { type: Schema.Types.ObjectId, ref: 'Product', required: true },

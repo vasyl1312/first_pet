@@ -59,4 +59,5 @@ Here: I should to type description about this site and author and guide of this 
 
 13. When user add product, for another user don't allow edit btn; secure delete
 14. Error 404(when user input unexisted route)
-15. Create profile page(routes, beauty, page, upload avatar)
+15. Create profile page(routes, beauty, page)
+16. Post to profile page, upload/change avatar photo
