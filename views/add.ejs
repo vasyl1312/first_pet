@@ -106,19 +106,11 @@
     <section class="py-5">
       <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
-          <form action="/add" method="POST">
+          <form action="/add" method="POST" enctype="multipart/form-data">
             <div class="input-field">
               <label for="title">Name of the product</label>
               <input id="title" name="title" type="text" class="validate" required />
               <span class="helper-text" data-error="Please enter the name of the product"> </span>
-            </div>
-
-            <div class="input-field">
-              <label for="img"
-                >Please enter a valid URL image (vertical) of this product or type anything</label
-              >
-              <input id="img" name="img" type="text" class="validate" required />
-              <span class="helper-text" data-error="Please enter a valid URL"> </span>
             </div>
 
             <div class="input-field">
@@ -132,6 +124,12 @@
               <input id="description" name="description" type="text" class="validate" required />
               <span class="helper-text" data-error="Please enter a description"> </span>
             </div>
+
+            <div class="input-field">
+              <label for="avatar">Please select your photo</label>
+              <input type="file" name="avatar" />
+            </div>
+
             <button type="submit" class="btn btn-outline-dark mt-auto">Add</button>
           </form>
         </div>

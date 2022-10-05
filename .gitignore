@@ -5,3 +5,5 @@ config/keys.json
 #some plans, how to update this site
 config/have_to_do.txt
 
+#here we save img of product and avatar
+images
