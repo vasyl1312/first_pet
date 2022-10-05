@@ -96,7 +96,7 @@
     <section class="py-5">
       <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
-          <form action="/products/edit" method="POST">
+          <form action="/products/edit" method="POST" enctype="multipart/form-data">
             <div class="input-field">
               <label for="title">Title of product</label>
               <input
@@ -127,22 +127,6 @@
             </div>
 
             <div class="input-field">
-              <label for="img"
-                >Please enter a valid URL image of this product or type anything</label
-              >
-              <input
-                id="img"
-                name="img"
-                type="text"
-                class="validate"
-                required
-                value="<%= product.img %>"
-              />
-              <span class="helper-text" data-error="Enter a valid URL image of this product">
-              </span>
-            </div>
-
-            <div class="input-field">
               <label for="description">Description or info about the product</label>
               <input
                 id="description"
@@ -153,6 +137,24 @@
                 value="<%= product.description %>"
               />
               <span class="helper-text" data-error="Please enter a description"> </span>
+            </div>
+
+            <div class="input-field">
+              <!-- <label for="img"
+                >Please enter a valid URL image of this product or type anything</label
+              > -->
+              <!-- <input
+                id="img"
+                name="img"
+                type="text"
+                class="validate"
+                required
+                value="<%= product.img %>"
+              />
+              <span class="helper-text" data-error="Enter a valid URL image of this product">
+              </span> -->
+              <label for="avatar">Please select another image</label>
+              <input type="file" name="avatar" value="<%= product.img %>" />
             </div>
 
             <!-- id, that to know, which product we have to edit-->

@@ -62,6 +62,7 @@ Here: I should to type description about this site and author and guide of this 
 15. Create profile page(routes, beauty, page)
 16. Post to profile page, upload/change avatar photo
 17. For add-page, upload photo
+18. For edit-product, upload new photo
 
 <!-- `Deploy` -->
 <!-- 1.Secure keys -->

@@ -56,6 +56,10 @@ router.post('/edit', isAuth, async (req, res) => {
     const { id } = req.body //забираємо нижнє _ щоб було не _id а id
     delete req.body.id //щоб передати все оновлене окрім id-його залишити
 
+    if (req.file) {
+      req.body.img = req.file.path
+    }
+
     const product = await Product.findById(id)
     if (!isOwner(product, req)) {
       return res.redirect('/products')
