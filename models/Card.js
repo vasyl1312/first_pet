@@ -16,6 +16,12 @@ const cardSchema = new Schema({
     ref: 'User', //на модель користувача
     required: true,
   },
+
+  userInSession: {
+    type: Schema.Types.ObjectId,
+    ref: 'User', //на модель користувача
+    required: true,
+  },
 })
 
 module.exports = model('Card', cardSchema)

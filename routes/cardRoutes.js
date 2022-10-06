@@ -7,11 +7,12 @@ const router = new Router()
 
 router.post('/add', isAuth, async (req, res) => {
   try {
-    let { productId, title, userId } = req.body
+    let { productId, title, userId, userInSession } = req.body
     const card = new Card({
       productId,
       title,
       ownerId: userId,
+      userInSession,
     })
 
     await card.save()
@@ -36,7 +37,8 @@ router.post('/remove/:id', isAuth, async (req, res) => {
 
 let alert = { type: '', message: '' }
 router.get('/', isAuth, async (req, res) => {
-  const card = await Card.find()
+  const userInSession = await User.findById(req.user._id)
+  const card = await Card.find({ userInSession: userInSession._id })
   res.render('card', { card, alert })
   alert.type = ''
   alert.message = ''

@@ -16,7 +16,7 @@ const userSchema = new Schema({
 
 //метод для чищення кошику піля замовлення
 userSchema.methods.clearCart = function () {
-  this.cart = { items: [] }
+  this.cart = { cart: [] }
   return this.save()
 }
 

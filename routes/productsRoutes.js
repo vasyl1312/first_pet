@@ -1,5 +1,6 @@
 const { Router } = require('express')
 const Product = require('../models/Product')
+const User = require('../models/User')
 const isAuth = require('../middleware/isAuth')
 const router = Router()
 
@@ -26,7 +27,9 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const product = await Product.findById(req.params.id)
-    res.render('product', { product })
+    const userInSession = await User.findById(req.user._id)
+
+    res.render('product', { product, userInSession })
   } catch (e) {
     console.log(e)
   }
