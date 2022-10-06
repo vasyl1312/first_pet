@@ -14,7 +14,6 @@ router.get('/', async (req, res) => {
     const products = await Product.find()
       .populate('userId', 'email name') //populate отримуємо(а select певні)дані про user
       .select('price title img')
-
     res.render('products', { alert, products })
     alert.type = ''
     alert.message = ''

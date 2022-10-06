@@ -63,6 +63,7 @@ Here: I should to type description about this site and author and guide of this 
 16. Post to profile page, upload/change avatar photo
 17. For add-page, upload photo
 18. For edit-product, upload new photo
+19. Read product, settings image
 
 <!-- `Deploy` -->
 <!-- 1.Secure keys -->
