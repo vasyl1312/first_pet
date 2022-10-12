@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose')
-const cardSchema = new Schema({
+const favouriteSchema = new Schema({
   productId: {
     type: Schema.Types.ObjectId,
     ref: 'Product',
@@ -9,6 +9,13 @@ const cardSchema = new Schema({
   title: {
     type: String,
     required: true, //позначаємо що це поле є обов'язковим
+  },
+
+  img: String,
+
+  price: {
+    type: Number,
+    required: true,
   },
 
   ownerId: {
@@ -24,4 +31,4 @@ const cardSchema = new Schema({
   },
 })
 
-module.exports = model('Card', cardSchema)
+module.exports = model('Favourite', favouriteSchema)
