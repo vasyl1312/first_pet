@@ -24,7 +24,7 @@ router.post('/', isAuth, async (req, res) => {
     if (!req.file) {
       img = empty.EmptyImg
     } else {
-      img = req.file.path
+      img = '/' + req.file.path
     }
 
     const product = new Product({
