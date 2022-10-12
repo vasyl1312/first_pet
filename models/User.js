@@ -7,7 +7,7 @@ const userSchema = new Schema({
   resetToken: String,
   resetTokenExp: Date,
   avatarUrl: String,
-  cart: [
+  favourite: [
     {
       productId: { type: Schema.Types.ObjectId, ref: 'Product', required: true },
     },
@@ -15,8 +15,8 @@ const userSchema = new Schema({
 })
 
 //метод для чищення кошику піля замовлення
-userSchema.methods.clearCart = function () {
-  this.cart = { cart: [] }
+userSchema.methods.clearfavourite = function () {
+  this.favourite = { favourite: [] }
   return this.save()
 }
 

@@ -66,7 +66,7 @@
               <li class="nav-item"><a class="nav-link" href="/add">Add new</a></li>
             </ul>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-              <li class="nav-item"><a class="nav-link" href="/card">Card</a></li>
+              <li class="nav-item"><a class="nav-link" href="/favourite">Favourite</a></li>
             </ul>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
               <li class="nav-item"><a class="nav-link" href="/orders">Orders</a></li>
@@ -96,7 +96,7 @@
         <div class="text-center text-white">
           <p class="lead fw-normal text-white-50 mb-0">
             On this page, you can to see info about this product, author, you can to add this
-            product to favorite and add to cart
+            product to favorite and add to favourite
           </p>
         </div>
       </div>
@@ -106,18 +106,20 @@
     <section class="py-5">
       <div class="product-info">
         <h1><%= product.title %></h1>
-        <img class="card-img-read-product" src="<%= product.img %>" alt="..." />
-        <p class="price big"><%= product.price %> ₴</p>
+        <img class="favourite-img-read-product" src="<%= product.img %>" alt="..." />
+        <p class="price big"><%= product.price %> $</p>
         <!-- <p class="owner big"><%= product.owner %></p> -->
         <p><%= product.description %></p>
         <%if (isAuth) {%>
         <div class="text-center">
-          <form action="/card/add" method="POST">
+          <form action="/favourite/add" method="POST">
             <input type="hidden" name="productId" value="<%= product._id %>" />
             <input type="hidden" name="title" value="<%= product.title%>" />
+            <input type="hidden" name="img" value="<%= product.img%>" />
+            <input type="hidden" name="price" value="<%= product.price%>" />
             <input type="hidden" name="userId" value="<%= product.userId%>" />
             <input type="hidden" name="userInSession" value="<%= userInSession._id %>" />
-            <button type="submit" class="btn btn-outline-dark mt-auto">Add to cart</button>
+            <button type="submit" class="btn btn-outline-dark mt-auto">Add to favourite</button>
           </form>
         </div>
         <%}%>

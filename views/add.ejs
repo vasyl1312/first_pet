@@ -69,7 +69,7 @@
               <li class="nav-item"><a class="nav-link" href="/add">Add new</a></li>
             </ul>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-              <li class="nav-item"><a class="nav-link" href="/card">Card</a></li>
+              <li class="nav-item"><a class="nav-link" href="/favourite">Favourite</a></li>
             </ul>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
               <li class="nav-item"><a class="nav-link" href="/orders">Orders</a></li>
@@ -113,15 +113,15 @@
         <div class="text-center text-white">
           <form action="/add" method="POST" enctype="multipart/form-data">
             <div class="input-field">
-              <label for="title">Name of the product</label>
+              <label for="title">Please enter your specialty</label>
               <input id="title" name="title" type="text" class="validate" required />
-              <span class="helper-text" data-error="Please enter the name of the product"> </span>
+              <span class="helper-text" data-error="Please enter your specialty"> </span>
             </div>
 
             <div class="input-field">
-              <label for="price">Enter price in ₴ (value must be integer)</label>
+              <label for="price">Enter expected salary in $ (value must be integer)</label>
               <input type="number" id="price" name="price" min="0" max="1000000" />
-              <span class="helper-text" data-error="Enter a valid price in ₴"> </span>
+              <span class="helper-text" data-error="Enter a valid salary in $"> </span>
             </div>
 
             <div class="input-field">

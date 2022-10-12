@@ -70,7 +70,7 @@
               <li class="nav-item"><a class="nav-link" href="/add">Add new</a></li>
             </ul>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-              <li class="nav-item"><a class="nav-link" href="/card">Card</a></li>
+              <li class="nav-item"><a class="nav-link" href="/favourite">Favourite</a></li>
             </ul>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
               <li class="nav-item"><a class="nav-link" href="/orders">Orders</a></li>
@@ -120,18 +120,18 @@
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
           <%if (products.length > 0) { %> <% products.forEach((product)=> { %>
           <div class="col mb-5">
-            <div class="card h-100">
+            <div class="favourite h-100">
               <!-- Product image-->
-              <img class="card-img-top" src="<%= product.img %>" alt="..." />
+              <img class="favourite-img-top" src="<%= product.img %>" alt="..." />
               <!-- Product details-->
-              <div class="card-body p-4">
+              <div class="favourite-body p-4">
                 <div class="text-center">
                   <h5 class="fw-bolder"><%= product.title %></h5>
-                  <h7><%= product.price %>₴</h7>
+                  <h7><%= product.price %>$</h7>
                 </div>
               </div>
               <!-- Product actions-->
-              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+              <div class="favourite-footer p-4 pt-0 border-top-0 bg-transparent">
                 <div class="text-center">
                   <a class="btn btn-outline-dark mt-auto" href="/products/<%= product.id %>"
                     >Read</a
