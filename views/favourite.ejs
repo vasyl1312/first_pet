@@ -72,7 +72,7 @@
               <li class="nav-item"><a class="nav-link" href="/favourite">Favourite</a></li>
             </ul>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-              <li class="nav-item"><a class="nav-link" href="/orders">Orders</a></li>
+              <li class="nav-item"><a class="nav-link" href="/history">History</a></li>
             </ul>
           </ul>
         </div>
@@ -91,8 +91,11 @@
       <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
           <!-- alerts -->
-          <h1 class="display-4 fw-bolder">It's your favourite:</h1>
-          <p class="lead fw-normal text-white-50 mb-0">History</p>
+          <h1 class="display-4 fw-bolder">It's your history favourite:</h1>
+          <p class="lead fw-normal text-white-50 mb-0">
+            On this page, you can save posts for the future, and contact the owner (you will send a
+            letter and get some info about the owner)
+          </p>
         </div>
       </div>
     </header>
@@ -134,12 +137,13 @@
                   <h6><%= product.ownerId %></h6>
                 </div>
 
-                <form action="/orders" method="POST">
+                <form action="/history" method="POST">
                   <input type="hidden" name="productId" value="<%= product._id %>" />
                   <input type="hidden" name="title" value="<%= product.title%>" />
                   <input type="hidden" name="img" value="<%= product.img%>" />
                   <input type="hidden" name="price" value="<%= product.price%>" />
-                  <input type="hidden" name="userId" value="<%= product.userId%>" />
+                  <input type="hidden" name="ownerId" value="<%= product.ownerId%>" />
+                  <input type="hidden" name="userInSession" value="<%= userInSession._id %>" />
 
                   <button type="submit" class="btn btn-outline-dark mt-auto">
                     Contact this candidate

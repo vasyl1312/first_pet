@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
 })
 
 //для оброблення route коли перейшли на --read--
-router.get('/:id', async (req, res) => {
+router.get('/:id', isAuth, async (req, res) => {
   try {
     const product = await Product.findById(req.params.id)
     const userInSession = await User.findById(req.user._id)
