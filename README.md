@@ -29,20 +29,20 @@ Here: I should to type description about this site and author and guide of this 
 17. Add btn to open product and style to this; price for product
 18. When url is uncorrect and work with input price, name has be shorter than 45 letters
 19. Add max width to image in all page; editing products
-20. Add to favourite; output id products in the favourite
-21. Show and attribute products in the favourite
-22. Delete products from the favourite (resolve bugs)
+20. Add to cart; output id products in the cart
+21. Show and attribute products in the cart
+22. Delete products from the cart (resolve bugs)
 23. Delete products from all list
 24. Add msg when edit/delete/add product; update method - edit product
-25. When add new product or add to favourite remember a user
-26. 1. Some updates to the favourite
+25. When add new product or add to cart remember a user
+26. 1. Some updates to the cart
 
 `Session`
 
 1. Add session, hidding pages for non- auth user and show for auth
 2. Save session, delete our temporary user
-3. Session in DB, hidding buttons 'edit' 'add to favourite' for non-authenticated user
-4. Secure routes, that means, when non-auth user try to go on routes like favourite
+3. Session in DB, hidding buttons 'edit' 'add to cart' for non-authenticated user
+4. Secure routes, that means, when non-auth user try to go on routes like card
 5. Add middleware for user, and logout routes move to main routes
 6. When the user is logged in, save the session
 
@@ -64,11 +64,9 @@ Here: I should to type description about this site and author and guide of this 
 17. For add-page, upload photo
 18. For edit-product, upload new photo
 19. Read product, settings image
-20. Other favourite to each user
+20. Other cart to each user
 21. Add new branch
 22. Some updating on the favourite page
-23. Preparing to btn 'contact with this candidate'
-24. Add logic to communications with candidate
 
 <!-- `Deploy` -->
 <!-- 1.Secure keys -->
