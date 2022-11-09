@@ -8,10 +8,6 @@ const keys = require('./config/keys.json')
 const addRoutes = require('./routes/addRoutes')
 const profileRoutes = require('./routes/profile')
 const homeRoutes = require('./routes/homeRoutes')
-<<<<<<< HEAD
-=======
-const cardRoutes = require('./routes/cardRoutes')
->>>>>>> 6ba1252c7040d771c70b91db7fa01546eb11d3ce
 const userMiddlware = require('./middleware/user')
 const loginRoutes = require('./routes/loginRoutes')
 const fileMiddleware = require('./middleware/file')
@@ -46,10 +42,6 @@ app.use(userMiddlware)
 
 app.use('/', homeRoutes)
 app.use('/add', addRoutes)
-<<<<<<< HEAD
-=======
-app.use('/card', cardRoutes)
->>>>>>> 6ba1252c7040d771c70b91db7fa01546eb11d3ce
 app.use('/login', loginRoutes)
 app.use('/profile', profileRoutes)
 app.use('/history', historyRoutes)

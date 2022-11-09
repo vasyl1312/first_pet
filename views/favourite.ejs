@@ -69,7 +69,7 @@
               <li class="nav-item"><a class="nav-link" href="/add">Add new</a></li>
             </ul>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-              <li class="nav-item"><a class="nav-link" href="/card">Card</a></li>
+              <li class="nav-item"><a class="nav-link" href="/favourite">Favourite</a></li>
             </ul>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
               <li class="nav-item"><a class="nav-link" href="/history">History</a></li>
@@ -91,16 +91,11 @@
       <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
           <!-- alerts -->
-<<<<<<< HEAD
           <h1 class="display-4 fw-bolder">It's your history favourite:</h1>
           <p class="lead fw-normal text-white-50 mb-0">
             On this page, you can save posts for the future, and contact the owner (you will send a
             letter and get some info about the owner)
           </p>
-=======
-          <h1 class="display-4 fw-bolder">It's your cart:</h1>
-          <p class="lead fw-normal text-white-50 mb-0">History</p>
->>>>>>> 6ba1252c7040d771c70b91db7fa01546eb11d3ce
         </div>
       </div>
     </header>
@@ -119,17 +114,26 @@
     <section class="py-5">
       <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-          <%if (card.length > 0) { %> <% card.forEach((product)=> { %>
+          <%if (favourite.length > 0) { %> <% favourite.forEach((product)=> { %>
           <div class="col mb-5">
-            <div class="card h-100">
-              <div class="card-body p-4">
+            <div class="favourite h-100">
+              <div class="favourite-body p-4">
                 <div class="text-center">
-                  <h5 class="fw-bolder">Title:</h5>
-                  <h6><%= product.title %></h6>
-                  <h5 class="fw-bolder">product:</h5>
+                  <h5 class="fw-bolder">Product ID:</h5>
                   <h6><%= product.productId %></h6>
 
-                  <h5 class="fw-bolder">owner:</h5>
+                  <div class="favourite h-100">
+                    <h5 class="fw-bolder">Title:</h5>
+                    <h6><%= product.title %></h6>
+
+                    <h5 class="fw-bolder">Candidate photo:</h5>
+                    <img class="favourite-img-read-product" src="<%= product.img %>" alt="..." />
+
+                    <h5 class="fw-bolder">Expected salary:</h5>
+                    <h6><%= product.price %>$</h6>
+                  </div>
+
+                  <h7 class="fw-bolder">The ID owner who created this portfolio:</h7>
                   <h6><%= product.ownerId %></h6>
                 </div>
 
@@ -138,13 +142,9 @@
                   <input type="hidden" name="title" value="<%= product.title%>" />
                   <input type="hidden" name="img" value="<%= product.img%>" />
                   <input type="hidden" name="price" value="<%= product.price%>" />
-<<<<<<< HEAD
                   <input type="hidden" name="ownerId" value="<%= product.ownerId%>" />
                   <input type="hidden" name="userInSession" value="<%= userInSession._id %>" />
 
-=======
-                  <input type="hidden" name="userId" value="<%= product.userId%>" />
->>>>>>> 6ba1252c7040d771c70b91db7fa01546eb11d3ce
                   <button type="submit" class="btn btn-outline-dark mt-auto">
                     Contact this candidate
                   </button>
@@ -152,11 +152,11 @@
               </div>
             </div>
             <div class="text-center">
-              <form action="card/remove/:id" method="POST">
+              <form action="favourite/remove/:id" method="POST">
                 <input type="hidden" name="productId" value="<%= product._id %>" />
                 <input type="hidden" name="userId" value="<%= product.userId %>" />
                 <button type="submit" class="btn btn-outline-dark mt-auto">
-                  Remove from this card
+                  Remove from this favourite
                 </button>
               </form>
             </div>
@@ -165,7 +165,9 @@
           <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
               <h1 class="display-4 fw-bolder">Opps</h1>
-              <p class="lead fw-normal text-white-50 mb-0">At this moment, card is an empty</p>
+              <p class="lead fw-normal text-white-50 mb-0">
+                At this moment, favourite page is an empty
+              </p>
             </div>
           </div>
           <%}%>
