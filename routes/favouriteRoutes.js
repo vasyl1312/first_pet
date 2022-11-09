@@ -41,7 +41,7 @@ let alert = { type: '', message: '' }
 router.get('/', isAuth, async (req, res) => {
   const userInSession = await User.findById(req.user._id)
   const favourite = await Favourite.find({ userInSession: userInSession._id })
-  res.render('favourite', { favourite, alert })
+  res.render('favourite', { favourite, alert, userInSession })
   alert.type = ''
   alert.message = ''
 })

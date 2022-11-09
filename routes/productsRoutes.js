@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
 })
 
 //для оброблення route коли перейшли на --read--
-router.get('/:id', async (req, res) => {
+router.get('/:id', isAuth, async (req, res) => {
   try {
     const product = await Product.findById(req.params.id)
     const userInSession = await User.findById(req.user._id)
@@ -35,7 +35,7 @@ router.get('/:id', async (req, res) => {
   }
 })
 
-//для редагування курсів переходимо на саму сторінку
+//для редагування портфоліо переходимо на саму сторінку
 router.get('/:id/edit', isAuth, async (req, res) => {
   if (!req.query.allow) return res.redirect('/') //allow потім для розподілу між клієнтом і власником
 
