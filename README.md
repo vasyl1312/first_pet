@@ -69,6 +69,7 @@ Here: I should to type description about this site and author and guide of this 
 22. Some updating on the favourite page
 23. Preparing to btn 'contact with this candidate'
 24. Add logic to communications with candidate
+25. розібратись з вітками і додати в мейн
 
 <!-- `Deploy` -->
 <!-- 1.Secure keys -->
