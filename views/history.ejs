@@ -111,12 +111,50 @@
 
     <!-- Section-->
     <section class="py-5">
-      <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-          <h1>history</h1>
+      <%if (history.length > 0) { %> <% history.forEach((product)=> { %>
+      <div class="favourite h-100">
+        <div class="favourite-body p-4">
+          <div class="text-center">
+            <table border="1" width="100%">
+              <tr>
+                <th>Date, when message was sent:</th>
+                <th>Owner Name:</th>
+                <th>Owner Email:</th>
+                <th>Product Price:</th>
+                <th>Product name:</th>
+              </tr>
+
+              <tr>
+                <td><%= product.data %></td>
+                <td><%= product.ownerName %></td>
+                <td><%= product.ownerEmail %></td>
+                <td><%= product.productPrice %>$</td>
+                <td><%= product.productTitle %></td>
+              </tr>
+            </table>
+
+            <div class="text-center">
+              <form action="history/remove/:id" method="POST">
+                <input type="hidden" name="productId" value="<%= product._id %>" />
+                <input type="hidden" name="userId" value="<%= product.userInSession %>" />
+                <button type="submit" class="btn btn-outline-dark mt-auto">
+                  Remove from this history
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
+      <%})%> <% } else {%>
+      <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+          <h1 class="display-4 fw-bolder">Opps</h1>
+          <p class="lead fw-normal text-white-50 mb-0">At this moment, history page is an empty</p>
+        </div>
+      </div>
+      <%}%>
     </section>
+
     <!-- Footer-->
     <footer class="py-5 bg-dark">
       <div class="container">

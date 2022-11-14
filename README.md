@@ -70,6 +70,8 @@ Here: I should to type description about this site and author and guide of this 
 23. Preparing to btn 'contact with this candidate'
 24. Add logic to communications with candidate
 25. Add new branch
+26. Add history table of communication page
+27. Delete from history; and some styles for table of communication
 
 <!-- `Deploy` -->
 <!-- 1.Secure keys -->
