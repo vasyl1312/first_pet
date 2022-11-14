@@ -26,6 +26,7 @@ router.post('/', isAuth, async (req, res) => {
     alert.type = 'success'
     alert.message = 'You successfully sent mail to this person'
     const owner = await User.findById({ _id: req.body.ownerId })
+
     sgMail.setApiKey(keys.API_KEY) //і відсилаємо на email лист від користувача в сесії
     await sgMail
       .send(
@@ -34,7 +35,7 @@ router.post('/', isAuth, async (req, res) => {
       .catch((error) => {
         console.error(error)
       })
-    //console.log(req.body)
+
     let { title, img, price, userId, userInSession } = req.body
     const history = new History({
       data: new Date().toLocaleString().replace(',', ''),
@@ -48,9 +49,20 @@ router.post('/', isAuth, async (req, res) => {
 
     await history.save()
     res.redirect('/history')
-    // res.render('history', { alert, favourite })
   } catch (e) {
     console.log(e)
   }
 })
+
+router.post('/remove/:id', isAuth, async (req, res) => {
+  try {
+    const history = await History.deleteOne({ _id: req.body.productId })
+    alert.type = 'success'
+    alert.message = 'This product has been successfully removed from history'
+    res.redirect('/history')
+  } catch (e) {
+    console.log(e)
+  }
+})
+
 module.exports = router
