@@ -66,7 +66,7 @@ router.post('/edit', isAuth, async (req, res) => {
     delete req.body.id //щоб передати все оновлене окрім id-його залишити
 
     if (req.file) {
-      var filePath = `.${req.body.img}` //видаляєм старе фото з бази
+      var filePath = `./${req.body.img}` //видаляєм старе фото з бази
       fs.unlinkSync(filePath)
       req.body.img = req.file.path
     }
@@ -88,6 +88,9 @@ router.post('/edit', isAuth, async (req, res) => {
 
 router.post('/:id/remove', isAuth, async (req, res) => {
   const products = await Product.deleteOne({ _id: req.body.productId })
+  var filePath = `./${req.body.img}` //видаляєм старе фото з бази
+  fs.unlinkSync(filePath)
+
   alert.type = 'success'
   alert.message = 'Your product has been successfully deleted'
   res.redirect('/products')

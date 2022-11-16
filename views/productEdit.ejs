@@ -162,6 +162,7 @@
         </div>
         <form action="remove" method="POST">
           <input type="hidden" name="productId" value="<%= product._id %>" />
+          <input type="hidden" name="img" value="<%= product.img %>" />
           <button type="submit" class="btn btn-outline-dark mt-auto">Delete this product</button>
         </form>
       </div>
