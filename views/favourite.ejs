@@ -119,22 +119,22 @@
             <div class="favourite h-100">
               <div class="favourite-body p-4">
                 <div class="text-center">
-                  <h5 class="fw-bolder">Product ID:</h5>
-                  <h6><%= product.productId %></h6>
+                  <!-- <h5 class="fw-bolder">Product ID:</h5>
+                  <h6><%= product.productId %></h6> -->
 
                   <div class="favourite h-100">
-                    <h5 class="fw-bolder">Title:</h5>
-                    <h6><%= product.title %></h6>
-
                     <h5 class="fw-bolder">Candidate photo:</h5>
                     <img class="favourite-img-read-product" src="<%= product.img %>" alt="..." />
+
+                    <h5 class="fw-bolder">Title:</h5>
+                    <h6><%= product.title %></h6>
 
                     <h5 class="fw-bolder">Expected salary:</h5>
                     <h6><%= product.price %>$</h6>
                   </div>
-
+                  <!-- 
                   <h7 class="fw-bolder">The ID owner who created this portfolio:</h7>
-                  <h6><%= product.ownerId %></h6>
+                  <h6><%= product.ownerId %></h6> -->
                 </div>
 
                 <form action="/history" method="POST">

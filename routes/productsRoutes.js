@@ -37,6 +37,8 @@ router.get('/:id', isAuth, async (req, res) => {
 
 //для редагування портфоліо переходимо на саму сторінку
 router.get('/:id/edit', isAuth, async (req, res) => {
+  alert.type = 'warning'
+  alert.message = 'This product you are not allowed to edit'
   if (!req.query.allow) return res.redirect('/') //allow потім для розподілу між клієнтом і власником
 
   try {
