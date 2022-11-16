@@ -1,4 +1,5 @@
 const { Router } = require('express')
+var fs = require('fs')
 const Product = require('../models/Product')
 const User = require('../models/User')
 const isAuth = require('../middleware/isAuth')
@@ -39,7 +40,11 @@ router.get('/:id', isAuth, async (req, res) => {
 router.get('/:id/edit', isAuth, async (req, res) => {
   alert.type = 'warning'
   alert.message = 'This product you are not allowed to edit'
-  if (!req.query.allow) return res.redirect('/') //allow потім для розподілу між клієнтом і власником
+  if (!req.query.allow) {
+    alert.type = ''
+    alert.message = ''
+    return res.redirect('/') //allow потім для розподілу між клієнтом і власником
+  }
 
   try {
     const product = await Product.findById(req.params.id)
@@ -61,6 +66,8 @@ router.post('/edit', isAuth, async (req, res) => {
     delete req.body.id //щоб передати все оновлене окрім id-його залишити
 
     if (req.file) {
+      var filePath = `.${req.body.img}` //видаляєм старе фото з бази
+      fs.unlinkSync(filePath)
       req.body.img = req.file.path
     }
 

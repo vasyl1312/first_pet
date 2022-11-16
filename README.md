@@ -76,6 +76,7 @@ Here: I should to type description about this site and author and guide of this 
 `Solving some bugs and adding new opportunities`
 
 1. Non-owner of the product cannot edit this product; show msg
+2. When user change product/profile photo - delete old img from db
 
 <!-- `Deploy` -->
 <!-- 1.Secure keys -->
