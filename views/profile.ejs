@@ -93,12 +93,12 @@
     </nav>
     <!-- Header-->
     <header class="bg-dark py-5">
-      <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-white">
-          <img class="img-header" src="./assets/calzone.png" />
-          <p class="lead fw-normal text-white-50 mb-0">It's my profile page</p>
-        </div>
+      <!-- <div class="container px-4 px-lg-5 my-5"> -->
+      <div class="text-center text-white">
+        <img class="img-header" src="./assets/calzone.png" />
+        <p class="lead fw-normal text-white-50 mb-0">It's my profile page</p>
       </div>
+      <!-- </div> -->
     </header>
     <!-- Section-->
     <section class="py-5">
@@ -136,6 +136,9 @@
                     <input type="file" name="avatar" />
                   </div>
                 </div>
+
+                <input type="hidden" name="img" value="<%= user.avatarUrl %>" />
+
                 <button type="submit" class="btn btn-outline-dark mt-auto">
                   Update Profile Info
                 </button>

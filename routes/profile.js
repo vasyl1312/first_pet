@@ -1,4 +1,5 @@
 const { Router } = require('express')
+var fs = require('fs')
 const User = require('../models/User')
 const isAuth = require('../middleware/isAuth') //якщо користувач зареєстрований то доступні роути
 const router = Router()
@@ -17,6 +18,8 @@ router.post('/', isAuth, async (req, res) => {
     }
 
     if (req.file) {
+      var filePath = `./${req.body.img}` //видаляєм старе фото з бази
+      fs.unlinkSync(filePath)
       toChange.avatarUrl = req.file.path
     }
 
