@@ -1,6 +1,7 @@
 const { Router } = require('express')
 const Favourite = require('../models/Favourite')
 const User = require('../models/User')
+const Product = require('../models/Product')
 const isAuth = require('../middleware/isAuth') //якщо користувач зареєстрований то доступні роути
 
 const router = new Router()
@@ -8,6 +9,23 @@ const router = new Router()
 router.post('/add', isAuth, async (req, res) => {
   try {
     let { productId, title, img, price, userId, userInSession } = req.body
+
+    //перевірка чи наш продукт вже є в улюблених
+    const productInFavorites = await Favourite.findOne({ productId })
+    if (productInFavorites != null) {
+      alert.type = 'warning'
+      alert.message = 'This product is already in favorites'
+      return res.redirect('/favourite')
+    }
+
+    //щоб не можна було додавати свій же продукт
+    const product = await Product.findById(productId)
+    if (product.userId == userInSession) {
+      alert.type = 'warning'
+      alert.message = 'You can`t add your own product to favorites'
+      return res.redirect('/favourite')
+    }
+
     const favourite = new Favourite({
       productId,
       title,
