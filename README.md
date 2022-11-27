@@ -79,6 +79,7 @@ Here: I should to type description about this site and author and guide of this 
 2. When user change/delete product/profile photo - delete old img from db
 3. Checking, that the user can't add to favourite own product/ don't allow adding product twice
 4. Solving problem in model with adding and removing product
+5. Add to favorites(add id product), solving problem with img when delete product
 
 <!-- `Deploy` -->
 <!-- 1.Secure keys -->

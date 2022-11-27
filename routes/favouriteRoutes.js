@@ -8,14 +8,17 @@ const router = new Router()
 
 router.post('/add', isAuth, async (req, res) => {
   try {
-    let { productId, title, img, price, userId, userInSession } = req.body
+    let { productId, userInSession } = req.body
+
+    const userInSessions = await User.findById(userInSession)
 
     //перевірка чи наш продукт вже є в улюблених
-    const productInFavorites = await Favourite.findOne({ productId })
-    if (productInFavorites != null) {
-      alert.type = 'warning'
-      alert.message = 'This product is already in favorites'
-      return res.redirect('/favourite')
+    for (let i = 0; i < userInSessions.favourite.length; i++) {
+      if (productId == userInSessions.favourite[i]) {
+        alert.type = 'warning'
+        alert.message = 'This product is already in favorites'
+        return res.redirect('/favourite')
+      }
     }
 
     //щоб не можна було додавати свій же продукт
@@ -26,16 +29,10 @@ router.post('/add', isAuth, async (req, res) => {
       return res.redirect('/favourite')
     }
 
-    const favourite = new Favourite({
-      productId,
-      title,
-      img,
-      price,
-      ownerId: userId,
-      userInSession,
-    })
+    const user = await User.findById(userInSession)
+    user.favourite.push(productId)
+    await user.save()
 
-    await favourite.save()
     alert.type = 'success'
     alert.message = 'This product has been successfully added to favourite'
     res.redirect('/favourite')

@@ -9,6 +9,7 @@ const userSchema = new Schema({
   avatarUrl: String,
   favourite: [],
   products: [],
+  history: [],
 })
 
 //метод для чищення кошику піля замовлення

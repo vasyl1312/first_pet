@@ -106,7 +106,7 @@
     <section class="py-5">
       <div class="product-info">
         <h1><%= product.title %></h1>
-        <img class="favourite-img-read-product" src="/<%= product.img %>" alt="..." />
+        <img class="favourite-img-read-product" src="<%= img %>" alt="..." />
         <p class="price big"><%= product.price %> $</p>
         <!-- <p class="owner big"><%= product.owner %></p> -->
         <p><%= product.description %></p>
@@ -114,10 +114,6 @@
         <div class="text-center">
           <form action="/favourite/add" method="POST">
             <input type="hidden" name="productId" value="<%= product._id %>" />
-            <input type="hidden" name="title" value="<%= product.title%>" />
-            <input type="hidden" name="img" value="<%= product.img%>" />
-            <input type="hidden" name="price" value="<%= product.price%>" />
-            <input type="hidden" name="userId" value="<%= product.userId%>" />
             <input type="hidden" name="userInSession" value="<%= userInSession._id %>" />
 
             <button type="submit" class="btn btn-outline-dark mt-auto">Add to favourite</button>
