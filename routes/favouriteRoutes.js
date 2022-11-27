@@ -43,7 +43,15 @@ router.post('/add', isAuth, async (req, res) => {
 
 router.post('/remove/:id', isAuth, async (req, res) => {
   try {
-    const favourite = await Favourite.deleteOne({ _id: req.body.productId })
+    //видалення продукту і з модельки користувача
+    const user = await User.findById(req.body.userInSession)
+    let i = 0
+    user.favourite.forEach((element) => {
+      if (element == req.body.productId) user.favourite.splice(i, 1)
+      ++i
+    })
+    await user.save()
+
     alert.type = 'success'
     alert.message = 'This product has been successfully removed from favourite'
     res.redirect('/favourite')
@@ -54,8 +62,11 @@ router.post('/remove/:id', isAuth, async (req, res) => {
 
 let alert = { type: '', message: '' }
 router.get('/', isAuth, async (req, res) => {
+  let favourite = []
   const userInSession = await User.findById(req.user._id)
-  const favourite = await Favourite.find({ userInSession: userInSession._id })
+  for (let i = 0; i < userInSession.favourite.length; i++) {
+    favourite.push(await Product.findById(userInSession.favourite[i]))
+  }
   res.render('favourite', { favourite, alert, userInSession })
   alert.type = ''
   alert.message = ''

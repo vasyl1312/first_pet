@@ -155,6 +155,7 @@
               <form action="favourite/remove/:id" method="POST">
                 <input type="hidden" name="productId" value="<%= product._id %>" />
                 <input type="hidden" name="userId" value="<%= product.userId %>" />
+                <input type="hidden" name="userInSession" value="<%= userInSession._id %>" />
                 <button type="submit" class="btn btn-outline-dark mt-auto">
                   Remove from this favourite
                 </button>
