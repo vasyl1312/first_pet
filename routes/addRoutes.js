@@ -34,8 +34,12 @@ router.post('/', isAuth, async (req, res) => {
       description,
       userId: req.user,
     })
-
     await product.save()
+
+    //в модель користувача додаємо продукт
+    const user = await User.findById(req.user)
+    user.products.push(product._id)
+    await user.save()
     return res.redirect('/products')
   } catch (e) {
     console.log(e)

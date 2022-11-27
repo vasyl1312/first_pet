@@ -160,9 +160,11 @@
             <button type="submit" class="btn btn-outline-dark mt-auto">Update Product</button>
           </form>
         </div>
+
         <form action="remove" method="POST">
           <input type="hidden" name="productId" value="<%= product._id %>" />
           <input type="hidden" name="img" value="<%= product.img %>" />
+          <input type="hidden" name="userId" value="<%= product.userId %>" />
           <button type="submit" class="btn btn-outline-dark mt-auto">Delete this product</button>
         </form>
       </div>

@@ -88,8 +88,34 @@ router.post('/edit', isAuth, async (req, res) => {
 
 router.post('/:id/remove', isAuth, async (req, res) => {
   const products = await Product.deleteOne({ _id: req.body.productId })
-  var filePath = `./${req.body.img}` //видаляєм старе фото з бази
-  fs.unlinkSync(filePath)
+
+  function validURL(str) {
+    //для перевірки чи фото є посиланням
+    var pattern = new RegExp(
+      '^(https?:\\/\\/)?' + // protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+        '(\\#[-a-z\\d_]*)?$',
+      'i'
+    ) // fragment locator
+    return !!pattern.test(str)
+  }
+
+  if (!validURL(req.body.img)) {
+    var filePath = `./${req.body.img}` //видаляєм старе фото з бази
+    fs.unlinkSync(filePath)
+  }
+
+  //видалення продукту і з модельки користувача
+  const user = await User.findById(req.body.userId)
+  let i = 0
+  user.products.forEach((element) => {
+    if (element == req.body.productId) user.products.splice(i, 1)
+    ++i
+  })
+  await user.save()
 
   alert.type = 'success'
   alert.message = 'Your product has been successfully deleted'

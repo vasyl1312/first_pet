@@ -7,11 +7,8 @@ const userSchema = new Schema({
   resetToken: String,
   resetTokenExp: Date,
   avatarUrl: String,
-  favourite: [
-    {
-      productId: { type: Schema.Types.ObjectId, ref: 'Product', required: true },
-    },
-  ],
+  favourite: [],
+  products: [],
 })
 
 //метод для чищення кошику піля замовлення
