@@ -4,6 +4,7 @@ const sgMail = require('@sendgrid/mail')
 const keys = require('../config/keys.json')
 const User = require('../models/User')
 const regMail = require('../email/register')
+const emptyAvatar = '/images/emptyAvatar.png'
 const router = new Router()
 
 let alert = { type: '', message: '' }
@@ -41,6 +42,7 @@ router.post('/', async (req, res) => {
         name,
         email,
         password: hashPassword,
+        avatarUrl: emptyAvatar,
       })
 
       sgMail.setApiKey(keys.API_KEY) //транспортер для відправлення по апі ключу сенд гріда емейл

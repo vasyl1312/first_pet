@@ -107,7 +107,7 @@
           <div class="row">
             <div class="col s6">
               <% if (user.avatarUrl) {%>
-              <img class="avatar" src="/<%= user.avatarUrl %>" alt="avatar-<%= user.name %>" />
+              <img class="avatar" src="<%= user.avatarUrl %>" alt="avatar-<%= user.name %>" />
               <%} else {%>
               <p>You have no avatar photo</p>
               <%}%>
@@ -131,8 +131,8 @@
                 </div>
 
                 <div class="file-field input-field">
+                  <span>Change your avatar</span>
                   <div class="btn">
-                    <span>Avatar</span>
                     <input type="file" name="avatar" />
                   </div>
                 </div>

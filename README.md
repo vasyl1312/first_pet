@@ -81,6 +81,7 @@ Here: I should to type description about this site and author and guide of this 
 4. Solving problem in model with adding and removing product
 5. Add to favorites(add id product), solving problem with img when delete product
 6. Delete from favorites, show favourites
+7. Fix problem with add product or create new user without img, replace empty image url-path to path from folder
 
 <!-- `Deploy` -->
 <!-- 1.Secure keys -->

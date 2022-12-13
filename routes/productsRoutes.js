@@ -10,20 +10,6 @@ function isOwner(product, req) {
   return product.userId.toString() === req.user._id.toString()
 }
 
-function validURL(str) {
-  //для перевірки чи фото є посиланням
-  var pattern = new RegExp(
-    '^(https?:\\/\\/)?' + // protocol
-      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
-      '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
-      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
-      '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-      '(\\#[-a-z\\d_]*)?$',
-    'i'
-  ) // fragment locator
-  return !!pattern.test(str)
-}
-
 let alert = { type: '', message: '' }
 router.get('/', async (req, res) => {
   try {
@@ -43,7 +29,7 @@ router.get('/:id', isAuth, async (req, res) => {
   try {
     const product = await Product.findById(req.params.id)
     let img = product.img
-    if (!validURL(img)) {
+    if (img != '/images/empty.png') {
       img = '/' + img
     }
     const userInSession = await User.findById(req.user._id)
@@ -84,8 +70,10 @@ router.post('/edit', isAuth, async (req, res) => {
     delete req.body.id //щоб передати все оновлене окрім id-його залишити
 
     if (req.file) {
-      var filePath = `./${req.body.img}` //видаляєм старе фото з бази
-      fs.unlinkSync(filePath)
+      if (req.body.img != '/images/empty.png') {
+        var filePath = `./${req.body.img}` //видаляєм старе фото з бази
+        fs.unlinkSync(filePath)
+      }
       req.body.img = req.file.path
     }
 
@@ -107,7 +95,7 @@ router.post('/edit', isAuth, async (req, res) => {
 router.post('/:id/remove', isAuth, async (req, res) => {
   const products = await Product.deleteOne({ _id: req.body.productId })
 
-  if (!validURL(req.body.img)) {
+  if (req.body.img != '/images/empty.png') {
     var filePath = `./${req.body.img}` //видаляєм старе фото з бази
     fs.unlinkSync(filePath)
   }
