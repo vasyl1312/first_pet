@@ -18,8 +18,10 @@ router.post('/', isAuth, async (req, res) => {
     }
 
     if (req.file) {
-      var filePath = `./${req.body.img}` //видаляєм старе фото з бази
-      fs.unlinkSync(filePath)
+      if (user.avatarUrl != '/images/emptyAvatar.png') {
+        var filePath = `./${req.body.img}` //видаляєм старе фото з бази
+        fs.unlinkSync(filePath)
+      }
       toChange.avatarUrl = req.file.path
     }
 

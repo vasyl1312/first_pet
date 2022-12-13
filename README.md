@@ -35,7 +35,7 @@ Here: I should to type description about this site and author and guide of this 
 23. Delete products from all list
 24. Add msg when edit/delete/add product; update method - edit product
 25. When add new product or add to favourite remember a user
-26. 1. Some updates to the favourite
+26. Some updates to the favourite
 
 `Session`
 
@@ -76,7 +76,12 @@ Here: I should to type description about this site and author and guide of this 
 `Solving some bugs and adding new opportunities`
 
 1. Non-owner of the product cannot edit this product; show msg
-2. When user change product/profile photo - delete old img from db
+2. When user change/delete product/profile photo - delete old img from db
+3. Checking, that the user can't add to favourite own product/ don't allow adding product twice
+4. Solving problem in model with adding and removing product
+5. Add to favorites(add id product), solving problem with img when delete product
+6. Delete from favorites, show favourites
+7. Fix problem with add product or create new user without img, replace empty image url-path to path from folder
 
 <!-- `Deploy` -->
 <!-- 1.Secure keys -->

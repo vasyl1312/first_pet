@@ -2,6 +2,7 @@ const { Router } = require('express')
 const Product = require('../models/Product')
 const User = require('../models/User')
 const empty = require('../config/keys.json')
+const emptyImg = '/images/empty.png'
 const isAuth = require('../middleware/isAuth') //якщо користувач зареєстрований то доступні роути
 const router = new Router()
 
@@ -22,9 +23,9 @@ router.post('/', isAuth, async (req, res) => {
     }
 
     if (!req.file) {
-      img = empty.EmptyImg
+      img = emptyImg
     } else {
-      img = '/' + req.file.path
+      img = req.file.path
     }
 
     const product = new Product({
@@ -34,8 +35,12 @@ router.post('/', isAuth, async (req, res) => {
       description,
       userId: req.user,
     })
-
     await product.save()
+
+    //в модель користувача додаємо продукт
+    const user = await User.findById(req.user)
+    user.products.push(product._id)
+    await user.save()
     return res.redirect('/products')
   } catch (e) {
     console.log(e)

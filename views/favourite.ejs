@@ -119,9 +119,6 @@
             <div class="favourite h-100">
               <div class="favourite-body p-4">
                 <div class="text-center">
-                  <!-- <h5 class="fw-bolder">Product ID:</h5>
-                  <h6><%= product.productId %></h6> -->
-
                   <div class="favourite h-100">
                     <h5 class="fw-bolder">Candidate photo:</h5>
                     <img class="favourite-img-read-product" src="<%= product.img %>" alt="..." />
@@ -155,6 +152,7 @@
               <form action="favourite/remove/:id" method="POST">
                 <input type="hidden" name="productId" value="<%= product._id %>" />
                 <input type="hidden" name="userId" value="<%= product.userId %>" />
+                <input type="hidden" name="userInSession" value="<%= userInSession._id %>" />
                 <button type="submit" class="btn btn-outline-dark mt-auto">
                   Remove from this favourite
                 </button>

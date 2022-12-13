@@ -25,7 +25,8 @@ router.post('/', isAuth, async (req, res) => {
   try {
     alert.type = 'success'
     alert.message = 'You successfully sent mail to this person'
-    const owner = await User.findById({ _id: req.body.ownerId })
+    const product = await Product.findById({ _id: req.body.productId })
+    const owner = await User.findById({ _id: product.userId })
 
     sgMail.setApiKey(keys.API_KEY) //і відсилаємо на email лист від користувача в сесії
     await sgMail
