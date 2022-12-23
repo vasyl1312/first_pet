@@ -91,7 +91,7 @@
       <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
           <!-- alerts -->
-          <h1 class="display-4 fw-bolder">Editing product:</h1>
+          <h1 class="display-4 fw-bolder">Editing portfolio:</h1>
           <p class="lead fw-normal text-white-50 mb-0"><%= product.title %></p>
         </div>
       </div>
@@ -103,7 +103,7 @@
         <div class="text-center text-white">
           <form action="/products/edit" method="POST" enctype="multipart/form-data">
             <div class="input-field">
-              <label for="title">Title of product</label>
+              <label for="title">Title of portfolio</label>
               <input
                 id="title"
                 name="title"
@@ -137,16 +137,20 @@
             <input type="hidden" name="img" value="<%= product.img %>" />
 
             <div class="input-field">
-              <label for="description">Description or info about the product</label>
-              <input
+              <label for="description">Description or info about the portfolio</label>
+              <textarea
+                rows="9"
+                class="form-control js-easymde"
+                data-dl-input-translation="true"
+                spellcheck="false"
+                class="validate"
                 id="description"
                 name="description"
                 type="text"
-                class="validate"
                 required
-                value="<%= product.description %>"
-              />
-              <span class="helper-text" data-error="Please enter a description"> </span>
+              >
+              <%= product.description %>
+              </textarea>
             </div>
 
             <div class="input-field">
