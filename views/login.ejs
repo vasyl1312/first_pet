@@ -61,12 +61,38 @@
               required
             /><br />
 
-            <input type="submit" id="submitDetails" name="submitDetails" value="Sign In" /><br />
+            <input
+              type="submit"
+              class="btn btn-lg btn-block btn-outline-primary"
+              id="submitDetails"
+              name="submitDetails"
+              value="Sign In"
+            />
+            <br />
+
+            <div class="google">
+              <a
+                class="oauth-container btn darken-4 white black-text"
+                href="/google"
+                style="text-transform: none"
+              >
+                <div class="left">
+                  <img
+                    width="50px"
+                    style="margin-top: 7px; margin-right: 8px"
+                    alt="Google sign-in"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+                  />
+                </div>
+                Login with Google
+              </a>
+            </div>
+
             <nav class="routes-btn">
-              <a href="/" class="home-btn">Return to site?</a>
               <hr />
               <a href="/register" class="register-btn">Don't have an account?</a>
               <a href="/login/reset" class="reset-btn">Forgot password?</a>
+              <a href="/" class="home-btn">Return to site?</a>
             </nav>
           </form>
         </div>

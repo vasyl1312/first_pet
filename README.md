@@ -1,6 +1,7 @@
 # first_pet `Keps'ko site`
 
-Here: I should type a description of this site and the author and guide of this site
+Link to course-work about the internship: https://drive.google.com/file/d/1dNQmQY97-azema0hALnX--UmrC6OiFNP/view?usp=sharing
+Here: I should type a description of this site and guide of this site
 ...
 
 # This is a short description of each commit
@@ -27,7 +28,7 @@ Here: I should type a description of this site and the author and guide of this 
 15. Add style for all products and in home page link to my social media
 16. Add an alert when we have a problem on the client side
 17. Add btn to open product and style to this; price for the product
-18. When URL is incorrect and work with the input price, the name has been shorter than 45 letters
+18. When URL is incorrect and works with the input price, the name has been shorter than 45 letters
 19. Add max-width to the image on all pages; edit products
 20. Add to favourite; output id products in the favourite
 21. Show and attribute products in the favourite
@@ -61,7 +62,7 @@ Here: I should type a description of this site and the author and guide of this 
 14. Error 404(when user input non-existing route)
 15. Create profile page(routes, beauty, page)
 16. Post to profile page, upload/change avatar photo
-17. For add-page, upload a photo
+17. For the add-page, upload a photo
 18. For edit-product, upload a new photo
 19. Read product, settings image
 20. Other favourites of each user
@@ -77,12 +78,13 @@ Here: I should type a description of this site and the author and guide of this 
 
 1. Non-owner of the product cannot edit this product; show msg
 2. When the user changes/deletes a product/profile photo - delete an old img from DB
-3. Checking, that the user can't add to favourite own product/ doesn't allow adding product twice
+3. Checking, that the user can't add to favourite page own product/ doesn't allow adding product twice
 4. Solving problems in a model by adding and removing product
 5. Add to favourites(add id product), solving a problem with img when deleting the product
 6. Delete from favourites, show favourites
 7. Fix problem with add product or create a new user without img, replace empty image URL-path to path from folder
 8. Add a bigger input form to the description, and style of this
+9. Add auth0, user can login and signup with google
 
 <!-- `Deploy` -->
 <!-- 1.Secure keys -->
