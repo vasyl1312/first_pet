@@ -85,6 +85,7 @@ Here: I should type a description of this site and guide of this site
 7. Fix problem with add product or create a new user without img, replace empty image URL-path to path from folder
 8. Add a bigger input form to the description, and style of this
 9. Add auth0, user can login and signup with google
+10. Have to add sort by field
 
 <!-- `Deploy` -->
 <!-- 1.Secure keys -->
