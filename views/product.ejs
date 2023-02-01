@@ -108,8 +108,16 @@
         <h1><%= product.title %></h1>
         <img class="favourite-img-read-product" src="<%= img %>" alt="..." />
         <p class="price big"><%= product.price %> $</p>
-        <!-- <p class="owner big"><%= product.owner %></p> -->
-        <p><%= product.description %></p>
+        <textarea
+          rows="9"
+          style="background-color: #767474; color: white"
+          class="form-control js-easymde"
+          data-dl-input-translation="true"
+          spellcheck="false"
+          class="validate"
+        >
+          <%= product.description %>
+        </textarea>
         <%if (isAuth) {%>
         <div class="text-center">
           <form action="/favourite/add" method="POST">

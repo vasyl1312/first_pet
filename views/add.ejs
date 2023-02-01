@@ -124,14 +124,23 @@
               <span class="helper-text" data-error="Enter a valid salary in $"> </span>
             </div>
 
-            <div class="input-field">
-              <label for="description">Description</label>
-              <input id="description" name="description" type="text" class="validate" required />
-              <span class="helper-text" data-error="Please enter a description"> </span>
-            </div>
+            <label for="description">Description</label>
+            <textarea
+              rows="9"
+              class="form-control js-easymde"
+              maxlength="2500"
+              minlength="50"
+              name="description"
+              id="description"
+              data-dl-input-translation="true"
+              spellcheck="false"
+              class="validate"
+              required
+            >
+            </textarea>
 
             <div class="input-field">
-              <label for="avatar">Please select your photo</label>
+              <label for="avatar">Please select your photo (jpg/png/jpeg)</label>
               <input type="file" name="avatar" />
             </div>
 

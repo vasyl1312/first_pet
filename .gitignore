@@ -1,7 +1,9 @@
 node_modules
 # = mongo url; port; empty avatar for user 
 #some plans, how to update this site
-config
+config/keys.json
+config/have_to_do.txt
 
 #here we save img of product and avatar
 images
+1.js
