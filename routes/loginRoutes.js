@@ -27,7 +27,6 @@ router.post('/', async (req, res) => {
       }
 
       req.session.user = candidate //додаємо користувача якщо все ок
-      console.log(typeof candidate, candidate, typeof req.session.user)
       req.session.isAuthenticated = true // для того щоб деякі могли міняти контент а деякі не мають дозволу
       await req.session.save((err) => {
         if (err) {

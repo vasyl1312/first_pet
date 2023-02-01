@@ -5,7 +5,7 @@ const sgMail = require('@sendgrid/mail')
 const keys = require('../config/keys.json')
 const regMail = require('../email/register')
 const passport = require('passport')
-require('../config/googleAuth')(passport)
+require('../middleware/googleAuth')(passport)
 
 router.get('/', passport.authenticate('google', { scope: ['profile', 'email'] }))
 
