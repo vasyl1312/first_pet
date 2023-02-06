@@ -4,8 +4,8 @@ const sgMail = require('@sendgrid/mail')
 const keys = require('../config/keys.json')
 const regMail = require('../email/register')
 const emptyAvatar = '/images/emptyAvatar.png'
-const clientId = require('../config/googleData').clientId
-const clientSecreT = require('../config/googleData').clientSecret
+const clientId = require('../config/googleDatas').clientId
+const clientSecreT = require('../config/googleDatas').clientSecret
 
 module.exports = async function (passport) {
   try {
@@ -31,13 +31,15 @@ module.exports = async function (passport) {
 
               sgMail.setApiKey(keys.API_KEY) //транспортер для відправлення по апі ключу сенд гріда емейл
               await user.save()
-              await sgMail
-                .send(regMail(profile.emails[0].value, profile.displayName))
-                .catch((error) => {
-                  console.error(error)
-                })
+              await User.findOne({ email: profile.emails[0].value }).then(async (data) => {
+                await sgMail
+                  .send(regMail(profile.emails[0].value, profile.displayName))
+                  .catch((error) => {
+                    console.error(error)
+                  })
 
-              return done(null, data)
+                return done(null, data)
+              })
             }
           })
         }
