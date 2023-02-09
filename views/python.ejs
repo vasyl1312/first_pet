@@ -7,7 +7,7 @@
     <meta name="author" content="" />
     <title>Kepsko site</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="/assets/calzone.png" />
+    <link rel="icon" type="image/x-icon" href="./assets/calzone.png" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
       rel="stylesheet"
@@ -15,15 +15,9 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
-    <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet" />
-
-    <script src="./js/scripts.js"></script>
+    <script src="js/scripts.js"></script>
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="/css/styles.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="/css/register.css" />
+    <link href="css/styles.css" rel="stylesheet" />
   </head>
   <body>
     <!-- Navigation-->
@@ -70,6 +64,8 @@
                 <li><a class="dropdown-item" href="/other">Other</a></li>
               </ul>
             </li>
+
+            <% if (isAuth) {%>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
               <li class="nav-item"><a class="nav-link" href="/add">Add new</a></li>
             </ul>
@@ -82,6 +78,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
               <li class="nav-item"><a class="nav-link" href="/myproducts">My products</a></li>
             </ul>
+            <%}%>
           </ul>
         </div>
         <% if (isAuth) {%>
@@ -90,123 +87,76 @@
         </ul>
         <%}%>
       </div>
+      <% if (isAuth) {%>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-        <li class="nav-item"><a class="nav-link" href="/login">Log out</a></li>
+        <li class="nav-item"><a class="nav-link" href="/logout">Log out</a></li>
       </ul>
+      <%} else {%>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+        <li class="nav-item"><a class="nav-link" href="/login">Sign in</a></li>
+      </ul>
+      <%}%>
     </nav>
     <!-- Header-->
     <header class="bg-dark py-3">
       <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
-          <!-- alerts -->
-          <h1 class="display-4 fw-bolder">Editing portfolio:</h1>
-          <p class="lead fw-normal text-white-50 mb-0"><%= product.title %></p>
+          <h1 class="display-4 fw-bolder">Category:</h1>
+          <p class="lead fw-normal text-white-50 mb-0">Python</p>
+          <img class="img_category" src="../images/python.jpg" alt="..." />
         </div>
       </div>
     </header>
 
+    <!-- alerts -->
+    <%if (alert.type.length > 0) { %>
+    <div class="container px-4 px-lg-5 my-5">
+      <div class="alert alert-<%=alert.type %> alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <div class="text-center"><strong>Message:</strong> <%=alert.message %></div>
+      </div>
+    </div>
+    <%}%>
+
     <!-- Section-->
     <section class="py-5">
-      <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-white">
-          <form action="/products/edit" method="POST" enctype="multipart/form-data">
-            <div class="input-field">
-              <label for="title">Title of portfolio</label>
-              <input
-                id="title"
-                name="title"
-                type="text"
-                class="validate"
-                required
-                value="<%= product.title %>"
-              />
-              <span class="helper-text" data-error="Enter title"> </span>
+      <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+          <%if (products.length > 0) { %> <% products.forEach((product)=> { %>
+          <div class="col mb-5">
+            <div class="favourite h-100">
+              <!-- Product image-->
+              <img class="favourite-img-top" src="<%= product.img %>" alt="..." />
+              <!-- Product details-->
+              <div class="favourite-body p-4">
+                <div class="text-center">
+                  <h5 class="fw-bolder"><%= product.title %></h5>
+                  <h7><%= product.price %>$</h7>
+                </div>
+              </div>
+              <!-- Product actions-->
+              <div class="favourite-footer p-4 pt-0 border-top-0 bg-transparent">
+                <div class="text-center">
+                  <%if (isAuth) {%>
+                  <a class="btn btn-outline-dark mt-auto" href="/products/<%= product.id %>"
+                    >Read</a
+                  >
+                  <%}%>
+                </div>
+              </div>
             </div>
-
-            <div class="input-field">
-              <label for="price">Expected salary</label>
-              <input
-                id="price"
-                name="price"
-                type="number"
-                class="validate"
-                required
-                min="0"
-                max="1000000"
-                value="<%= product.price %>"
-              />
-              <span
-                class="helper-text"
-                data-error="Enter expected salary in $ (value must be integer)"
-              >
-              </span>
+          </div>
+          <% }) %> <% } else {%>
+          <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+              <h1 class="display-4 fw-bolder">Opps</h1>
+              <p class="lead fw-normal text-white-50 mb-0">
+                At this moment, there are not any posts
+              </p>
             </div>
-
-            <input type="hidden" name="img" value="<%= product.img %>" />
-
-            <br />
-
-            <h3>Tehnologies:</h3>
-            <%if (product.categories.length > 0) { %> <% product.categories.forEach((category)=> {
-            %>
-            <a href="/<%= category %>" class="price big"><%= category %> </a>
-            <%})}%>
-            <br />
-            <label for="categories">Please select new technologies</label>
-            <select
-              data-placeholder="Start write..."
-              multiple
-              class="chosen-select"
-              id="categories"
-              name="categories"
-            >
-              <option value=""></option>
-              <option>javascript</option>
-              <option>java</option>
-              <option>python</option>
-              <option>c_similar</option>
-              <option>frontend</option>
-              <option>backend</option>
-              <option>web_design</option>
-              <option>other</option>
-            </select>
-            <br /><br />
-
-            <div class="input-field">
-              <label for="description">Description or info about the portfolio</label>
-              <textarea
-                rows="9"
-                class="form-control js-easymde"
-                data-dl-input-translation="true"
-                spellcheck="false"
-                class="validate"
-                id="description"
-                name="description"
-                type="text"
-                required
-              >
-              <%= product.description %>
-              </textarea>
-            </div>
-
-            <div class="input-field">
-              <label for="avatar">Please select another image</label>
-              <input type="file" name="avatar" value="<%= product.img %>" />
-            </div>
-
-            <!-- id, that to know, which product we have to edit-->
-            <input type="hidden" name="id" value="<%= product.id %>" />
-            <input type="hidden" name="userId" value="<%= product.userId %>" />
-            <button type="submit" class="btn btn-outline-dark mt-auto">Update Product</button>
-          </form>
+          </div>
+          <%}%>
         </div>
-
-        <form action="remove" method="POST">
-          <input type="hidden" name="productId" value="<%= product._id %>" />
-          <input type="hidden" name="img" value="<%= product.img %>" />
-          <input type="hidden" name="userId" value="<%= product.userId %>" />
-          <button type="submit" class="btn btn-outline-dark mt-auto">Delete this product</button>
-        </form>
       </div>
     </section>
     <!-- Footer-->

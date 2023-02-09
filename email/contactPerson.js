@@ -17,7 +17,7 @@ module.exports = function (emailInSession, productTitle, productImg, ownerName, 
              </h3>
              <img class="img-header" src="https://cdn-icons-png.flaticon.com/512/4799/4799167.png" width="200"/>
              <p>Go to website
-               <a href="${keys.BASE_URL_PORT}">Keps'ko site</a>
+               <a href="${keys.BASE_URL_PORT}">Kepsko site</a>
              </p>
              <hr />
            `,

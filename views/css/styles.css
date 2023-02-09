@@ -11688,3 +11688,8 @@ a {
   font-size: 22px;
   color: black;
 }
+
+.img_category {
+  width: 100%;
+  height: auto;
+}
