@@ -18,6 +18,11 @@ const productSchema = new Schema({
     required: true,
   },
 
+  categories: {
+    type: Array,
+    required: true,
+  },
+
   userId: {
     type: Schema.Types.ObjectId,
     ref: 'User', //взаємодія між продуктом та користувачем

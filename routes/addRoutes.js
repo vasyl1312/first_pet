@@ -15,7 +15,7 @@ router.get('/', isAuth, (req, res) => {
 
 router.post('/', isAuth, async (req, res) => {
   try {
-    let { title, price, img, description } = req.body
+    let { title, price, img, description, categories } = req.body
     if (title.length > 45) {
       alert.type = 'info'
       alert.message = 'Your name of the product is too long ( >45 symbols)'
@@ -33,6 +33,7 @@ router.post('/', isAuth, async (req, res) => {
       price,
       img,
       description,
+      categories,
       userId: req.user,
     })
     await product.save()
