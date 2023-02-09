@@ -15,6 +15,11 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+    <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet" />
+
     <script src="js/scripts.js"></script>
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
@@ -55,14 +60,14 @@
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="/products">All Products</a></li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="#!">JavaScript</a></li>
-                <li><a class="dropdown-item" href="#!">Java</a></li>
-                <li><a class="dropdown-item" href="#!">Python</a></li>
-                <li><a class="dropdown-item" href="#!">C similar</a></li>
-                <li><a class="dropdown-item" href="#!">Frontend</a></li>
-                <li><a class="dropdown-item" href="#!">Backend</a></li>
-                <li><a class="dropdown-item" href="#!">Web Design</a></li>
-                <li><a class="dropdown-item" href="#!">Other</a></li>
+                <li><a class="dropdown-item" href="/javascript">JavaScript</a></li>
+                <li><a class="dropdown-item" href="/java">Java</a></li>
+                <li><a class="dropdown-item" href="/python">Python</a></li>
+                <li><a class="dropdown-item" href="/c_similar">C similar</a></li>
+                <li><a class="dropdown-item" href="/frontend">Frontend</a></li>
+                <li><a class="dropdown-item" href="/backend">Backend</a></li>
+                <li><a class="dropdown-item" href="/web_design">Web Design</a></li>
+                <li><a class="dropdown-item" href="/other">Other</a></li>
               </ul>
             </li>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
@@ -138,6 +143,29 @@
               required
             >
             </textarea>
+
+            <br />
+
+            <label for="categories">Please select technologies</label>
+            <select
+              data-placeholder="Start write..."
+              multiple
+              class="chosen-select"
+              id="categories"
+              name="categories"
+              required
+            >
+              <option value=""></option>
+              <option>javascript</option>
+              <option>java</option>
+              <option>python</option>
+              <option>c_similar</option>
+              <option>frontend</option>
+              <option>backend</option>
+              <option>web_design</option>
+              <option>other</option>
+            </select>
+            <br /><br />
 
             <div class="input-field">
               <label for="avatar">Please select your photo (jpg/png/jpeg)</label>

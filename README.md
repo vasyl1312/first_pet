@@ -86,6 +86,7 @@ Here: I should type a description of this site and guide of this site
 8. Add a bigger input form to the description, and style of this
 9. Add auth0, user can login and signup with google
 10. When users use to sign up by google - fixing the problem with double-click to btn sign up
+11. Adding basic logic to sorting by categories
 
 <!-- `Deploy` -->
 <!-- 1.Secure keys -->
