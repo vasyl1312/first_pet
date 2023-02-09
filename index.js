@@ -27,6 +27,7 @@ const favouriteRoutes = require('./routes/favouriteRoutes')
 const resetPassword = require('./routes/resetPasswordRoutes')
 const web_designRoutes = require('./routes/web_designRoutes')
 const javascriptRoutes = require('./routes/javascriptRoutes')
+const my_productsRoutes = require('./routes/my_productsRoutes')
 
 const PORT = process.env.PORT || keys.PORT
 var app = express()
@@ -67,6 +68,7 @@ app.use('/favourite', favouriteRoutes)
 app.use('/login/reset', resetPassword)
 app.use('/web_design', web_designRoutes)
 app.use('/javascript', javascriptRoutes)
+app.use('/my_products', my_productsRoutes)
 
 app.use(errorMiddleware) //вкінці бо деякі роути будуть не доступні(для того щоб не можна на невідомі роути)
 

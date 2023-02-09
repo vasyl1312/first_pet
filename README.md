@@ -88,6 +88,7 @@ Here: I should type a description of this site and guide of this site
 10. When users use to sign up by google - fixing the problem with double-click to btn sign up
 11. Adding basic logic to sorting by categories
 12. Complete logic to sorting by categories
+13. Add a page for my products, and allow, that non auth user able to read a product
 
 <!-- `Deploy` -->
 <!-- 1.Secure keys -->
