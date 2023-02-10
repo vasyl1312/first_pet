@@ -77,6 +77,13 @@ router.post('/edit', isAuth, async (req, res) => {
 
 router.post('/:id/remove', isAuth, async (req, res) => {
   const products = await Product.deleteOne({ _id: req.body.productId })
+  //видалення id продукта з улюблених усіх користувачів
+  const users = await User.find()
+  for (let i = 0; i < users.length; i++) {
+    let elem = Object.values(users[i].favourite).filter((e) => e !== req.body.productId)
+    users[i].favourite = elem
+    await users[i].save()
+  }
 
   if (req.body.img != '/images/empty.png') {
     var filePath = `./${req.body.img}` //видаляєм старе фото з бази
