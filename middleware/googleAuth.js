@@ -3,16 +3,14 @@ const User = require('../models/User')
 const sgMail = require('@sendgrid/mail')
 const regMail = require('../email/register')
 const emptyAvatar = '/images/emptyAvatar.png'
-const clientId = require('../config/googleDatas').clientId
-const clientSecreT = require('../config/googleDatas').clientSecret
 
 module.exports = async function (passport) {
   try {
     passport.use(
       new GoogleStrategy(
         {
-          clientID: clientId,
-          clientSecret: clientSecreT,
+          clientID: process.env.clientId,
+          clientSecret: process.env.clientSecreT,
           callbackURL: 'http://localhost:3000/google/callback',
         },
         async function (accessToken, refreshToken, profile, done) {
