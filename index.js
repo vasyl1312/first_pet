@@ -1,9 +1,9 @@
 var express = require('express')
+require('dotenv').config()
 var bodyParser = require('body-parser')
 const session = require('express-session')
 const mongoose = require('mongoose')
 const MongoSession = require('connect-mongodb-session')(session)
-require('dotenv').config()
 
 const addRoutes = require('./routes/addRoutes')
 const homeRoutes = require('./routes/homeRoutes')
@@ -80,7 +80,6 @@ app.use(errorMiddleware) //вкінці бо деякі роути будуть 
 const start = async () => {
   try {
     await mongoose.connect(`${process.env.MongoUri}`)
-
     app.listen(PORT, () => {
       console.log(`Listening on port ${PORT}`)
     })
