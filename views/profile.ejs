@@ -1,99 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Kepsko site</title>
-    <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="./assets/calzone.png" />
-    <!-- My icons (have to add)-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
-  </head>
-  <body>
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.min.js"
+      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function () {
+        $('#header').load('../headers/header.ejs')
+        $('#sourceCode').load('../headers/sourceCode.ejs')
+        $('#headerDropList').load('../headers/headerDropList.ejs')
+        $('#headerLink').load('../headers/headerLink.ejs')
+      })
+    </script>
+    <div id="header"></div>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="https://github.com/vasyl1312/first_pet">Source Code</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <div id="sourceCode"></div>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-            <li class="nav-item">
+            <li class="dropdown-item">
               <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
-
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                id="navbarDropdown"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                >Categories</a
-              >
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/products">All Products</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="/javascript">JavaScript</a></li>
-                <li><a class="dropdown-item" href="/java">Java</a></li>
-                <li><a class="dropdown-item" href="/python">Python</a></li>
-                <li><a class="dropdown-item" href="/c_similar">C similar</a></li>
-                <li><a class="dropdown-item" href="/frontend">Frontend</a></li>
-                <li><a class="dropdown-item" href="/backend">Backend</a></li>
-                <li><a class="dropdown-item" href="/web_design">Web Design</a></li>
-                <li><a class="dropdown-item" href="/other">Other</a></li>
-              </ul>
-            </li>
-
+            <div id="headerDropList"></div>
             <% if (isAuth) {%>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-              <li class="nav-item"><a class="nav-link" href="/add">Add new</a></li>
-            </ul>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-              <li class="nav-item"><a class="nav-link" href="/favourite">Favourite</a></li>
-            </ul>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-              <li class="nav-item"><a class="nav-link" href="/history">History</a></li>
-            </ul>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-              <li class="nav-item"><a class="nav-link" href="/myproducts">My products</a></li>
-            </ul>
-            <%}%>
+            <div id="headerLink"></div>
           </ul>
+          <%} else {%>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+            <li class="dropdown-item">
+              <a class="nav-link" href="/login"
+                ><img src="../../images/login.png" style="width: 50px; height: 50px"
+              /></a>
+            </li>
+          </ul>
+          <%}%>
         </div>
-        <% if (isAuth) {%>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-          <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
-        </ul>
-        <%}%>
       </div>
-      <% if (isAuth) {%>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-        <li class="nav-item"><a class="nav-link" href="/logout">Log out</a></li>
-      </ul>
-      <%} else {%>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-        <li class="nav-item"><a class="nav-link" href="/login">Sign in</a></li>
-      </ul>
-      <%}%>
     </nav>
+  </head>
+
+  <body>
     <!-- Header-->
     <header class="bg-dark py-5">
       <!-- <div class="container px-4 px-lg-5 my-5"> -->
@@ -121,6 +72,7 @@
                 <p>Your email: <strong><%= user.email %></strong></p>
 
                 <div class="input-field">
+                  <label for="name">Change your name</label>
                   <input
                     id="name"
                     name="name"
@@ -129,10 +81,9 @@
                     required
                     value="<%= user.name %>"
                   />
-                  <label for="name">Change your name</label>
                   <span class="helper-text" data-error="Name should be not empty"> </span>
                 </div>
-
+                <br />
                 <div class="file-field input-field">
                   <span>Change your avatar</span>
                   <div class="btn">
@@ -154,33 +105,7 @@
     <!-- Footer-->
     <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">
-          If you have any questions, feel free:
-          <a href="https://djinni.co/q/d9b5f577b1/" target="_blank">
-            <img src="https://i.ibb.co/2gpxDSC/favicon-196x196.png" alt="Djinni Badge" width="50" />
-          </a>
-          <a href="https://www.instagram.com/vasyllko/" target="_blank">
-            <img
-              src="https://i.ibb.co/M6FY241/768px-Instagram-logo-2016-svg.png"
-              alt="Instagram Badge"
-              width="50"
-            />
-          </a>
-          <a href="https://t.me/vasylkoo" target="_blank">
-            <img
-              src="https://i.ibb.co/WfRFLYF/2048px-Telegram-logo-svg.png"
-              alt="Telegram Badge"
-              width="50"
-            />
-          </a>
-          <a href="https://github.com/vasyl1312" target="_blank">
-            <img
-              src="https://i.ibb.co/X89G0b8/PCp-Xdqv-UWf-CW1m-Xh-H1-Y-98y-Bpgs-Wxu-TSTofy3-NGMo9y-BTATDyz-Vkq-U580bf-Sln50b-FU.png"
-              alt="GitHub Badge"
-              width="50"
-            />
-          </a>
-        </p>
+        <p class="m-0 text-center text-white">Copyright &copy; My Website 2022</p>
       </div>
     </footer>
     <!-- Bootstrap core JS-->

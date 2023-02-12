@@ -48,9 +48,10 @@
     <header class="bg-dark py-3">
       <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
-          <h1 class="display-4 fw-bolder">Category:</h1>
-          <p class="lead fw-normal text-white-50 mb-0">Other</p>
-          <img class="img_category" src="../images/other.webp" alt="..." />
+          <h1 class="display-4 fw-bolder">My products</h1>
+          <p class="lead fw-normal text-white-50 mb-0">
+            On this site, you can see only your products
+          </p>
         </div>
       </div>
     </header>
@@ -84,9 +85,13 @@
               <!-- Product actions-->
               <div class="favourite-footer p-4 pt-0 border-top-0 bg-transparent">
                 <div class="text-center">
-                  <a class="btn btn-outline-dark mt-auto" href="/products/<%= product.id %>"
-                    >Read</a
+                  <%if (isAuth) {%>
+                  <a
+                    class="btn btn-outline-dark mt-auto"
+                    href="/my_products/<%= product.id %>/edit?allow=true"
+                    >Edit</a
                   >
+                  <%}%>
                 </div>
               </div>
             </div>

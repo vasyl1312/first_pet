@@ -1,5 +1,6 @@
 const { Router } = require('express')
 const Product = require('../models/Product')
+const readProduct = require('../middleware/readProduct')
 const User = require('../models/User')
 const isAuth = require('../middleware/isAuth')
 const router = Router()
@@ -19,18 +20,7 @@ router.get('/', async (req, res) => {
 
 //для оброблення route коли перейшли на --read--
 router.get('/:id', isAuth, async (req, res) => {
-  try {
-    const product = await Product.findById(req.params.id)
-    let img = product.img
-    if (img != '/images/empty.png') {
-      img = '/' + img
-    }
-    const userInSession = await User.findById(req.user._id)
-
-    res.render('product', { product, userInSession, img })
-  } catch (e) {
-    console.log(e)
-  }
+  readProduct(req, res)
 })
 
 module.exports = router
