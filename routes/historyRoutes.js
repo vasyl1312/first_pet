@@ -4,7 +4,7 @@ const sgMail = require('@sendgrid/mail')
 const contactPerson = require('../email/contactPerson')
 const History = require('../models/HistoryOfCommunication')
 const Product = require('../models/Product')
-const keys = require('../config/keysSecure.json')
+const keys = require('../config/keysSecures.json')
 const User = require('../models/User')
 const router = new Router()
 
