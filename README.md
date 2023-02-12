@@ -93,4 +93,4 @@ Here: I should type a description of this site and guide of this site
 14. When owner delete product, delete id from all user's favourites
 15. Moving duplicate html code to a separate folder
 16. Moving duplicate routes read product to a separate middleware
-17. Deploy to vercel
+17. Fix deploying

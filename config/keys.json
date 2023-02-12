@@ -1,0 +1,8 @@
+{
+  "MongoUri": "mongodb+srv://vasyl:Vasyl2002@cluster0.loe2v4e.mongodb.net/first_pet",
+  "PORT": "3000",
+  "EmptyImg": "https://i.ibb.co/0DDkYzL/empty.png",
+  "SESSION_SECRET": "some secret value",
+  "EMAIL_FROM": "kepsko.company@gmail.com",
+  "BASE_URL_PORT": "http://localhost:3000"
+}
