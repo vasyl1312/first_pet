@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const MongoSession = require('connect-mongodb-session')(session)
 
 const keys = require('./config/keys.json')
+const keyss = require('./config/keysSecures.json')
 const addRoutes = require('./routes/addRoutes')
 const homeRoutes = require('./routes/homeRoutes')
 const javaRoutes = require('./routes/javaRoutes')
@@ -37,7 +38,7 @@ app.use(express.static(__dirname + '/views'))
 app.use('/images', express.static(__dirname + '/images'))
 const mongoSession = new MongoSession({
   collection: 'sessions',
-  uri: keys.MongoUri,
+  uri: keyss.MongoUri,
 })
 
 app.engine('ejs', require('ejs').renderFile)
@@ -74,7 +75,7 @@ app.use(errorMiddleware) //вкінці бо деякі роути будуть 
 
 const start = async () => {
   try {
-    await mongoose.connect(`${keys.MongoUri}`)
+    await mongoose.connect(`${keyss.MongoUri}`)
 
     app.listen(PORT, () => {
       console.log(`Listening on port ${PORT}`)
