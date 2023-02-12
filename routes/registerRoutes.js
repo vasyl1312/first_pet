@@ -1,7 +1,7 @@
 const { Router } = require('express')
 const bcrypt = require('bcryptjs')
 const sgMail = require('@sendgrid/mail')
-const keys = require('../config/keys.json')
+const keys = require('../config/keysSecure.json')
 const User = require('../models/User')
 const regMail = require('../email/register')
 const emptyAvatar = '/images/emptyAvatar.png'
