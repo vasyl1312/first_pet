@@ -3,7 +3,7 @@ node_modules
 #some plans, how to update this site
 config/googleDatas.js
 config/have_to_do.txt
-config/keysSecures.json
+.env
 
 
 #here we save img of product and avatar
