@@ -1,10 +1,10 @@
 var express = require('express')
-require('dotenv').config()
 var bodyParser = require('body-parser')
 const session = require('express-session')
 const mongoose = require('mongoose')
 const MongoSession = require('connect-mongodb-session')(session)
 
+const keys = require('./config/keys.json')
 const addRoutes = require('./routes/addRoutes')
 const homeRoutes = require('./routes/homeRoutes')
 const javaRoutes = require('./routes/javaRoutes')
@@ -29,7 +29,7 @@ const web_designRoutes = require('./routes/web_designRoutes')
 const javascriptRoutes = require('./routes/javascriptRoutes')
 const my_productsRoutes = require('./routes/my_productsRoutes')
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || keys.PORT
 var app = express()
 
 app.use(bodyParser.json())
@@ -37,19 +37,14 @@ app.use(express.static(__dirname + '/views'))
 app.use('/images', express.static(__dirname + '/images'))
 const mongoSession = new MongoSession({
   collection: 'sessions',
-  uri: process.env.MongoUri,
+  uri: keys.MongoUri,
 })
 
 app.engine('ejs', require('ejs').renderFile)
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    mongoSession,
-  })
+  session({ secret: keys.SESSION_SECRET, resave: false, saveUninitialized: false, mongoSession })
 )
 app.use(fileMiddleware.single('avatar'))
 app.use(varMiddlware)
@@ -79,7 +74,8 @@ app.use(errorMiddleware) //вкінці бо деякі роути будуть 
 
 const start = async () => {
   try {
-    await mongoose.connect(`${process.env.MongoUri}`)
+    await mongoose.connect(`${keys.MongoUri}`)
+
     app.listen(PORT, () => {
       console.log(`Listening on port ${PORT}`)
     })

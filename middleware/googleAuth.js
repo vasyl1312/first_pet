@@ -1,16 +1,19 @@
 var GoogleStrategy = require('passport-google-oauth20').Strategy
 const User = require('../models/User')
 const sgMail = require('@sendgrid/mail')
+const keys = require('../config/keys.json')
 const regMail = require('../email/register')
 const emptyAvatar = '/images/emptyAvatar.png'
+const clientId = require('../config/googleDatas').clientId
+const clientSecreT = require('../config/googleDatas').clientSecret
 
 module.exports = async function (passport) {
   try {
     passport.use(
       new GoogleStrategy(
         {
-          clientID: process.env.clientId,
-          clientSecret: process.env.clientSecreT,
+          clientID: clientId,
+          clientSecret: clientSecreT,
           callbackURL: 'http://localhost:3000/google/callback',
         },
         async function (accessToken, refreshToken, profile, done) {
@@ -26,9 +29,8 @@ module.exports = async function (passport) {
                 /////////////////зробити шось з тим нудем
                 avatarUrl: emptyAvatar,
               })
-              //транспортер для відправлення по апі ключу сенд гріда емейл
-              sgMail.setApiKey(process.env.API_KEY)
 
+              sgMail.setApiKey(keys.API_KEY) //транспортер для відправлення по апі ключу сенд гріда емейл
               await user.save()
               await User.findOne({ email: profile.emails[0].value }).then(async (data) => {
                 await sgMail

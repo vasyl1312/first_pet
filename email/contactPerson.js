@@ -1,10 +1,11 @@
+const keys = require('../config/keys.json')
 const User = require('../models/User')
 const Product = require('../models/Product')
 
 module.exports = function (emailInSession, productTitle, productImg, ownerName, ownerEmail) {
   return {
     to: ownerEmail,
-    from: process.env.EMAIL_FROM,
+    from: keys.EMAIL_FROM,
     subject: `Hello, Your portfolio is interesting to me)`,
     html: `
             <h1>Hi, ${ownerName}</h1> <h2>My email is: ${emailInSession}:</h2>
@@ -16,7 +17,7 @@ module.exports = function (emailInSession, productTitle, productImg, ownerName, 
              </h3>
              <img class="img-header" src="https://cdn-icons-png.flaticon.com/512/4799/4799167.png" width="200"/>
              <p>Go to website
-               <a href="${process.env.BASE_URL_PORT}">Kepsko site</a>
+               <a href="${keys.BASE_URL_PORT}">Kepsko site</a>
              </p>
              <hr />
            `,
