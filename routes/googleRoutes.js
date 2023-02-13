@@ -1,9 +1,6 @@
 const { Router } = require('express')
 const User = require('../models/User')
 const router = new Router()
-const sgMail = require('@sendgrid/mail')
-const keys = require('../config/keys.json')
-const regMail = require('../email/register')
 const passport = require('passport')
 require('../middleware/googleAuth')(passport)
 

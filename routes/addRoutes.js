@@ -1,8 +1,7 @@
 const { Router } = require('express')
 const Product = require('../models/Product')
 const User = require('../models/User')
-const empty = require('../config/keys.json')
-const emptyImg = '/images/empty.png'
+const EMPTYIMG = '/images/empty.png'
 const isAuth = require('../middleware/isAuth') //якщо користувач зареєстрований то доступні роути
 const router = new Router()
 
@@ -23,7 +22,7 @@ router.post('/', isAuth, async (req, res) => {
     }
 
     if (!req.file) {
-      img = emptyImg
+      img = EMPTYIMG
     } else {
       img = req.file.path
     }

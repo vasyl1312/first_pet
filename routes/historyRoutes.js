@@ -4,7 +4,7 @@ const sgMail = require('@sendgrid/mail')
 const contactPerson = require('../email/contactPerson')
 const History = require('../models/HistoryOfCommunication')
 const Product = require('../models/Product')
-const keys = require('../config/keysSecures.json')
+// const keys = require('../config/keys.json')
 const User = require('../models/User')
 const router = new Router()
 
@@ -28,7 +28,7 @@ router.post('/', isAuth, async (req, res) => {
     const product = await Product.findById({ _id: req.body.productId })
     const owner = await User.findById({ _id: product.userId })
 
-    sgMail.setApiKey(keys.API_KEY) //і відсилаємо на email лист від користувача в сесії
+    sgMail.setApiKey(process.env.API_KEY) //і відсилаємо на email лист від користувача в сесії
     await sgMail
       .send(
         contactPerson(req.session.user.email, req.body.title, req.body.img, owner.name, owner.email)

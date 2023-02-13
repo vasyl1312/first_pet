@@ -1,6 +1,7 @@
 # first_pet `Keps'ko site`
 
 Link to course-work about the internship: https://drive.google.com/file/d/1dNQmQY97-azema0hALnX--UmrC6OiFNP/view?usp=sharing
+
 Here: I should type a description of this site and guide of this site
 ...
 
@@ -92,4 +93,7 @@ Here: I should type a description of this site and guide of this site
 14. When owner delete product, delete id from all user's favourites
 15. Moving duplicate html code to a separate folder
 16. Moving duplicate routes read product to a separate middleware
-17. Deploy to vercel add keys, cos vercel doesn't see that
+17. Add dotenv to hide keys and deploy project but still not work
+18. Push key to .env, have problem with sendgrid
+
+<!-- Fix deploying -->

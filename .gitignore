@@ -1,10 +1,8 @@
 node_modules
 # = mongo url; port; empty avatar for user 
 #some plans, how to update this site
-config/googleDatas.js
-config/have_to_do.txt
-config/keysSecures.json
-
+config
+.env
 
 #here we save img of product and avatar
 images

@@ -5,9 +5,8 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 const sgMail = require('@sendgrid/mail')
 const User = require('../models/User')
-const keys = require('../config/keysSecures.json')
+// const keys = require('../config/keys.json')
 const resetPassword = require('../email/resetPassword')
-const { log } = require('console')
 const router = new Router()
 
 let alert = { type: '', message: '' }
@@ -35,7 +34,7 @@ router.post('/', (req, res) => {
         candidate.resetTokenExp = Date.now() + 60 * 60 * 1000 //1год буде жити токен
         await candidate.save()
 
-        sgMail.setApiKey(keys.API_KEY) //і відсилаємо йому на email лист
+        sgMail.setApiKey(process.env.API_KEY) //і відсилаємо йому на email лист
         await sgMail.send(resetPassword(candidate.email, token)).catch((error) => {
           console.error(error)
         })
