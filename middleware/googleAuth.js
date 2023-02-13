@@ -12,9 +12,9 @@ module.exports = async function (passport) {
     passport.use(
       new GoogleStrategy(
         {
-          clientID: process.env.CLIENT_ID,
-          clientSecret: process.env.CLIENT_SECRET,
-          callbackURL: 'http://localhost:3000/google/callback',
+          clientID: `${process.env.CLIENT_ID}`,
+          clientSecret: `${process.env.CLIENT_SECRET}`,
+          callbackURL: `${process.env.BASE_URL_PORT}/google/callback`,
         },
         async function (accessToken, refreshToken, profile, done) {
           // find if a user exist with this email or not

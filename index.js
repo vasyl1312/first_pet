@@ -37,7 +37,7 @@ app.use(express.static(__dirname + '/views'))
 app.use('/images', express.static(__dirname + '/images'))
 const mongoSession = new MongoSession({
   collection: 'sessions',
-  uri: process.env.MONGO_URI,
+  uri: `${process.env.MONGO_URI}`,
 })
 
 app.engine('ejs', require('ejs').renderFile)
