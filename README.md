@@ -94,5 +94,6 @@ Here: I should type a description of this site and guide of this site
 15. Moving duplicate html code to a separate folder
 16. Moving duplicate routes read product to a separate middleware
 17. Add dotenv to hide keys and deploy project but still not work
+18. Push key to .env, have problem with sendgrid
 
 <!-- Fix deploying -->

@@ -1,9 +1,9 @@
-const keys = require('../config/keys.json')
+// const keys = require('../config/keys.json')
 
 module.exports = function (email, name) {
   return {
     to: email,
-    from: keys.EMAIL_FROM,
+    from: process.env.EMAIL_FROM,
     subject: 'Account has been successfully created',
     html: `
       <h1>Welcome to Kepsko site</h1>
@@ -11,7 +11,7 @@ module.exports = function (email, name) {
       <p>You successfully created your account with email:<h6> ${email}</h6>and username:<h6> ${name}</h6></p>
       <img class="img-header" src="https://cdn-icons-png.flaticon.com/512/4799/4799167.png" width="200"/>
       <p>Go to website
-        <a href="${keys.BASE_URL_PORT}">Kepsko site</a>
+        <a href="${process.env.BASE_URL_PORT}">Kepsko site</a>
       </p>  
       <hr />
 
