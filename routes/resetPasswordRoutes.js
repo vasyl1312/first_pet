@@ -1,11 +1,9 @@
 const { Router } = require('express')
 const crypto = require('crypto') //для рандом знач для коду
 const mongoose = require('mongoose')
-
 const bcrypt = require('bcryptjs')
-const sgMail = require('@sendgrid/mail')
 const User = require('../models/User')
-// const keys = require('../config/keys.json')
+const Sib = require('sib-api-v3-sdk')
 const resetPassword = require('../email/resetPassword')
 const router = new Router()
 
@@ -34,10 +32,14 @@ router.post('/', (req, res) => {
         candidate.resetTokenExp = Date.now() + 60 * 60 * 1000 //1год буде жити токен
         await candidate.save()
 
-        sgMail.setApiKey(process.env.API_KEY) //і відсилаємо йому на email лист
-        await sgMail.send(resetPassword(candidate.email, token)).catch((error) => {
-          console.error(error)
-        })
+        Sib.ApiClient.instance.authentications['api-key'].apiKey = process.env.API_KEY_BLUE
+        const tranEmailApi = new Sib.TransactionalEmailsApi()
+        //і відсилаємо йому на email лист
+        await tranEmailApi
+          .sendTransacEmail(resetPassword(candidate.email, token))
+          .catch((error) => {
+            console.error(error)
+          })
 
         alert.type = 'success'
         alert.message = 'Please, check your email'
