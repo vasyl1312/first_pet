@@ -96,5 +96,4 @@ Here: I should type a description of this site and guide of this site
 17. Add dotenv to hide keys and deploy project but still not work
 18. Push key to .env
 19. Connect to sendinblue, fixing send email
-
-<!-- Fix deploying -->
+20. Fixing deploying, and hiding the type of error in the login page for more security
