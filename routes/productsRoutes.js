@@ -6,18 +6,37 @@ const User = require('../models/User')
 const isAuth = require('../middleware/isAuth')
 const router = Router()
 
-//функція для розподілу, якщо користувач створив курс то редагує - інші перегляд і придбання
-function isOwner(product, req) {
-  return product.userId.toString() === req.user._id.toString()
+//функція для розподілу, якщо користувач створив продукт то в загальному списку має бачити свої
+function isOwner(products, req) {
+  let myProd = []
+  let elseProd = []
+  let result = []
+  products.forEach((product) => {
+    if (product.userId.toString() === req.user._id.toString()) myProd.push(product)
+    else elseProd.push(product)
+  })
+  result.push(myProd, elseProd)
+  return result
 }
 
 let alert = { type: '', message: '' }
 router.get('/', async (req, res) => {
   try {
-    const products = await Product.find()
-    res.render('products', { alert, products })
-    alert.type = ''
-    alert.message = ''
+    if (req.session.user) {
+      const products = await Product.find()
+      const ownProducts = isOwner(products, req)
+      const myProd = ownProducts[0]
+      const elseProd = ownProducts[1]
+      res.render('products', { alert, elseProd, myProd })
+      alert.type = ''
+      alert.message = ''
+    } else {
+      const elseProd = await Product.find()
+      const myProd = []
+      res.render('products', { alert, elseProd, myProd })
+      alert.type = ''
+      alert.message = ''
+    }
   } catch (e) {
     console.error(e)
   }
