@@ -34,6 +34,7 @@ router.post('/', isAuth, async (req, res) => {
       description,
       categories,
       userId: req.user,
+      date: new Date(),
     })
     await product.save()
 

@@ -27,6 +27,8 @@ const productSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User', //взаємодія між продуктом та користувачем
   },
+
+  date: Date,
 })
 
 module.exports = model('Product', productSchema)
