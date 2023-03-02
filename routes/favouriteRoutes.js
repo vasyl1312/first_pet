@@ -1,5 +1,4 @@
 const { Router } = require('express')
-const Favourite = require('../models/Favourite')
 const User = require('../models/User')
 const Product = require('../models/Product')
 const isAuth = require('../middleware/isAuth') //якщо користувач зареєстрований то доступні роути

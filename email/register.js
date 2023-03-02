@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 module.exports = function (email, name) {
   return {
     sender: {
@@ -9,14 +8,6 @@ module.exports = function (email, name) {
         email,
       },
     ],
-=======
-// const keys = require('../config/keys.json')
-
-module.exports = function (email, name) {
-  return {
-    to: email,
-    from: process.env.EMAIL_FROM,
->>>>>>> main
     subject: 'Account has been successfully created',
     textContent: `
       <h1>Welcome to Kepsko site</h1>

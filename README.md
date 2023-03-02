@@ -101,3 +101,4 @@ Here: I should type a description of this site and guide of this site
 20. Fixing deploying, and hiding the type of error in the login page for more security
 21. All products-page show a mark on user's own products
 22. Add date to product
+23. Compare changes from update2 branch to main
