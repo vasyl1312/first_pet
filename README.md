@@ -102,3 +102,6 @@ Here: I should type a description of this site and guide of this site
 21. All products-page show a mark on user's own products
 22. Add date to product
 23. Compare changes from update2 branch to main
+24. When the user registers his account by google auth - generate a random password
+
+<!-- fix deploy -->
