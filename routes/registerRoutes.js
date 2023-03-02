@@ -1,7 +1,11 @@
 const { Router } = require('express')
 const bcrypt = require('bcryptjs')
+<<<<<<< HEAD
+const Sib = require('sib-api-v3-sdk')
+=======
 const sgMail = require('@sendgrid/mail')
 // const keys = require('../config/keys.json')
+>>>>>>> main
 const User = require('../models/User')
 const regMail = require('../email/register')
 const emptyAvatar = '/images/emptyAvatar.png'
@@ -45,11 +49,17 @@ router.post('/', async (req, res) => {
         avatarUrl: emptyAvatar,
       })
 
+<<<<<<< HEAD
+      //і відсилаємо на email лист від користувача в сесії
+      Sib.ApiClient.instance.authentications['api-key'].apiKey = process.env.API_KEY_BLUE
+=======
       sgMail.setApiKey(process.env.API_KEY) //транспортер для відправлення по апі ключу сенд гріда емейл
+>>>>>>> main
       await user.save()
       alert.type = 'success'
       alert.message = 'Account has been created'
-      await sgMail.send(regMail(email, name)).catch((error) => {
+      const tranEmailApi = new Sib.TransactionalEmailsApi()
+      await tranEmailApi.sendTransacEmail(regMail(email, name)).catch((error) => {
         console.error(error)
       })
       res.render('login', { alert })

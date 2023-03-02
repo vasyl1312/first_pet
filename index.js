@@ -3,9 +3,13 @@ var bodyParser = require('body-parser')
 const session = require('express-session')
 const mongoose = require('mongoose')
 const MongoSession = require('connect-mongodb-session')(session)
+<<<<<<< HEAD
+require('dotenv').config()
+=======
 
 require('dotenv').config()
 const dotenv = require('dotenv')
+>>>>>>> main
 // const keys = require('./config/keys.json')
 const addRoutes = require('./routes/addRoutes')
 const homeRoutes = require('./routes/homeRoutes')
@@ -39,7 +43,11 @@ app.use(express.static(__dirname + '/views'))
 app.use('/images', express.static(__dirname + '/images'))
 const mongoSession = new MongoSession({
   collection: 'sessions',
+<<<<<<< HEAD
+  uri: process.env.MONGO_URI,
+=======
   uri: `${process.env.MONGO_URI}`,
+>>>>>>> main
 })
 
 app.engine('ejs', require('ejs').renderFile)

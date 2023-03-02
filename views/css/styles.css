@@ -4955,6 +4955,7 @@ fieldset:disabled .btn {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
 }
+
 @media (prefers-reduced-motion: reduce) {
   .accordion-button {
     transition: none;
@@ -11692,4 +11693,13 @@ a {
 .img_category {
   width: 50%;
   height: auto;
+}
+.mark {
+  position: absolute;
+  top: 0%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(11, 156, 49, 0.4);
+  padding: 5px;
+  border-radius: 5px;
 }

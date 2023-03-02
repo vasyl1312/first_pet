@@ -1,5 +1,7 @@
 # first_pet `Keps'ko site`
 
+Link to curent website: https://kepsko-0l8s.onrender.com/
+
 Link to course-work about the internship: https://drive.google.com/file/d/1dNQmQY97-azema0hALnX--UmrC6OiFNP/view?usp=sharing
 
 Here: I should type a description of this site and guide of this site
@@ -94,6 +96,8 @@ Here: I should type a description of this site and guide of this site
 15. Moving duplicate html code to a separate folder
 16. Moving duplicate routes read product to a separate middleware
 17. Add dotenv to hide keys and deploy project but still not work
-18. Push key to .env, have problem with sendgrid
-
-<!-- Fix deploying -->
+18. Push key to .env
+19. Connect to sendinblue, fixing send email
+20. Fixing deploying, and hiding the type of error in the login page for more security
+21. All products-page show a mark on user's own products
+22. Add date to product

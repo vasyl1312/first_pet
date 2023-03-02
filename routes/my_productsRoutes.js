@@ -64,8 +64,7 @@ router.post('/edit', isAuth, async (req, res) => {
     if (!isOwner(product, req)) {
       return res.redirect('/my_products')
     }
-
-    Object.assign(product, req.body)
+    ;(req.body.date = new Date()), Object.assign(product, req.body)
     await product.save()
     alert.type = 'success'
     alert.message = 'Your product has been successfully edited'
