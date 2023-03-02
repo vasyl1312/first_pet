@@ -4,6 +4,10 @@ const Sib = require('sib-api-v3-sdk')
 const contactPerson = require('../email/contactPerson')
 const History = require('../models/HistoryOfCommunication')
 const Product = require('../models/Product')
+<<<<<<< HEAD
+=======
+// const keys = require('../config/keys.json')
+>>>>>>> main
 const User = require('../models/User')
 const router = new Router()
 
@@ -27,12 +31,19 @@ router.post('/', isAuth, async (req, res) => {
     const product = await Product.findById({ _id: req.body.productId })
     const owner = await User.findById({ _id: product.userId })
 
+<<<<<<< HEAD
     //і відсилаємо на email лист від користувача в сесії
     Sib.ApiClient.instance.authentications['api-key'].apiKey = process.env.API_KEY_BLUE
     const tranEmailApi = new Sib.TransactionalEmailsApi()
     await tranEmailApi
       .sendTransacEmail(
         contactPerson(req.session.user.email, req.body.title, owner.name, owner.email)
+=======
+    sgMail.setApiKey(process.env.API_KEY) //і відсилаємо на email лист від користувача в сесії
+    await sgMail
+      .send(
+        contactPerson(req.session.user.email, req.body.title, req.body.img, owner.name, owner.email)
+>>>>>>> main
       )
       .catch((error) => {
         console.error(error)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 module.exports = function (emailInSession, productTitle, ownerName, ownerEmail) {
   return {
     sender: {
@@ -8,6 +9,16 @@ module.exports = function (emailInSession, productTitle, ownerName, ownerEmail) 
         email: ownerEmail,
       },
     ],
+=======
+// const keys = require('../config/keys.json')
+const User = require('../models/User')
+const Product = require('../models/Product')
+
+module.exports = function (emailInSession, productTitle, productImg, ownerName, ownerEmail) {
+  return {
+    to: ownerEmail,
+    from: process.env.EMAIL_FROM,
+>>>>>>> main
     subject: `Hello, Your portfolio is interesting to me)`,
     textContent: `
             <h1>Hi, ${ownerName}</h1> <h2>My email is: ${emailInSession}</h2>

@@ -3,7 +3,10 @@ node_modules
 #some plans, how to update this site
 config
 .env
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 
 #here we save img of product and avatar
 
