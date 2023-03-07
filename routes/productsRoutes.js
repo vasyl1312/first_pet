@@ -22,18 +22,19 @@ function isOwner(products, req) {
 let alert = { type: '', message: '' }
 router.get('/', async (req, res) => {
   try {
+    let base_url = process.env.BASE_URL_PORT
     if (req.session.user) {
       const products = await Product.find()
       const ownProducts = isOwner(products, req)
       const myProd = ownProducts[0]
       const elseProd = ownProducts[1]
-      res.render('products', { alert, elseProd, myProd })
+      res.render('products', { alert, elseProd, myProd, base_url })
       alert.type = ''
       alert.message = ''
     } else {
       const elseProd = await Product.find()
       const myProd = []
-      res.render('products', { alert, elseProd, myProd })
+      res.render('products', { alert, elseProd, myProd, base_url })
       alert.type = ''
       alert.message = ''
     }

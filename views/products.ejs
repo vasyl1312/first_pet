@@ -15,6 +15,20 @@
         $('#headerLink').load('../headers/headerLink.ejs')
       })
     </script>
+    <link rel="stylesheet" href="/path/to/fontawesome/all.css" />
+    <link rel="stylesheet" href="/path/to/bootstrap.min.css" />
+
+    <script src="/path/to/jquery.slim.min.js"></script>
+    <script src="/path/to/popper.min.js"></script>
+    <script src="/path/to/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+      integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <div id="header"></div>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -75,7 +89,7 @@
               <!-- Product image-->
               <img class="favourite-img-top" src="<%= product.img %>" alt="..." />
               <!-- Product details-->
-              <div class="favourite-body p-4">
+              <div class="favourite-body">
                 <div class="text-center">
                   <h5 class="fw-bolder"><%= product.title %></h5>
                   <h7><%= product.price %>$</h7>
@@ -91,6 +105,22 @@
               </div>
               <h6><%= product.date.toLocaleString()%></h6>
             </div>
+            <div class="text-center">
+              <button
+                id="copy"
+                class="btn btn-outline-dark mt-auto"
+                onclick="setClipboard('<%=base_url%>/products/<%= product.id %>')"
+              >
+                Copy
+              </button>
+              <div id="share-buttons" onclick="setMedia('<%= product.id %>')">
+                <a class="facebook" target="blank"><i class="fab fa-facebook"></i></a>
+                <a class="twitter" target="blank"><i class="fab fa-twitter"></i></a>
+                <a class="email" target="blank"><i class="fa fa-envelope"></i></a>
+                <a class="linkedin" target="blank"><i class="fab fa-linkedin"></i></a>
+                <a class="telegram" target="blank"><i class="fab fa-telegram"></i></a>
+              </div>
+            </div>
           </div>
           <% }) %> <% myProd.forEach((product)=> { %>
           <div class="col mb-5">
@@ -99,7 +129,7 @@
               <img class="favourite-img-top" src="<%= product.img %>" alt="My Product Mark" />
               <div class="mark">Your product</div>
               <!-- Product details-->
-              <div class="favourite-body p-4">
+              <div class="favourite-body">
                 <div class="text-center">
                   <h5 class="fw-bolder"><%= product.title %></h5>
                   <h7><%= product.price %>$</h7>
@@ -114,6 +144,22 @@
                 </div>
               </div>
               <h6><%= product.date.toLocaleString()%></h6>
+            </div>
+            <div class="text-center">
+              <button
+                id="copy"
+                class="btn btn-outline-dark mt-auto"
+                onclick="setClipboard('<%=base_url%>/products/<%= product.id %>')"
+              >
+                Copy
+              </button>
+              <div id="share-buttons" onclick="setMedia('<%= product.id %>')">
+                <a class="facebook" target="blank"><i class="fab fa-facebook"></i></a>
+                <a class="twitter" target="blank"><i class="fab fa-twitter"></i></a>
+                <a class="email" target="blank"><i class="fa fa-envelope"></i></a>
+                <a class="linkedin" target="blank"><i class="fab fa-linkedin"></i></a>
+                <a class="telegram" target="blank"><i class="fab fa-telegram"></i></a>
+              </div>
             </div>
           </div>
           <% }) %> <% } else {%>
