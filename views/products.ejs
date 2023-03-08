@@ -21,14 +21,6 @@
     <script src="/path/to/jquery.slim.min.js"></script>
     <script src="/path/to/popper.min.js"></script>
     <script src="/path/to/bootstrap.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
-      integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-
     <div id="header"></div>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -107,13 +99,16 @@
             </div>
             <div class="text-center">
               <button
-                id="copy"
+                id="copy-btn"
                 class="btn btn-outline-dark mt-auto"
                 onclick="setClipboard('<%=base_url%>/products/<%= product.id %>')"
               >
-                Copy
+                Copy URL
               </button>
-              <div id="share-buttons" onclick="setMedia('<%= product.id %>')">
+              <div
+                id="share-buttons"
+                onclick="setMedia('<%=base_url%>/products/<%= product.id %>')"
+              >
                 <a class="facebook" target="blank"><i class="fab fa-facebook"></i></a>
                 <a class="twitter" target="blank"><i class="fab fa-twitter"></i></a>
                 <a class="email" target="blank"><i class="fa fa-envelope"></i></a>
@@ -147,13 +142,16 @@
             </div>
             <div class="text-center">
               <button
-                id="copy"
+                id="copy-btn"
                 class="btn btn-outline-dark mt-auto"
                 onclick="setClipboard('<%=base_url%>/products/<%= product.id %>')"
               >
-                Copy
+                Copy URL
               </button>
-              <div id="share-buttons" onclick="setMedia('<%= product.id %>')">
+              <div
+                id="share-buttons"
+                onclick="setMedia('<%=base_url%>/products/<%= product.id %>')"
+              >
                 <a class="facebook" target="blank"><i class="fab fa-facebook"></i></a>
                 <a class="twitter" target="blank"><i class="fab fa-twitter"></i></a>
                 <a class="email" target="blank"><i class="fa fa-envelope"></i></a>

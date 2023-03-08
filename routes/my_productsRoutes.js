@@ -14,8 +14,9 @@ let alert = { type: '', message: '' }
 router.get('/', isAuth, async (req, res) => {
   try {
     const products = await Product.find({ userId: req.user._id })
+    let base_url = process.env.BASE_URL_PORT
 
-    res.render('my_products', { alert, products })
+    res.render('my_products', { alert, products, base_url })
     alert.type = ''
     alert.message = ''
   } catch (e) {

@@ -10,21 +10,16 @@ $('.chosen-select').chosen({
 
 function setClipboard(value) {
   var tempInput = document.createElement('input')
-  tempInput.value = value
+  tempInput.value = `${value}`
   document.body.appendChild(tempInput)
   tempInput.select()
   document.execCommand('copy')
   document.body.removeChild(tempInput)
-  document.getElementById('copy').innerHTML = 'Copied'
-  timeout = setTimeout(funcSwitch, 3000) //щоб значення кнопки не завжди було як 'скопійовано'
-}
-
-function funcSwitch() {
-  document.getElementById('copy').innerHTML = 'Copy'
+  alert('Copied')
 }
 
 function setMedia(value) {
-  const link = encodeURI(window.location.href) + `/${value}`
+  const link = `${value}`
 
   const fb = document.querySelectorAll('.facebook')
   fb.forEach((fb) => {

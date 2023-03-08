@@ -104,4 +104,6 @@ Here: I should type a description of this site and guide of this site
 23. Compare changes from update2 branch to main
 24. When the user registers his account by google auth - generate a random password
 25. Add sharing button for all products to social media
+26. Add copy link button to each products
+
 <!-- fix deploy -->

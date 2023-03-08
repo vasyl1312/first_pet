@@ -89,6 +89,26 @@
                   >
                 </div>
               </div>
+              <h6><%= product.date.toLocaleString()%></h6>
+            </div>
+            <div class="text-center">
+              <button
+                id="copy-btn"
+                class="btn btn-outline-dark mt-auto"
+                onclick="setClipboard('<%=base_url%>/products/<%= product.id %>')"
+              >
+                Copy URL
+              </button>
+              <div
+                id="share-buttons"
+                onclick="setMedia('<%=base_url%>/products/<%= product.id %>')"
+              >
+                <a class="facebook" target="blank"><i class="fab fa-facebook"></i></a>
+                <a class="twitter" target="blank"><i class="fab fa-twitter"></i></a>
+                <a class="email" target="blank"><i class="fa fa-envelope"></i></a>
+                <a class="linkedin" target="blank"><i class="fab fa-linkedin"></i></a>
+                <a class="telegram" target="blank"><i class="fab fa-telegram"></i></a>
+              </div>
             </div>
           </div>
           <% }) %> <% } else {%>
