@@ -76,7 +76,7 @@
       <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
           <%if (myProd.length > 0 || elseProd.length > 0) { %> <% elseProd.forEach((product)=> { %>
-          <div class="col mb-5">
+          <div class="mb-auto">
             <div class="favourite h-100">
               <!-- Product image-->
               <img class="favourite-img-top" src="<%= product.img %>" alt="..." />
@@ -118,7 +118,7 @@
             </div>
           </div>
           <% }) %> <% myProd.forEach((product)=> { %>
-          <div class="col mb-5">
+          <div class="mb-auto col">
             <div class="favourite h-100 m">
               <!-- Product image-->
               <img class="favourite-img-top" src="<%= product.img %>" alt="My Product Mark" />

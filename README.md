@@ -1,11 +1,12 @@
-# first_pet `Keps'ko site`
-
-Link to curent website: https://kepsko-0l8s.onrender.com/
+# pet `Keps'ko site`
 
 Link to course-work about the internship: https://drive.google.com/file/d/1dNQmQY97-azema0hALnX--UmrC6OiFNP/view?usp=sharing
 
-Here: I should type a description of this site and guide of this site
-...
+### This website is written on Node.js/Express/MongoDB/Google Auth/JS-frontend/REST API/SendinBlue - with CRUD operations and more.
+
+On this website, you can sign in/up with email or googleAuth, and reset your forgotten password.
+Users can add their own resume with information, cv, technologies, photos, expected salary, and more. Everyone can see all candidates, how they studied, where, and what to be in this position. Other people or companies can add good candidates to their favorite page and communicate with the owner by email(SendinBlue). And on the website are a history page of communication, a page of our own products, and pages with filtres by technologies. Also, all products have sharing page on social media this resume will be useful for applying to offers and the candidate won't send a cv in pdf-will send a complete cv with studying steps and pet projects.
+On this website are more features, and about these, you can see below:
 
 # This is a short description of each commit
 
@@ -105,5 +106,7 @@ Here: I should type a description of this site and guide of this site
 24. When the user registers his account by google auth - generate a random password
 25. Add sharing button for all products to social media
 26. Add copy link button to each products
+
+`Connect to React`
 
 <!-- fix deploy -->

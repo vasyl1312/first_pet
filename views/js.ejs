@@ -70,10 +70,10 @@
       <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
           <%if (products.length > 0) { %> <% products.forEach((product)=> { %>
-          <div class="col mb-5">
-            <div class="favourite h-100">
+          <div class="mb-auto col">
+            <div class="favourite h-100 m">
               <!-- Product image-->
-              <img class="favourite-img-top" src="<%= product.img %>" alt="..." />
+              <img class="favourite-img-top" src="<%= product.img %>" alt="" />
               <!-- Product details-->
               <div class="favourite-body p-4">
                 <div class="text-center">
