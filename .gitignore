@@ -11,4 +11,6 @@ config
 #here we save img of product and avatar
 
 1.js
-netlify.toml
+fruitkha-package1.0
+products1.ejs
+views/assets

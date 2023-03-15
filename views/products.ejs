@@ -1,66 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" type="image/x-icon" href="./assets/calzone.png" />
-    <script
-      src="https://code.jquery.com/jquery-3.6.3.min.js"
-      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      $(function () {
-        $('#header').load('../headers/header.ejs')
-        $('#sourceCode').load('../headers/sourceCode.ejs')
-        $('#headerDropList').load('../headers/headerDropList.ejs')
-        $('#headerLink').load('../headers/headerLink.ejs')
-      })
-    </script>
-    <link rel="stylesheet" href="/path/to/fontawesome/all.css" />
-    <link rel="stylesheet" href="/path/to/bootstrap.min.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/"
+    />
 
-    <script src="/path/to/jquery.slim.min.js"></script>
-    <script src="/path/to/popper.min.js"></script>
-    <script src="/path/to/bootstrap.min.js"></script>
-    <div id="header"></div>
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container px-4 px-lg-5">
-        <div id="sourceCode"></div>
+    <!-- title -->
+    <title>Kepsko website</title>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-            <li class="dropdown-item">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
-            </li>
-            <div id="headerDropList"></div>
-            <% if (isAuth) {%>
-            <div id="headerLink"></div>
-          </ul>
-          <%} else {%>
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-            <li class="dropdown-item">
-              <a class="nav-link" href="/login"
-                ><img src="../../images/login.png" style="width: 50px; height: 50px"
-              /></a>
-            </li>
-          </ul>
-          <%}%>
-        </div>
-      </div>
-    </nav>
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="./assets/calzone.png" />
+    <!-- google font -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap"
+      rel="stylesheet"
+    /> -->
+    <!-- fontawesome
+    <link rel="stylesheet" href="assets/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" /> -->
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.css" />
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css" />
+    <!-- animate css -->
+    <!-- mean menu css -->
+    <link rel="stylesheet" href="assets/css/meanmenu.min.css" />
+    <!-- main style -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- responsive -->
+    <link rel="stylesheet" href="assets/css/responsive.css" />
   </head>
-
   <body>
-    <!-- Header-->
-    <header class="bg-dark py-3">
-      <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-white">
-          <h1 class="display-4 fw-bolder">All products</h1>
-          <p class="lead fw-normal text-white-50 mb-0">On this site, you can see all products</p>
+    <!--PreLoader-->
+    <div class="loader">
+      <div class="loader-inner">
+        <div class="circle"></div>
+      </div>
+    </div>
+    <!--PreLoader Ends-->
+
+    <!-- header -->
+    <div class="top-header-area" id="sticker">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-sm-12 text-center">
+            <div class="main-menu-wrap">
+              <!-- logo -->
+              <div class="site-logo">
+                <a href="/">
+                  <img src="./assets/calzone.png" alt="" />
+                </a>
+              </div>
+              <!-- logo -->
+
+              <!-- menu start -->
+              <nav class="main-menu">
+                <ul>
+                  <li class="current-list-item">
+                    <a href="/">Home</a>
+                  </li>
+                  <li>
+                    <a href="/products">All Products</a>
+                    <ul class="sub-menu">
+                      <li><a href="/javascript">JavaScript</a></li>
+                      <li><a href="/java">Java</a></li>
+                      <li><a href="/python">Python</a></li>
+                      <li><a href="/c_similar">C similar</a></li>
+                      <li><a href="/frontend">Frontend</a></li>
+                      <li><a href="/backend">Backend</a></li>
+                      <li><a href="/web_design">Web Design</a></li>
+                      <li><a href="/other">Other</a></li>
+                    </ul>
+                  </li>
+                  <% if (isAuth) {%>
+                  <li><a href="/add">Add new</a></li>
+                  <li><a href="/favourite">Favourite</a></li>
+                  <li><a href="/history">History</a></li>
+                  <li><a href="/my_products">My Products</a></li>
+                  <li>
+                    <div class="header-icons">
+                      <a class="mobile-hide search-bar-icon" href="/profile">Profile</a>
+                      <a class="mobile-hide search-bar-icon" href="/logout">Log Out</a>
+                    </div>
+                  </li>
+                  <%} else {%>
+                  <li>
+                    <div class="header-icons">
+                      <a class="mobile-hide search-bar-icon" href="/login">Login</a>
+                    </div>
+                  </li>
+                  <%}%>
+                </ul>
+              </nav>
+              <div class="mobile-menu"></div>
+              <!-- menu end -->
+            </div>
+          </div>
         </div>
       </div>
-    </header>
+    </div>
+    <!-- end header -->
 
+    <!-- hero area -->
+    <div class="hero-area hero-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2 text-center">
+            <div class="hero-text">
+              <div class="hero-text-tablecell">
+                <p class="subtitle">Kepsko website</p>
+                <h1>All products page</h1>
+                <div class="hero-btns">
+                  <a href="shop.html" class="boxed-btn">Fruit Collection</a>
+                  <a href="contact.html" class="bordered-btn">Contact Us</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end hero area -->
+
+    <!-- ///////////////////////// change-->
     <!-- alerts -->
     <%if (alert.type.length > 0) { %>
     <div class="container px-4 px-lg-5 my-5">
@@ -71,117 +140,101 @@
     </div>
     <%}%>
 
-    <!-- Section-->
-    <section class="py-5">
-      <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-          <%if (myProd.length > 0 || elseProd.length > 0) { %> <% elseProd.forEach((product)=> { %>
-          <div class="mb-auto">
-            <div class="favourite h-100">
-              <!-- Product image-->
-              <img class="favourite-img-top" src="<%= product.img %>" alt="..." />
-              <!-- Product details-->
-              <div class="favourite-body">
-                <div class="text-center">
-                  <h5 class="fw-bolder"><%= product.title %></h5>
-                  <h7><%= product.price %>$</h7>
-                </div>
-              </div>
-              <!-- Product actions-->
-              <div class="favourite-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center">
-                  <a class="btn btn-outline-dark mt-auto" href="/products/<%= product.id %>"
-                    >Read</a
-                  >
-                </div>
-              </div>
-              <h6><%= product.date.toLocaleString()%></h6>
+    <!-- product section -->
+    <div class="product-section mt-150 mb-150">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2 text-center">
+            <div class="section-title">
+              <h3><span class="orange-text">All</span> Products</h3>
+              <p>
+                On this page you can see all products, so to see your own and add new products -
+                create your account.
+              </p>
             </div>
-            <div class="text-center">
-              <button
-                id="copy-btn"
-                class="btn btn-outline-dark mt-auto"
-                onclick="setClipboard('<%=base_url%>/products/<%= product.id %>')"
-              >
-                Copy URL
-              </button>
-              <div
-                id="share-buttons"
-                onclick="setMedia('<%=base_url%>/products/<%= product.id %>')"
-              >
-                <a class="facebook" target="blank"><i class="fab fa-facebook"></i></a>
-                <a class="twitter" target="blank"><i class="fab fa-twitter"></i></a>
-                <a class="email" target="blank"><i class="fa fa-envelope"></i></a>
-                <a class="linkedin" target="blank"><i class="fab fa-linkedin"></i></a>
-                <a class="telegram" target="blank"><i class="fab fa-telegram"></i></a>
+          </div>
+        </div>
+
+        <div class="row">
+          <%if (myProd.length > 0 || elseProd.length > 0) { %> <% elseProd.forEach((product)=> { %>
+          <div class="col-lg-4 col-md-6 text-center">
+            <div class="single-product-item">
+              <div class="product-image">
+                <a href="/products/<%= product.id %>"><img src="<%= product.img %>" alt="" /></a>
               </div>
+              <h3><%= product.title %></h3>
+              <p class="product-price"><span>Expected salary</span> <%= product.price %>$</p>
+              <a href="/products/<%= product.id %>" class="cart-btn">Read</a>
+              <p><span><%= product.date.toLocaleString()%></span></p>
+              <a class="telegram" target="blank"><i class="fab fa-telegram"></i></a>
+
+              <!-- додати шеринг -->
             </div>
           </div>
           <% }) %> <% myProd.forEach((product)=> { %>
-          <div class="mb-auto col">
-            <div class="favourite h-100 m">
-              <!-- Product image-->
-              <img class="favourite-img-top" src="<%= product.img %>" alt="My Product Mark" />
-              <div class="mark">Your product</div>
-              <!-- Product details-->
-              <div class="favourite-body">
-                <div class="text-center">
-                  <h5 class="fw-bolder"><%= product.title %></h5>
-                  <h7><%= product.price %>$</h7>
-                </div>
+          <div class="col-lg-4 col-md-6 text-center">
+            <div class="single-product-item">
+              <div class="product-image">
+                <a href="/products/<%= product.id %>"
+                  ><img src="<%= product.img %>" alt="My Product Mark" />
+                  <!-- додати формат і стилі -->
+                  <div class="mark">Your product</div></a
+                >
               </div>
-              <!-- Product actions-->
-              <div class="favourite-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center">
-                  <a class="btn btn-outline-dark mt-auto" href="/products/<%= product.id %>"
-                    >Read</a
-                  >
-                </div>
-              </div>
-              <h6><%= product.date.toLocaleString()%></h6>
-            </div>
-            <div class="text-center">
-              <button
-                id="copy-btn"
-                class="btn btn-outline-dark mt-auto"
-                onclick="setClipboard('<%=base_url%>/products/<%= product.id %>')"
-              >
-                Copy URL
-              </button>
-              <div
-                id="share-buttons"
-                onclick="setMedia('<%=base_url%>/products/<%= product.id %>')"
-              >
-                <a class="facebook" target="blank"><i class="fab fa-facebook"></i></a>
-                <a class="twitter" target="blank"><i class="fab fa-twitter"></i></a>
-                <a class="email" target="blank"><i class="fa fa-envelope"></i></a>
-                <a class="linkedin" target="blank"><i class="fab fa-linkedin"></i></a>
-                <a class="telegram" target="blank"><i class="fab fa-telegram"></i></a>
-              </div>
+              <h3><%= product.title %></h3>
+              <p class="product-price"><span>Expected salary</span> <%= product.price %>$</p>
+              <a href="/products/<%= product.id %>" class="cart-btn">Read</a>
+              <p><span><%= product.date.toLocaleString()%></span></p>
             </div>
           </div>
           <% }) %> <% } else {%>
-          <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
-              <h1 class="display-4 fw-bolder">Opps</h1>
-              <p class="lead fw-normal text-white-50 mb-0">
-                At this moment, there are not any posts
-              </p>
+          <div class="col-lg-8 offset-lg-2 text-center">
+            <div class="section-title">
+              <h3><span class="orange-text">Opps</span>...</h3>
+              <p>At this moment, there are not any posts</p>
             </div>
           </div>
           <%}%>
         </div>
       </div>
-    </section>
-    <!-- Footer-->
-    <footer class="py-5 bg-dark">
+    </div>
+    <!-- end product section -->
+
+    <!-- copyright -->
+    <div class="copyright">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; My Website 2022</p>
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2 text-center">
+            <p>
+              Copyrights &copy; 2023 - <a href="https://github.com/vasyl1312">Vasyl Hryts</a>, All
+              Rights Reserved.
+            </p>
+          </div>
+        </div>
       </div>
-    </footer>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
+    </div>
+    <!-- end copyright -->
+
+    <!-- jquery -->
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- count down -->
+    <script src="assets/js/jquery.countdown.js"></script>
+    <!-- isotope -->
+    <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
+    <!-- waypoints -->
+    <script src="assets/js/waypoints.js"></script>
+    <!-- owl carousel -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- magnific popup -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- mean menu -->
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <!-- sticker js -->
+    <script src="assets/js/sticker.js"></script>
+    <!-- main js -->
+    <script src="assets/js/main.js"></script>
     <script src="js/scripts.js"></script>
   </body>
 </html>

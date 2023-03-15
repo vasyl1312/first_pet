@@ -107,6 +107,8 @@ On this website are more features, and about these, you can see below:
 25. Add sharing button for all products to social media
 26. Add copy link button to each products
 
-`Connect to React`
+`Frontend fixing`
+
+1. Simple bootstrap style to allproduct page
 
 <!-- fix deploy -->
