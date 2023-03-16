@@ -113,5 +113,6 @@ On this website are more features, and about these, you can see below:
 2. Add all styles and actions to Allprod Page
 3. Styles to Single Product Page
 4. Styles for all categories
+5. Styles for myProducts Page
 
 <!-- fix deploy -->
