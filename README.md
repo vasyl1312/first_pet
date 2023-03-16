@@ -111,5 +111,6 @@ On this website are more features, and about these, you can see below:
 
 1. Simple bootstrap style to allproduct page
 2. Add all styles and actions to Allprod Page
+3. Styles to Single Product Page
 
 <!-- fix deploy -->
