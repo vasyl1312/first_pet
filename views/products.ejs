@@ -1,49 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/"
-    />
-
-    <!-- title -->
-    <title>Kepsko website</title>
-
     <!-- favicon -->
-    <link rel="shortcut icon" type="image/png" href="./assets/calzone.png" />
-    <!-- google font -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/png" href="../assets/calzone.png" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.min.js"
+      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function () {
+        $('#header').load('./headers/mainHeader.ejs')
+        $('#productsDropdown').load('./headers/product.ejs')
+        $('#authRoutes').load('./headers/authRoute.ejs')
+        $('#loader').load('./headers/loader.ejs')
+        $('#logo').load('./headers/logo.ejs')
+        $('#homeRoute').load('./headers/homeRoute.ejs')
+        $('#loginRoute').load('./headers/loginRoute.ejs')
+        $('#hero').load('./headers/hero.ejs')
+        $('#copyright').load('./headers/copyright.ejs')
+        $('#scripts').load('./headers/scripts.ejs')
+      })
+    </script>
+    <div id="header"></div>
     <link
-      href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap"
       rel="stylesheet"
-    /> -->
-    <!-- fontawesome
-    <link rel="stylesheet" href="assets/css/all.min.css" />
-    <link rel="stylesheet" href="assets/css/animate.css" /> -->
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-    <!-- owl carousel -->
-    <link rel="stylesheet" href="assets/css/owl.carousel.css" />
-    <!-- magnific popup -->
-    <link rel="stylesheet" href="assets/css/magnific-popup.css" />
-    <!-- animate css -->
-    <!-- mean menu css -->
-    <link rel="stylesheet" href="assets/css/meanmenu.min.css" />
-    <!-- main style -->
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <!-- responsive -->
-    <link rel="stylesheet" href="assets/css/responsive.css" />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
     <!--PreLoader-->
-    <div class="loader">
-      <div class="loader-inner">
-        <div class="circle"></div>
-      </div>
-    </div>
+    <a id="loader"></a>
     <!--PreLoader Ends-->
 
     <!-- header -->
@@ -53,49 +40,20 @@
           <div class="col-lg-12 col-sm-12 text-center">
             <div class="main-menu-wrap">
               <!-- logo -->
-              <div class="site-logo">
-                <a href="/">
-                  <img src="./assets/calzone.png" alt="" />
-                </a>
-              </div>
+              <a id="logo"></a>
               <!-- logo -->
 
               <!-- menu start -->
               <nav class="main-menu">
                 <ul>
-                  <li class="current-list-item">
-                    <a href="/">Home</a>
-                  </li>
-                  <li>
-                    <a href="/products">All Products</a>
-                    <ul class="sub-menu">
-                      <li><a href="/javascript">JavaScript</a></li>
-                      <li><a href="/java">Java</a></li>
-                      <li><a href="/python">Python</a></li>
-                      <li><a href="/c_similar">C similar</a></li>
-                      <li><a href="/frontend">Frontend</a></li>
-                      <li><a href="/backend">Backend</a></li>
-                      <li><a href="/web_design">Web Design</a></li>
-                      <li><a href="/other">Other</a></li>
-                    </ul>
-                  </li>
+                  <!-- <li class="current-list-item"> -->
+                  <li id="homeRoute"></li>
+                  <!-- </li> -->
+                  <li id="productsDropdown"></li>
                   <% if (isAuth) {%>
-                  <li><a href="/add">Add new</a></li>
-                  <li><a href="/favourite">Favourite</a></li>
-                  <li><a href="/history">History</a></li>
-                  <li><a href="/my_products">My Products</a></li>
-                  <li>
-                    <div class="header-icons">
-                      <a class="mobile-hide search-bar-icon" href="/profile">Profile</a>
-                      <a class="mobile-hide search-bar-icon" href="/logout">Log Out</a>
-                    </div>
-                  </li>
+                  <a id="authRoutes"></a>
                   <%} else {%>
-                  <li>
-                    <div class="header-icons">
-                      <a class="mobile-hide search-bar-icon" href="/login">Login</a>
-                    </div>
-                  </li>
+                  <li id="loginRoute"></li>
                   <%}%>
                 </ul>
               </nav>
@@ -109,24 +67,7 @@
     <!-- end header -->
 
     <!-- hero area -->
-    <div class="hero-area hero-bg">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 offset-lg-2 text-center">
-            <div class="hero-text">
-              <div class="hero-text-tablecell">
-                <p class="subtitle">Kepsko website</p>
-                <h1>All products page</h1>
-                <div class="hero-btns">
-                  <a href="shop.html" class="boxed-btn">Fruit Collection</a>
-                  <a href="contact.html" class="bordered-btn">Contact Us</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <a id="hero"></a>
     <!-- end hero area -->
 
     <!-- ///////////////////////// change-->
@@ -166,9 +107,20 @@
               <p class="product-price"><span>Expected salary</span> <%= product.price %>$</p>
               <a href="/products/<%= product.id %>" class="cart-btn">Read</a>
               <p><span><%= product.date.toLocaleString()%></span></p>
-              <a class="telegram" target="blank"><i class="fab fa-telegram"></i></a>
-
-              <!-- додати шеринг -->
+              <button
+                id="copy-btn"
+                class="btn btn-outline-dark mt-auto"
+                onclick="setClipboard('<%=base_url%>/products/<%= product.id %>')"
+              >
+                Copy URL
+              </button>
+              <div onclick="setMedia('<%=base_url%>/products/<%= product.id %>')">
+                <a class="facebook" target="blank"><i class="fa fa-facebook"></i></a>
+                <a class="twitter" target="blank"><i class="fa fa-twitter"></i></a>
+                <a class="email" target="blank"><i class="fa fa-envelope"></i></a>
+                <a class="linkedin" target="blank"><i class="fa fa-linkedin"></i></a>
+                <a class="telegram" target="blank"><i class="fa fa-telegram"></i></a>
+              </div>
             </div>
           </div>
           <% }) %> <% myProd.forEach((product)=> { %>
@@ -185,6 +137,22 @@
               <p class="product-price"><span>Expected salary</span> <%= product.price %>$</p>
               <a href="/products/<%= product.id %>" class="cart-btn">Read</a>
               <p><span><%= product.date.toLocaleString()%></span></p>
+              <!-- Copy -->
+              <button
+                id="copy-btn"
+                class="btn btn-outline-dark mt-auto"
+                onclick="setClipboard('<%=base_url%>/products/<%= product.id %>')"
+              >
+                Copy URL
+              </button>
+              <!-- share-buttons -->
+              <div onclick="setMedia('<%=base_url%>/products/<%= product.id %>')">
+                <a class="facebook" target="blank"><i class="fa fa-facebook"></i></a>
+                <a class="twitter" target="blank"><i class="fa fa-twitter"></i></a>
+                <a class="email" target="blank"><i class="fa fa-envelope"></i></a>
+                <a class="linkedin" target="blank"><i class="fa fa-linkedin"></i></a>
+                <a class="telegram" target="blank"><i class="fa fa-telegram"></i></a>
+              </div>
             </div>
           </div>
           <% }) %> <% } else {%>
@@ -201,40 +169,8 @@
     <!-- end product section -->
 
     <!-- copyright -->
-    <div class="copyright">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 offset-lg-2 text-center">
-            <p>
-              Copyrights &copy; 2023 - <a href="https://github.com/vasyl1312">Vasyl Hryts</a>, All
-              Rights Reserved.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <a id="copyright"></a>
     <!-- end copyright -->
-
-    <!-- jquery -->
-    <script src="assets/js/jquery-1.11.3.min.js"></script>
-    <!-- bootstrap -->
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <!-- count down -->
-    <script src="assets/js/jquery.countdown.js"></script>
-    <!-- isotope -->
-    <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
-    <!-- waypoints -->
-    <script src="assets/js/waypoints.js"></script>
-    <!-- owl carousel -->
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <!-- magnific popup -->
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <!-- mean menu -->
-    <script src="assets/js/jquery.meanmenu.min.js"></script>
-    <!-- sticker js -->
-    <script src="assets/js/sticker.js"></script>
-    <!-- main js -->
-    <script src="assets/js/main.js"></script>
-    <script src="js/scripts.js"></script>
+    <a id="scripts"></a>
   </body>
 </html>

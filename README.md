@@ -110,5 +110,6 @@ On this website are more features, and about these, you can see below:
 `Frontend fixing`
 
 1. Simple bootstrap style to allproduct page
+2. Add all styles and actions to Allprod Page
 
 <!-- fix deploy -->
