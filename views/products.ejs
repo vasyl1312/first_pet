@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" type="image/x-icon" href="./assets/calzone.png" />
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="../assets/calzone.png" />
     <script
       src="https://code.jquery.com/jquery-3.6.3.min.js"
       integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
@@ -9,95 +10,92 @@
     ></script>
     <script>
       $(function () {
-        $('#header').load('../headers/header.ejs')
-        $('#sourceCode').load('../headers/sourceCode.ejs')
-        $('#headerDropList').load('../headers/headerDropList.ejs')
-        $('#headerLink').load('../headers/headerLink.ejs')
+        $('#header').load('./headers/mainHeader.ejs')
+        $('#productsDropdown').load('./headers/product.ejs')
+        $('#authRoutes').load('./headers/authRoute.ejs')
+        $('#loader').load('./headers/loader.ejs')
+        $('#logo').load('./headers/logo.ejs')
+        $('#homeRoute').load('./headers/homeRoute.ejs')
+        $('#loginRoute').load('./headers/loginRoute.ejs')
+        $('#hero').load('./headers/hero.ejs')
+        $('#copyright').load('./headers/copyright.ejs')
+        $('#scripts').load('./headers/scripts.ejs')
       })
     </script>
-    <link rel="stylesheet" href="/path/to/fontawesome/all.css" />
-    <link rel="stylesheet" href="/path/to/bootstrap.min.css" />
-
-    <script src="/path/to/jquery.slim.min.js"></script>
-    <script src="/path/to/popper.min.js"></script>
-    <script src="/path/to/bootstrap.min.js"></script>
     <div id="header"></div>
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container px-4 px-lg-5">
-        <div id="sourceCode"></div>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-            <li class="dropdown-item">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
-            </li>
-            <div id="headerDropList"></div>
-            <% if (isAuth) {%>
-            <div id="headerLink"></div>
-          </ul>
-          <%} else {%>
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-            <li class="dropdown-item">
-              <a class="nav-link" href="/login"
-                ><img src="../../images/login.png" style="width: 50px; height: 50px"
-              /></a>
-            </li>
-          </ul>
-          <%}%>
-        </div>
-      </div>
-    </nav>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
-
   <body>
-    <!-- Header-->
-    <header class="bg-dark py-3">
-      <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-white">
-          <h1 class="display-4 fw-bolder">All products</h1>
-          <p class="lead fw-normal text-white-50 mb-0">On this site, you can see all products</p>
-        </div>
-      </div>
-    </header>
+    <!--PreLoader-->
+    <a id="loader"></a>
+    <!--PreLoader Ends-->
 
-    <!-- alerts -->
-    <%if (alert.type.length > 0) { %>
-    <div class="container px-4 px-lg-5 my-5">
-      <div class="alert alert-<%=alert.type %> alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <div class="text-center"><strong>Message:</strong> <%=alert.message %></div>
+    <!-- header -->
+    <div class="top-header-area" id="sticker">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-sm-12 text-center">
+            <div class="main-menu-wrap">
+              <!-- logo -->
+              <a id="logo"></a>
+              <!-- logo -->
+
+              <!-- menu start -->
+              <nav class="main-menu">
+                <ul>
+                  <!-- <li class="current-list-item"> -->
+                  <li id="homeRoute"></li>
+                  <!-- </li> -->
+                  <li id="productsDropdown"></li>
+                  <% if (isAuth) {%>
+                  <a id="authRoutes"></a>
+                  <%} else {%>
+                  <li id="loginRoute"></li>
+                  <%}%>
+                </ul>
+              </nav>
+              <div class="mobile-menu"></div>
+              <!-- menu end -->
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <%}%>
+    <!-- end header -->
 
-    <!-- Section-->
-    <section class="py-5">
-      <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-          <%if (myProd.length > 0 || elseProd.length > 0) { %> <% elseProd.forEach((product)=> { %>
-          <div class="mb-auto">
-            <div class="favourite h-100">
-              <!-- Product image-->
-              <img class="favourite-img-top" src="<%= product.img %>" alt="..." />
-              <!-- Product details-->
-              <div class="favourite-body">
-                <div class="text-center">
-                  <h5 class="fw-bolder"><%= product.title %></h5>
-                  <h7><%= product.price %>$</h7>
-                </div>
-              </div>
-              <!-- Product actions-->
-              <div class="favourite-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center">
-                  <a class="btn btn-outline-dark mt-auto" href="/products/<%= product.id %>"
-                    >Read</a
-                  >
-                </div>
-              </div>
-              <h6><%= product.date.toLocaleString()%></h6>
+    <!-- hero area -->
+    <a id="hero"></a>
+    <!-- end hero area -->
+
+    <!-- product section -->
+    <div class="product-section mt-150 mb-150">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2 text-center">
+            <div class="section-title">
+              <h3><span class="orange-text">All</span> Products</h3>
+              <p>
+                On this page you can see all products, so to see your own and add new products -
+                create your account.
+              </p>
             </div>
-            <div class="text-center">
+          </div>
+        </div>
+
+        <div class="row">
+          <%if (myProd.length > 0 || elseProd.length > 0) { %> <% elseProd.forEach((product)=> { %>
+          <div class="col-lg-4 col-md-6 text-center">
+            <div class="single-product-item">
+              <div class="product-image">
+                <a href="/products/<%= product.id %>"><img src="<%= product.img %>" alt="" /></a>
+              </div>
+              <h3><%= product.title %></h3>
+              <p class="product-price"><span>Expected salary</span> <%= product.price %>$</p>
+              <a href="/products/<%= product.id %>" class="cart-btn">Read</a>
+              <p><span><%= product.date.toLocaleString()%></span></p>
               <button
                 id="copy-btn"
                 class="btn btn-outline-dark mt-auto"
@@ -105,42 +103,42 @@
               >
                 Copy URL
               </button>
-              <div
-                id="share-buttons"
-                onclick="setMedia('<%=base_url%>/products/<%= product.id %>')"
-              >
-                <a class="facebook" target="blank"><i class="fab fa-facebook"></i></a>
-                <a class="twitter" target="blank"><i class="fab fa-twitter"></i></a>
-                <a class="email" target="blank"><i class="fa fa-envelope"></i></a>
-                <a class="linkedin" target="blank"><i class="fab fa-linkedin"></i></a>
-                <a class="telegram" target="blank"><i class="fab fa-telegram"></i></a>
+              <div onclick="setMedia('<%=base_url%>/products/<%= product.id %>')">
+                <ul class="product-share">
+                  <li>
+                    <a class="facebook" target="blank"><i class="fa fa-facebook"></i></a>
+                  </li>
+                  <li>
+                    <a class="twitter" target="blank"><i class="fa fa-twitter"></i></a>
+                  </li>
+                  <li>
+                    <a class="email" target="blank"><i class="fa fa-envelope"></i></a>
+                  </li>
+                  <li>
+                    <a class="linkedin" target="blank"><i class="fa fa-linkedin"></i></a>
+                  </li>
+                  <li>
+                    <a class="telegram" target="blank"><i class="fa fa-telegram"></i></a>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
           <% }) %> <% myProd.forEach((product)=> { %>
-          <div class="mb-auto col">
-            <div class="favourite h-100 m">
-              <!-- Product image-->
-              <img class="favourite-img-top" src="<%= product.img %>" alt="My Product Mark" />
-              <div class="mark">Your product</div>
-              <!-- Product details-->
-              <div class="favourite-body">
-                <div class="text-center">
-                  <h5 class="fw-bolder"><%= product.title %></h5>
-                  <h7><%= product.price %>$</h7>
-                </div>
+          <div class="col-lg-4 col-md-6 text-center">
+            <div class="single-product-item">
+              <div class="product-image">
+                <a href="/products/<%= product.id %>"
+                  ><img src="<%= product.img %>" alt="My Product Mark" />
+                  <!-- додати формат і стилі -->
+                  <div class="mark">Your product</div></a
+                >
               </div>
-              <!-- Product actions-->
-              <div class="favourite-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center">
-                  <a class="btn btn-outline-dark mt-auto" href="/products/<%= product.id %>"
-                    >Read</a
-                  >
-                </div>
-              </div>
-              <h6><%= product.date.toLocaleString()%></h6>
-            </div>
-            <div class="text-center">
+              <h3><%= product.title %></h3>
+              <p class="product-price"><span>Expected salary</span> <%= product.price %>$</p>
+              <a href="/products/<%= product.id %>" class="cart-btn">Read</a>
+              <p><span><%= product.date.toLocaleString()%></span></p>
+              <!-- Copy -->
               <button
                 id="copy-btn"
                 class="btn btn-outline-dark mt-auto"
@@ -148,40 +146,44 @@
               >
                 Copy URL
               </button>
-              <div
-                id="share-buttons"
-                onclick="setMedia('<%=base_url%>/products/<%= product.id %>')"
-              >
-                <a class="facebook" target="blank"><i class="fab fa-facebook"></i></a>
-                <a class="twitter" target="blank"><i class="fab fa-twitter"></i></a>
-                <a class="email" target="blank"><i class="fa fa-envelope"></i></a>
-                <a class="linkedin" target="blank"><i class="fab fa-linkedin"></i></a>
-                <a class="telegram" target="blank"><i class="fab fa-telegram"></i></a>
+              <!-- share-buttons -->
+              <div onclick="setMedia('<%=base_url%>/products/<%= product.id %>')">
+                <ul class="product-share">
+                  <li>
+                    <a class="facebook" target="blank"><i class="fa fa-facebook"></i></a>
+                  </li>
+                  <li>
+                    <a class="twitter" target="blank"><i class="fa fa-twitter"></i></a>
+                  </li>
+                  <li>
+                    <a class="email" target="blank"><i class="fa fa-envelope"></i></a>
+                  </li>
+                  <li>
+                    <a class="linkedin" target="blank"><i class="fa fa-linkedin"></i></a>
+                  </li>
+                  <li>
+                    <a class="telegram" target="blank"><i class="fa fa-telegram"></i></a>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
           <% }) %> <% } else {%>
-          <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
-              <h1 class="display-4 fw-bolder">Opps</h1>
-              <p class="lead fw-normal text-white-50 mb-0">
-                At this moment, there are not any posts
-              </p>
+          <div class="col-lg-8 offset-lg-2 text-center">
+            <div class="section-title">
+              <h3><span class="orange-text">Opps</span>...</h3>
+              <p>At this moment, there are not any posts</p>
             </div>
           </div>
           <%}%>
         </div>
       </div>
-    </section>
-    <!-- Footer-->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; My Website 2022</p>
-      </div>
-    </footer>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    </div>
+    <!-- end product section -->
+
+    <!-- copyright -->
+    <a id="copyright"></a>
+    <!-- end copyright -->
+    <a id="scripts"></a>
   </body>
 </html>
