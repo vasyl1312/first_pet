@@ -114,5 +114,6 @@ On this website are more features, and about these, you can see below:
 3. Styles to Single Product Page
 4. Styles for all categories
 5. Styles for myProducts Page
-
+6. Add file, that to generate views for different devices
+7. Fix Add new Page
 <!-- fix deploy -->
