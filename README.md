@@ -116,4 +116,7 @@ On this website are more features, and about these, you can see below:
 5. Styles for myProducts Page
 6. Add file, that to generate views for different devices
 7. Fix Add new Page
+8. History page
+<!-- 9. fav -->
+
 <!-- fix deploy -->

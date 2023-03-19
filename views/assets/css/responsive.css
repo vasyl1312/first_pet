@@ -471,7 +471,7 @@
   }
 
   .main-menu {
-    display: none;
+    /* display: none; */
   }
   .error-text h1 {
     font-size: 25px;
