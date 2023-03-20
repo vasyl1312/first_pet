@@ -10,7 +10,8 @@ router.get('/', async (req, res) => {
   try {
     let base_url = process.env.BASE_URL_PORT
     const products = await Product.find({ categories: 'web_design' })
-    res.render('web_design', { alert, products, base_url })
+    const category = 'Web Design'
+    res.render('category', { alert, products, base_url, category })
 
     alert.type = ''
     alert.message = ''

@@ -66,7 +66,9 @@ router.get('/', isAuth, async (req, res) => {
   for (let i = 0; i < userInSession.favourite.length; i++) {
     favourite.push(await Product.findById(userInSession.favourite[i]))
   }
-  res.render('favourite', { favourite, alert, userInSession })
+  let base_url = process.env.BASE_URL_PORT
+
+  res.render('favourite', { favourite, alert, userInSession, base_url })
   alert.type = ''
   alert.message = ''
 })

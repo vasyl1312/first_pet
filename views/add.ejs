@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="../assets/calzone.png" />
     <script
       src="https://code.jquery.com/jquery-3.6.3.min.js"
       integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
@@ -8,143 +10,179 @@
     ></script>
     <script>
       $(function () {
-        $('#header').load('../headers/header.ejs')
-        $('#sourceCode').load('../headers/sourceCode.ejs')
-        $('#headerDropList').load('../headers/headerDropList.ejs')
-        $('#headerLink').load('../headers/headerLink.ejs')
+        $('#header').load('./headers/mainHeader.ejs')
+        $('#productsDropdown').load('./headers/product.ejs')
+        $('#authRoutes').load('./headers/authRoute.ejs')
+        $('#loader').load('./headers/loader.ejs')
+        $('#logo').load('./headers/logo.ejs')
+        $('#homeRoute').load('./headers/homeRoute.ejs')
+        $('#loginRoute').load('./headers/loginRoute.ejs')
+        $('#hero').load('./headers/hero.ejs')
+        $('#copyright').load('./headers/copyright.ejs')
+        $('#scripts').load('./headers/scripts.ejs')
       })
     </script>
-
-    <link rel="icon" type="image/x-icon" href="./assets/calzone.png" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <div id="header"></div>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
     <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet" />
-
-    <div id="header"></div>
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container px-4 px-lg-5">
-        <div id="sourceCode"></div>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-            <li class="dropdown-item">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
-            </li>
-            <div id="headerDropList"></div>
-            <% if (isAuth) {%>
-            <div id="headerLink"></div>
-          </ul>
-          <%} else {%>
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-            <li class="dropdown-item">
-              <a class="nav-link" href="/login"
-                ><img src="../../images/login.png" style="width: 50px; height: 50px"
-              /></a>
-            </li>
-          </ul>
-          <%}%>
-        </div>
-      </div>
-    </nav>
   </head>
-
   <body>
-    <!-- Header-->
-    <header class="bg-dark py-3">
-      <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-white">
-          <!-- alerts -->
-          <h1 class="display-4 fw-bolder">Add new product</h1>
-          <p class="lead fw-normal text-white-50 mb-0">
-            On this page, you can add new product with image
-          </p>
-        </div>
-      </div>
-    </header>
+    <!--PreLoader-->
+    <a id="loader"></a>
+    <!--PreLoader Ends-->
 
-    <%if (alert.type.length > 0) { %>
-    <div class="container">
-      <div class="alert alert-<%=alert.type %> alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <div class="text-center"><strong>Message:</strong> <%=alert.message %></div>
+    <!-- header -->
+    <div class="top-header-area" id="sticker">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-sm-12 text-center">
+            <div class="main-menu-wrap">
+              <!-- logo -->
+              <a id="logo"></a>
+              <!-- logo -->
+
+              <!-- menu start -->
+              <nav class="main-menu">
+                <ul>
+                  <!-- <li class="current-list-item"> -->
+                  <li id="homeRoute"></li>
+                  <!-- </li> -->
+                  <li id="productsDropdown"></li>
+                  <% if (isAuth) {%>
+                  <a id="authRoutes"></a>
+                  <%} else {%>
+                  <li id="loginRoute"></li>
+                  <%}%>
+                </ul>
+              </nav>
+              <div class="mobile-menu"></div>
+              <!-- menu end -->
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <%}%>
-    <!-- Section-->
-    <section class="py-5">
-      <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-white">
-          <form action="/add" method="POST" enctype="multipart/form-data">
-            <div class="input-field">
-              <label for="title">Please enter your speciality</label>
-              <input id="title" name="title" type="text" class="validate" required />
-              <span class="helper-text" data-error="Please enter your speciality"> </span>
+    <!-- end header -->
+
+    <!-- hero area -->
+    <a id="hero"></a>
+    <!-- end hero area -->
+
+    <!--  form -->
+    <div class="contact-from-section mt-150 mb-150">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2 text-center">
+            <div class="form-title">
+              <h2>Do you want to<b> add </b>a new resume?</h2>
+              <p>
+                Here you can add the title, expected salary, technologies, photos, and description,
+                where you can describe your experience, study steps, link to pet projects and social
+                media, and other your wish(what you search for or who you are)...
+              </p>
             </div>
 
-            <div class="input-field">
-              <label for="price">Enter expected salary in $ (value must be integer)</label>
-              <input type="number" id="price" name="price" min="0" max="1000000" />
-              <span class="helper-text" data-error="Enter a valid salary in $"> </span>
+            <%if (alert.type.length > 0) { %>
+            <div class="container">
+              <div class="alert alert-<%=alert.type %> alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <div class="text-center"><strong>Message:</strong> <%=alert.message %></div>
+              </div>
             </div>
+            <%}%>
 
-            <label for="description">Description</label>
-            <textarea
-              rows="9"
-              class="form-control js-easymde"
-              maxlength="2500"
-              minlength="50"
-              name="description"
-              id="description"
-              data-dl-input-translation="true"
-              spellcheck="false"
-              class="validate"
-              required
-            >
-            </textarea>
+            <!-- <div id="form_status"></div> -->
+            <div class="contact-form">
+              <form action="/add" method="POST" enctype="multipart/form-data" id="submit">
+                <p>
+                  <input
+                    class="validate"
+                    type="text"
+                    placeholder="Please enter your speciality"
+                    name="title"
+                    id="title"
+                    maxlength="45"
+                    required
+                  />
 
-            <br />
+                  <br />
+                  <br />
+                  <input
+                    type="number"
+                    placeholder="Enter expected salary in $ (value must be integer)"
+                    id="price"
+                    name="price"
+                    min="0"
+                    max="1000000"
+                    required
+                  />
+                </p>
 
-            <label for="categories">Please select technologies</label>
-            <select
-              data-placeholder="Start write..."
-              multiple
-              class="chosen-select"
-              id="categories"
-              name="categories"
-              required
-            >
-              <option value=""></option>
-              <option>javascript</option>
-              <option>java</option>
-              <option>python</option>
-              <option>c_similar</option>
-              <option>frontend</option>
-              <option>backend</option>
-              <option>web_design</option>
-              <option>other</option>
-            </select>
-            <br /><br />
+                <p>
+                  <textarea
+                    name="description"
+                    id="description"
+                    cols="30"
+                    rows="10"
+                    maxlength="2500"
+                    minlength="50"
+                    placeholder="Description"
+                    required
+                  ></textarea>
+                </p>
 
-            <div class="input-field">
-              <label for="avatar">Please select your photo (jpg/png/jpeg)</label>
-              <input type="file" name="avatar" />
+                <label for="categories"><h6>Please select technologies</h6> </label>
+                <br />
+                <select
+                  data-placeholder="Start write..."
+                  multiple
+                  class="chosen-select"
+                  id="categories"
+                  name="categories"
+                >
+                  <option value=""></option>
+                  <option>javascript</option>
+                  <option>java</option>
+                  <option>python</option>
+                  <option>c_similar</option>
+                  <option>frontend</option>
+                  <option>backend</option>
+                  <option>web_design</option>
+                  <option>other</option>
+                </select>
+
+                <br />
+                <br />
+
+                <div class="input-field">
+                  <label for="avatar">
+                    <h6>Please select photo of product (jpg/png/jpeg)</h6>
+                  </label>
+                  <br />
+                  <input type="file" name="avatar" />
+                </div>
+                <br /><br />
+                <button type="submit" class="cart-btn">Add new</button>
+
+                <!-- <a class="cart-btn" onclick="document.getElementById('submit').submit()">
+                  Add new
+                </a> -->
+              </form>
             </div>
-
-            <button type="submit" class="btn btn-outline-dark mt-auto">Add</button>
-          </form>
+          </div>
         </div>
       </div>
-    </section>
-    <!-- Footer-->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; My Website 2022</p>
-      </div>
-    </footer>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    </div>
+    <!-- end contact form -->
+    <!-- copyright -->
+    <a id="copyright"></a>
+    <!-- end copyright -->
+    <a id="scripts"></a>
   </body>
 </html>

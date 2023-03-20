@@ -76,30 +76,18 @@
         <div class="row">
           <div class="col-lg-8 offset-lg-2 text-center">
             <div class="section-title">
-              <h3>
-                <span class="orange-text">It's your favourite </span
-                ><i class="fa fa-heart"></i> products page
-              </h3>
+              <h3><span class="orange-text">Category: </span><%= category %></h3>
               <p>
-                On this page, you can save posts<b> for the future</b>, and contact the owner (you
-                will send a letter and get some info about the owner)
+                On this page, you can see all filtred products with the category<b>
+                  <%= category %>
+                </b>
               </p>
             </div>
           </div>
         </div>
 
-        <!-- alerts -->
-        <%if (alert.type.length > 0) { %>
-        <div class="container px-4 px-lg-5 my-5">
-          <div class="alert alert-<%=alert.type %> alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <div class="text-center"><strong>Message:</strong> <%=alert.message %></div>
-          </div>
-        </div>
-        <%}%>
-
         <div class="row">
-          <%if (favourite.length > 0) { %> <% favourite.forEach((product)=> { %>
+          <%if (products.length > 0) { %> <% products.forEach((product)=> { %>
           <div class="col-lg-4 col-md-6 text-center">
             <div class="single-product-item">
               <div class="product-image">
@@ -107,15 +95,7 @@
               </div>
               <h3><%= product.title %></h3>
               <p class="product-price"><span>Expected salary</span> <%= product.price %>$</p>
-              <form action="/history" method="POST">
-                <input type="hidden" name="productId" value="<%= product._id %>" />
-                <input type="hidden" name="title" value="<%= product.title%>" />
-                <input type="hidden" name="img" value="<%= product.img%>" />
-                <input type="hidden" name="price" value="<%= product.price%>" />
-                <input type="hidden" name="ownerId" value="<%= product.ownerId%>" />
-                <input type="hidden" name="userInSession" value="<%= userInSession._id %>" />
-                <button type="submit" class="cart-btn">Contact this candidate</button>
-              </form>
+              <a href="/products/<%= product.id %>" class="cart-btn">Read</a>
               <p><span><%= product.date.toLocaleString()%></span></p>
               <!-- Copy -->
               <button
@@ -145,15 +125,6 @@
                   </li>
                 </ul>
               </div>
-              <br />
-              <form action="favourite/remove/:id" method="POST">
-                <input type="hidden" name="productId" value="<%= product._id %>" />
-                <input type="hidden" name="userId" value="<%= product.userId %>" />
-                <input type="hidden" name="userInSession" value="<%= userInSession._id %>" />
-                <button type="submit" class="bordered-btn">
-                  <i class="fa fa-trash" style="color: #000"></i>
-                </button>
-              </form>
             </div>
           </div>
           <% }) %> <% } else {%>

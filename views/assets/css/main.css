@@ -441,7 +441,8 @@ a.boxed-btn {
   padding: 10px 20px;
 }
 
-a.bordered-btn {
+a.bordered-btn,
+button.bordered-btn {
   font-family: 'Poppins', sans-serif;
   display: inline-block;
   color: #fff;
@@ -465,7 +466,9 @@ a.read-more-btn:hover {
 
 a.boxed-btn,
 a.bordered-btn,
-a.cart-btn {
+button.bordered-btn,
+a.cart-btn,
+button.cart-btn {
   border-radius: 50px;
 }
 
@@ -1047,13 +1050,15 @@ a.boxed-btn:hover {
   color: #f28123;
 }
 
-a.bordered-btn {
+a.bordered-btn,
+button.bordered-btn {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
 }
 
-a.bordered-btn:hover {
+a.bordered-btn:hover,
+button.bordered-btn:hover {
   background-color: #f28123;
   color: #fff;
 }
@@ -1268,13 +1273,15 @@ div.owl-controls div.owl-nav div:hover {
   box-shadow: none;
 }
 
-a.cart-btn {
+a.cart-btn,
+button.cart-btn {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
 }
 
-a.cart-btn:hover {
+a.cart-btn:hover,
+button.cart-btn:hover {
   background-color: #051922;
   color: #f28123;
 }
@@ -2284,8 +2291,9 @@ ul.social-link-team li a {
 
 .contact-form form p input[type='text'],
 .contact-form form p input[type='tel'],
+.contact-form form p input[type='number'],
 .contact-form form p input[type='email'] {
-  width: 49%;
+  width: 100%;
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 3px;
@@ -2459,7 +2467,8 @@ p.product-price span {
   font-weight: 400;
 }
 
-a.cart-btn {
+a.cart-btn,
+button.cart-btn {
   font-family: 'Poppins', sans-serif;
   display: inline-block;
   background-color: #f28123;
@@ -2512,7 +2521,8 @@ input[type='number'] {
   margin-bottom: 15px;
 }
 
-.single-product-form a.cart-btn {
+.single-product-form a.cart-btn,
+button.cart-btn {
   margin-bottom: 15px;
 }
 

@@ -15,9 +15,9 @@ router.get('/', isAuth, (req, res) => {
 router.post('/', isAuth, async (req, res) => {
   try {
     let { title, price, img, description, categories } = req.body
-    if (title.length > 45) {
+    if (!categories) {
       alert.type = 'info'
-      alert.message = 'Your name of the product is too long ( >45 symbols)'
+      alert.message = 'You should select at least one category'
       return res.redirect('/add')
     }
 

@@ -10,7 +10,8 @@ router.get('/', async (req, res) => {
   try {
     let base_url = process.env.BASE_URL_PORT
     const products = await Product.find({ categories: 'c_similar' })
-    res.render('c_similar', { alert, products, base_url })
+    const category = 'C Similar'
+    res.render('category', { alert, products, base_url, category })
 
     alert.type = ''
     alert.message = ''

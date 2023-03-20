@@ -112,5 +112,11 @@ On this website are more features, and about these, you can see below:
 1. Simple bootstrap style to allproduct page
 2. Add all styles and actions to Allprod Page
 3. Styles to Single Product Page
+4. Styles for all categories
+5. Styles for myProducts Page
+6. Add file, that to generate views for different devices
+7. Fix Add new Page
+8. History page
+9. Favourite page
 
 <!-- fix deploy -->
