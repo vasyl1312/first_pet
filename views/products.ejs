@@ -129,14 +129,15 @@
             <div class="single-product-item">
               <div class="product-image">
                 <a href="/products/<%= product.id %>"
-                  ><img src="<%= product.img %>" alt="My Product Mark" />
-                  <!-- додати формат і стилі -->
-                  <div class="mark">Your product</div></a
-                >
+                  ><img src="<%= product.img %>" alt="" />
+                  <i class="fa fa-check"> Your product</i>
+                </a>
               </div>
               <h3><%= product.title %></h3>
               <p class="product-price"><span>Expected salary</span> <%= product.price %>$</p>
-              <a href="/products/<%= product.id %>" class="cart-btn">Read</a>
+              <a href="/products/<%= product.id %>" class="cart-btn"
+                ><i class="fa fa-eye"> Read </i>
+              </a>
               <p><span><%= product.date.toLocaleString()%></span></p>
               <!-- Copy -->
               <button

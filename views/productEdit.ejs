@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="/assets/calzone.png" />
     <script
       src="https://code.jquery.com/jquery-3.6.3.min.js"
       integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
@@ -8,178 +10,204 @@
     ></script>
     <script>
       $(function () {
-        $('#header').load('../../headers/header.ejs')
-        $('#sourceCode').load('../../headers/sourceCode.ejs')
-        $('#headerDropList').load('../../headers/headerDropList.ejs')
-        $('#headerLink').load('../../headers/headerLink.ejs')
+        $('#header').load('/../headers/mainHeader.ejs')
+        $('#productsDropdown').load('/../headers/product.ejs')
+        $('#authRoutes').load('/../headers/authRoute.ejs')
+        $('#logo').load('/../headers/logo.ejs')
+        $('#loader').load('./headers/loader.ejs')
+        $('#homeRoute').load('/../headers/homeRoute.ejs')
+        $('#loginRoute').load('/../headers/loginRoute.ejs')
+        $('#hero').load('/../headers/hero.ejs')
+        $('#copyright').load('/../headers/copyright.ejs')
+        $('#scripts').load('/../headers/scripts.ejs')
       })
     </script>
-
     <div id="header"></div>
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container px-4 px-lg-5">
-        <div id="sourceCode"></div>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-            <li class="dropdown-item">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
-            </li>
-            <div id="headerDropList"></div>
-            <% if (isAuth) {%>
-            <div id="headerLink"></div>
-          </ul>
-          <%} else {%>
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-            <li class="dropdown-item">
-              <a class="nav-link" href="/login"
-                ><img src="../../images/login.png" style="width: 50px; height: 50px"
-              /></a>
-            </li>
-          </ul>
-          <%}%>
-        </div>
-      </div>
-    </nav>
-
-    <link rel="icon" type="image/x-icon" href="./../assets/favicon.ico" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
     <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet" />
-
-    <link href="/css/styles.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="/css/register.css" />
   </head>
-
   <body>
-    <!-- Header-->
-    <header class="bg-dark py-3">
-      <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-white">
-          <!-- alerts -->
-          <h1 class="display-4 fw-bolder">Editing portfolio:</h1>
-          <p class="lead fw-normal text-white-50 mb-0"><%= product.title %></p>
-        </div>
-      </div>
-    </header>
+    <!--PreLoader      doesn't work    -->
+    <a id="loader"></a>
+    <!--PreLoader Ends-->
 
-    <!-- Section-->
-    <section class="py-5">
-      <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-white">
-          <form action="/my_products/edit" method="POST" enctype="multipart/form-data">
-            <div class="input-field">
-              <label for="title">Title of portfolio</label>
-              <input
-                id="title"
-                name="title"
-                type="text"
-                class="validate"
-                required
-                value="<%= product.title %>"
-              />
-              <span class="helper-text" data-error="Enter title"> </span>
-            </div>
-
-            <div class="input-field">
-              <label for="price">Expected salary in $ (value must be integer)</label>
-              <input
-                id="price"
-                name="price"
-                type="number"
-                class="validate"
-                required
-                min="0"
-                max="1000000"
-                value="<%= product.price %>"
-              />
-              <span
-                class="helper-text"
-                data-error="Enter expected salary in $ (value must be integer)"
-              >
-              </span>
-            </div>
-
-            <input type="hidden" name="img" value="<%= product.img %>" />
-
-            <br />
-
-            <h3>Tehnologies:</h3>
-            <%if (product.categories.length > 0) { %> <% product.categories.forEach((category)=> {
-            %>
-            <a href="/<%= category %>" class="price big"><%= category %> </a>
-            <%})}%>
-            <br />
-            <br />
-            <br />
-            <label for="categories">Please select new technologies</label>
-            <select
-              data-placeholder="Start write..."
-              multiple
-              class="chosen-select"
-              id="categories"
-              name="categories"
-            >
-              <option value=""></option>
-              <option>javascript</option>
-              <option>java</option>
-              <option>python</option>
-              <option>c_similar</option>
-              <option>frontend</option>
-              <option>backend</option>
-              <option>web_design</option>
-              <option>other</option>
-            </select>
-            <br /><br />
-
-            <div class="input-field">
-              <label for="description">Description or info about the portfolio</label>
-              <textarea
-                rows="9"
-                class="form-control js-easymde"
-                data-dl-input-translation="true"
-                spellcheck="false"
-                class="validate"
-                id="description"
-                name="description"
-                type="text"
-                required
-              >
-              <%= product.description %>
-              </textarea>
-            </div>
-            <br />
-
-            <div class="input-field">
-              <label for="avatar">Please select another image</label>
-              <input type="file" name="avatar" value="<%= product.img %>" />
-            </div>
-
-            <!-- id, that to know, which product we have to edit-->
-            <input type="hidden" name="id" value="<%= product.id %>" />
-            <input type="hidden" name="userId" value="<%= product.userId %>" />
-            <button type="submit" class="btn btn-outline-dark mt-auto">Update Product</button>
-          </form>
-        </div>
-
-        <form action="remove" method="POST">
-          <input type="hidden" name="productId" value="<%= product._id %>" />
-          <input type="hidden" name="img" value="<%= product.img %>" />
-          <input type="hidden" name="userId" value="<%= product.userId %>" />
-          <button type="submit" class="btn btn-outline-dark mt-auto">Delete this product</button>
-        </form>
-      </div>
-    </section>
-    <!-- Footer-->
-    <footer class="py-5 bg-dark">
+    <!-- header -->
+    <div class="top-header-area" id="sticker">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; My Website 2022</p>
+        <div class="row">
+          <div class="col-lg-12 col-sm-12 text-center">
+            <div class="main-menu-wrap">
+              <!-- logo -->
+              <div class="site-logo">
+                <a href="/">
+                  <img src="/assets/calzone.png" alt="" />
+                </a>
+              </div>
+              <!-- logo -->
+
+              <!-- menu start -->
+              <nav class="main-menu">
+                <ul>
+                  <!-- <li class="current-list-item"> -->
+                  <li id="homeRoute"></li>
+                  <!-- </li> -->
+                  <li id="productsDropdown"></li>
+                  <% if (isAuth) {%>
+                  <a id="authRoutes"></a>
+                  <%} else {%>
+                  <li id="loginRoute"></li>
+                  <%}%>
+                </ul>
+              </nav>
+              <div class="mobile-menu"></div>
+              <!-- menu end -->
+            </div>
+          </div>
+        </div>
       </div>
-    </footer>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="/js/scripts.js"></script>
+    </div>
+    <!-- end header -->
+
+    <!-- hero area -->
+    <a id="hero"></a>
+    <!-- end hero area -->
+
+    <!--  form -->
+    <div class="contact-from-section mt-150 mb-150">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2 text-center">
+            <div class="section-title">
+              <h3>
+                <span class="orange-text">Editing product:</span><b> <%= product.title %> </b>
+              </h3>
+              <p>
+                Here you can <b> edit </b> the title, expected salary, technologies, photos,
+                description and more...
+              </p>
+            </div>
+
+            <div class="contact-form">
+              <form
+                action="/my_products/edit"
+                method="POST"
+                enctype="multipart/form-data"
+                id="submit"
+              >
+                <p>
+                  <input
+                    class="validate"
+                    type="text"
+                    placeholder="Please enter your speciality"
+                    name="title"
+                    id="title"
+                    maxlength="45"
+                    value="<%= product.title %>"
+                    required
+                  />
+
+                  <br />
+                  <br />
+                  <input
+                    type="number"
+                    placeholder="Enter expected salary in $ (value must be integer)"
+                    id="price"
+                    name="price"
+                    min="0"
+                    max="1000000"
+                    value="<%= product.price %>"
+                    required
+                  />
+                </p>
+
+                <p>
+                  <textarea
+                    name="description"
+                    id="description"
+                    cols="30"
+                    rows="10"
+                    maxlength="2500"
+                    minlength="50"
+                    placeholder="Description"
+                    required
+                  >
+                  <%= product.description %>
+                </textarea
+                  >
+                </p>
+                <input type="hidden" name="img" value="<%= product.img %>" />
+
+                <strong>Categories: </strong>
+                <%if (product.categories.length > 0) { %> <% product.categories.forEach((category)=>
+                { %>
+                <a href="/<%= category %>" class="btn btn-outline-dark"><%= category %></a>
+                <%})}%>
+                <br />
+                <br />
+                <label for="categories"><h6>Please select new categories</h6> </label>
+                <br />
+                <select
+                  data-placeholder="Start write..."
+                  multiple
+                  class="chosen-select"
+                  id="categories"
+                  name="categories"
+                >
+                  <option value=""></option>
+                  <option>javascript</option>
+                  <option>java</option>
+                  <option>python</option>
+                  <option>c_similar</option>
+                  <option>frontend</option>
+                  <option>backend</option>
+                  <option>web_design</option>
+                  <option>other</option>
+                </select>
+
+                <br />
+                <br />
+
+                <div class="input-field">
+                  <label for="avatar">
+                    <h6>Please select another image (jpg/png/jpeg)</h6>
+                  </label>
+                  <br />
+                  <input type="file" name="avatar" value="<%= product.img %>" />
+                </div>
+                <br /><br />
+
+                <input type="hidden" name="id" value="<%= product.id %>" />
+                <input type="hidden" name="userId" value="<%= product.userId %>" />
+                <button type="submit" class="cart-btn">
+                  <i class="fa fa-refresh"></i>
+                  Update Product
+                </button>
+              </form>
+            </div>
+            <hr />
+            <h3>Or</h3>
+            <form action="remove" method="POST">
+              <input type="hidden" name="productId" value="<%= product._id %>" />
+              <input type="hidden" name="img" value="<%= product.img %>" />
+              <input type="hidden" name="userId" value="<%= product.userId %>" />
+              <button type="submit" class="bordered-btn">
+                <i class="fa fa-trash" style="color: #000"> Delete this product</i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end contact form -->
+    <!-- copyright -->
+    <a id="copyright"></a>
+    <!-- end copyright -->
+    <a id="scripts"></a>
   </body>
 </html>

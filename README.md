@@ -118,5 +118,7 @@ On this website are more features, and about these, you can see below:
 7. Fix Add new Page
 8. History page
 9. Favourite page
-
-<!-- fix deploy -->
+10. Update 'my product' mark and edit product page(without headers, and correct select category)
+11. 404 page
+    <!-- prof log reset main -->
+    <!-- fix deploy -->
