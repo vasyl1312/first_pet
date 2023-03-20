@@ -103,7 +103,11 @@
           <div class="col-lg-4 col-md-6 text-center">
             <div class="single-product-item">
               <div class="product-image">
-                <a href="/products/<%= product.id %>"><img src="<%= product.img %>" alt="" /></a>
+                <a href="/products/<%= product.id %>"
+                  ><img src="<%= product.img %>" alt="" /><i class="fa fa-heart">
+                    Favourite product</i
+                  ></a
+                >
               </div>
               <h3><%= product.title %></h3>
               <p class="product-price"><span>Expected salary</span> <%= product.price %>$</p>
@@ -114,7 +118,9 @@
                 <input type="hidden" name="price" value="<%= product.price%>" />
                 <input type="hidden" name="ownerId" value="<%= product.ownerId%>" />
                 <input type="hidden" name="userInSession" value="<%= userInSession._id %>" />
-                <button type="submit" class="cart-btn">Contact this candidate</button>
+                <button type="submit" class="cart-btn">
+                  <i class="fa fa-send-o"> Contact this candidate </i>
+                </button>
               </form>
               <p><span><%= product.date.toLocaleString()%></span></p>
               <!-- Copy -->

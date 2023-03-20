@@ -76,7 +76,7 @@
         <div class="row">
           <div class="col-lg-8 offset-lg-2 text-center">
             <div class="section-title">
-              <h3><span class="orange-text">My </span>products</h3>
+              <h3><span class="orange-text">My prod</span>ucts <i class="fa fa-check"> </i></h3>
               <p>On this site, you can see <b> only your products </b> , update and delete them</p>
             </div>
           </div>
@@ -98,15 +98,16 @@
             <div class="single-product-item">
               <div class="product-image">
                 <a href="/products/<%= product.id %>"
-                  ><img src="<%= product.img %>" alt="My Product Mark" />
-                  <!-- додати формат і стилі -->
-                  <div class="mark">Your product</div></a
-                >
+                  ><img src="<%= product.img %>" alt="" />
+                  <i class="fa fa-check"> Your product</i>
+                </a>
               </div>
               <h3><%= product.title %></h3>
               <p class="product-price"><span>Expected salary</span> <%= product.price %>$</p>
               <%if (isAuth) {%>
-              <a class="cart-btn" href="/my_products/<%= product.id %>/edit?allow=true">Edit</a>
+              <a class="cart-btn" href="/my_products/<%= product.id %>/edit?allow=true"
+                ><i class="fa fa-edit"> Edit</i></a
+              >
               <%}%>
               <p><span><%= product.date.toLocaleString()%></span></p>
               <!-- Copy -->

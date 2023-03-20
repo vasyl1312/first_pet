@@ -79,12 +79,16 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 offset-lg-2 text-center">
-            <div class="form-title">
-              <h2>Do you want to<b> add </b>a new resume?</h2>
+            <div class="section-title">
+              <h3>
+                <span class="orange-text">Do you want to</span><b> add </b>
+                <i class="fa fa-plus"></i> a new resume?
+              </h3>
               <p>
-                Here you can add the title, expected salary, technologies, photos, and description,
-                where you can describe your experience, study steps, link to pet projects and social
-                media, and other your wish(what you search for or who you are)...
+                Here you can <b> add </b> the title, expected salary, technologies, photos, and
+                description, where you can describe your experience, study steps, link to pet
+                projects and social media, and other your wish(what you search for or who you
+                are)...
               </p>
             </div>
 
@@ -97,7 +101,6 @@
             </div>
             <%}%>
 
-            <!-- <div id="form_status"></div> -->
             <div class="contact-form">
               <form action="/add" method="POST" enctype="multipart/form-data" id="submit">
                 <p>
@@ -137,7 +140,7 @@
                   ></textarea>
                 </p>
 
-                <label for="categories"><h6>Please select technologies</h6> </label>
+                <label for="categories"><h6>Please select categories</h6> </label>
                 <br />
                 <select
                   data-placeholder="Start write..."
@@ -168,11 +171,7 @@
                   <input type="file" name="avatar" />
                 </div>
                 <br /><br />
-                <button type="submit" class="cart-btn">Add new</button>
-
-                <!-- <a class="cart-btn" onclick="document.getElementById('submit').submit()">
-                  Add new
-                </a> -->
+                <button type="submit" class="cart-btn">Add new <i class="fa fa-plus"></i></button>
               </form>
             </div>
           </div>
