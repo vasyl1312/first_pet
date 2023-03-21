@@ -18,22 +18,13 @@ router.post('/', async (req, res) => {
     const name = req.body.name
     const email = req.body.email
     const password = req.body.password
-    if (name.length < 3) {
-      alert.type = 'info'
-      alert.message = 'Your name must be at least 3 characters long'
-      return res.redirect('/register')
-    }
-    if (password.length < 6) {
-      alert.type = 'info'
-      alert.message = 'Your password must be at least 6 characters long'
-      return res.redirect('/register')
-    }
+
     //шифруємо пароль коли реєструємось, 10 це ніби рівень шифрування чим більше тим важче і довше
     const hashPassword = await bcrypt.hash(password, 10)
     const candidate = await User.findOne({ email }) //перевірка чи існує користувач з таким email
     if (candidate) {
       alert.type = 'warning'
-      alert.message = 'This email address is already, please choose a different email address'
+      alert.message = 'This email address is already exist, please choose a different email address'
       return res.redirect('/register')
     } else {
       //якщо користувача нема то реєcтруємо його

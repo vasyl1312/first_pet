@@ -1,80 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Kepsko website</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="./assets/calzone.png" />
-
-    <script
-      src="https://code.jquery.com/jquery-3.6.3.min.js"
-      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      $(function () {
-        $('#header').load('../headers/header.ejs')
-      })
-    </script>
-    <div id="header"></div>
-    <script src="/js/scripts.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/register.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./assets/css/register.css" />
   </head>
   <body>
-    <br />
-    <br />
-    <br />
-    <!-- alerts -->
-    <%if (alert.type.length > 0) { %>
-    <div class="container">
-      <div class="alert alert-<%=alert.type %> alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <div class="text-center"><strong>Message:</strong> <%=alert.message %></div>
-      </div>
-    </div>
-    <%}%>
+    <div class="limiter">
+      <div class="container-login100">
+        <div class="wrap-login100">
+          <form class="login100-form validate-form" action="/register" method="post">
+            <%if (alert.type.length > 0) { %>
+            <div class="alert alert-<%=alert.type %> alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <div class="text-center"><strong>Message:</strong> <%=alert.message %></div>
+            </div>
+            <%}%>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3"></div>
+            <a href="/">
+              <img class="site-logo" src="../assets/calzone.png" alt="" />
+            </a>
 
-        <div class="col-md-6 main">
-          <form action="/register" method="post">
-            <h1>Registration form</h1>
+            <span class="login100-form-title p-b-43"> Sign up to continue </span>
+            <br />
+            <div class="wrap-input100 validate-input">
+              <input
+                class="input100"
+                type="text"
+                name="name"
+                id="name"
+                required
+                maxlength="20"
+                minlength="3"
+              />
+              <span class="focus-input100"></span>
+              <span class="label-input100">Nickname</span>
+            </div>
 
-            <input
-              class="box"
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Name"
-              required
-            /><br />
+            <div class="wrap-input100 validate-input">
+              <input class="input100" type="email" name="email" id="email" required />
+              <span class="focus-input100"></span>
+              <span class="label-input100">Email</span>
+            </div>
 
-            <input
-              class="box"
-              type="email"
-              name="email"
-              id="email"
-              placeholder="E-Mail "
-              required
-            /><br />
+            <div class="wrap-input100 validate-input">
+              <input
+                class="input100"
+                type="password"
+                name="password"
+                id="password"
+                required
+                maxlength="20"
+                minlength="3"
+              />
+              <span class="focus-input100"></span>
+              <span class="label-input100">Password</span>
+            </div>
 
-            <input
-              class="box"
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password "
-              required
-            /><br />
+            <div>
+              <a href="/login"> Already have an account? </a>
+            </div>
+            <br />
 
-            <input type="submit" id="submitDetails" name="submitDetails" value="Submit" /><br />
+            <div class="container-login100-form-btn">
+              <button type="submit" class="login100-form-btn">
+                <i class="fa fa-sign-in"> Sign up </i>
+              </button>
+            </div>
+            <!-- <br /> -->
+            <div class="centerTest">
+              <span class="txt2"> - or sign up using -</span>
+            </div>
+
+            <a href="/google" style="text-transform: none; text-decoration: none">
+              <div class="container-login100-form-btn login100-google-btn">
+                <i class="fa fa-google" aria-hidden="true"> Sign up with Google </i>
+              </div>
+            </a>
           </form>
-          <nav class="routes-btn">
-            <a href="/" class="home-btn">Return to site?</a>
-            <a href="/login" class="login-btn">Already have an account?</a>
-          </nav>
-        </div>
 
-        <div class="col-md-3"></div>
+          <div
+            class="login100-more"
+            style="background-image: url('../images/Mobile\ login-bro.png')"
+          ></div>
+        </div>
       </div>
     </div>
   </body>

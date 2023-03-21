@@ -122,5 +122,6 @@ On this website are more features, and about these, you can see below:
 11. 404 page
 12. Profile
 13. Login page
-    <!--  reg reset main -->
+14. Sign up
+    <!--   reset main -->
     <!-- fix deploy -->
