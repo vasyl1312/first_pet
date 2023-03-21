@@ -121,5 +121,6 @@ On this website are more features, and about these, you can see below:
 10. Update 'my product' mark and edit product page(without headers, and correct select category)
 11. 404 page
 12. Profile
-    <!--  log reset main -->
+13. Login page
+    <!--  reg reset main -->
     <!-- fix deploy -->
