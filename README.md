@@ -123,5 +123,6 @@ On this website are more features, and about these, you can see below:
 12. Profile
 13. Login page
 14. Sign up
-    <!--   reset main -->
+15. Reset password
+    <!--    main -->
     <!-- fix deploy -->
