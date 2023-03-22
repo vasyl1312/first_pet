@@ -1,59 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" type="image/x-icon" href="./assets/calzone.png" />
-
-    <script
-      src="https://code.jquery.com/jquery-3.6.3.min.js"
-      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      $(function () {
-        $('#header').load('../headers/header.ejs')
-      })
-    </script>
-    <div id="header"></div>
-    <script src="js/scripts.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/register.css" />
+    <title>Kepsko website</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../assets/calzone.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/css/register.css" />
   </head>
-
   <body>
-    <br />
-    <br />
-    <br />
+    <div class="limiter">
+      <div class="container-login100">
+        <div class="wrap-login100">
+          <form class="login100-form validate-form" action="/login/reset" method="post">
+            <%if (alert.type.length > 0) { %>
+            <div class="alert alert-<%=alert.type %> alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <div class="text-center"><strong>Message:</strong> <%=alert.message %></div>
+            </div>
+            <%}%>
 
-    <!-- alerts -->
-    <%if (alert.type.length > 0) { %>
-    <div class="container">
-      <div class="alert alert-<%=alert.type %> alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <div class="text-center"><strong>Message:</strong> <%=alert.message %></div>
-      </div>
-    </div>
-    <%}%>
+            <a href="/">
+              <img class="site-logo" src="../assets/calzone.png" alt="" />
+            </a>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3"></div>
+            <span class="login100-form-title p-b-43"> Reset password form </span>
+            <br />
+            <br />
 
-        <div class="col-md-6 main">
-          <form action="/login/reset" method="post">
-            <h1>Reset password form</h1>
-            <div class="input-field">
-              <input id="email" name="email" type="email" class="validate" required />
-              <label for="email">Email, where we will send a new password</label>
-              <span class="helper-text" data-error="Input email"> </span>
+            <div class="centerTest">
+              <span class="txt2"> Email, where we will send a confirmation letter:</span>
+            </div>
+            <div class="wrap-input100 validate-input">
+              <input
+                class="input100"
+                type="email"
+                name="email"
+                id="email"
+                required
+                class="validate"
+              />
+              <span class="focus-input100"></span>
+              <span class="label-input100">Email</span>
             </div>
 
-            <button class="btn btn-primary" type="submit">Reset password</button>
-            <hr />
-            <nav class="routes-btn">
-              <a href="/login" class="login-btn">Return to login page?</a>
-            </nav>
+            <div class="container-login100-form-btn">
+              <button type="submit" class="login100-form-btn">
+                <i class="fa fa-key"> Reset password </i>
+              </button>
+            </div>
           </form>
+
+          <div
+            class="login100-more"
+            style="background-image: url('../images/Forgot\ password-bro.png')"
+          ></div>
         </div>
-        <div class="col-md-3"></div>
       </div>
     </div>
   </body>

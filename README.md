@@ -120,5 +120,10 @@ On this website are more features, and about these, you can see below:
 9. Favourite page
 10. Update 'my product' mark and edit product page(without headers, and correct select category)
 11. 404 page
-    <!-- prof log reset main -->
+12. Profile
+13. Login page
+14. Sign up
+15. Reset password
+16. Main page
+
     <!-- fix deploy -->
