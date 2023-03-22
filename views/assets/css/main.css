@@ -2055,12 +2055,6 @@ p.testimonial-body {
   margin-top: 20px;
 }
 
-.last-icon {
-  margin-top: 20px;
-  font-size: 25px;
-  opacity: 0.3;
-}
-
 .client-avater img {
   max-width: 100px;
   border-radius: 50%;
@@ -2185,10 +2179,14 @@ a.video-play-btn {
   margin: 150px 0;
 }
 
+.about-img {
+  width: 50%;
+}
+
 .feature-bg:after {
-  background-image: url(../img/feature-bg.jpg);
+  background-image: url(../../../images/Profiling-bro.png);
   position: absolute;
-  right: 0;
+  right: 20px;
   top: 0;
   width: 40%;
   height: 100%;
@@ -2245,7 +2243,7 @@ a.video-play-btn {
 }
 
 ul.social-link-team {
-  position: absolute;
+  /* position: absolute; */
   bottom: 80px;
   left: 0;
   right: 0;

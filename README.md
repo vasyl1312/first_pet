@@ -124,5 +124,6 @@ On this website are more features, and about these, you can see below:
 13. Login page
 14. Sign up
 15. Reset password
-    <!--    main -->
+16. Main page
+
     <!-- fix deploy -->
