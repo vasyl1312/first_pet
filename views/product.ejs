@@ -66,103 +66,113 @@
     </div>
     <!-- end header -->
 
-    <!-- hero area -->
-    <a id="hero"></a>
-    <!-- end hero area -->
-
-    <!-- product section -->
-    <div class="product-section mt-150 mb-150">
+    <section class="dark-banner">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 offset-lg-2 text-center">
+          <div class="col-md-7 text-center">
             <div class="section-title">
+              <br />
+              <br />
+              <br />
+              <br />
               <h3><span class="orange-text">Read</span> Product</h3>
-              <p>
+              <h4 style="color: #fff">
+                <br />
                 On this page, you can to see info about this product, author, you can to add this
                 product to favorite and add to favourite
-              </p>
+              </h4>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="single-product-img">
+              <img src="../assets/read.png" alt="" />
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="row">
-          <div class="single-product mt-150 mb-150">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-5">
-                  <div class="single-product-img">
-                    <img src="<%= img %>" alt="" />
+      <!-- product section -->
+      <div class="product-section mt-150 mb-150">
+        <div class="container">
+          <div class="row">
+            <div class="single-product mt-150 mb-150">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-5">
+                    <div class="single-product-img">
+                      <img src="<%= img %>" alt="" />
+                    </div>
                   </div>
-                </div>
-                <div class="col-md-7">
-                  <div class="single-product-content">
-                    <h3><%= product.title %></h3>
-                    <p class="single-product-pricing">
-                      <span>Expected salary:</span> <%= product.price %> $
-                    </p>
-                    <p><%= product.description %></p>
-                    <div class="single-product-form">
-                      <div class="hero-btns">
-                        <p>
-                          <strong>Categories: </strong>
-                          <%if (product.categories.length > 0) { %> <%
-                          product.categories.forEach((category)=> { %>
-                          <a href="/<%= category %>" class="btn btn-outline-dark"
-                            ><%= category %></a
-                          >
-                          <%})}%>
-                        </p>
+                  <div class="col-md-7">
+                    <div class="single-product-content">
+                      <h2 style="color: #fff"><%= product.title %></h2>
+                      <p class="single-product-pricing">
+                        <span>Expected salary:</span> <%= product.price %> $
+                      </p>
+                      <p style="color: #fff"><%= product.description %></p>
+                      <div class="single-product-form">
+                        <div class="hero-btns">
+                          <p>
+                            <strong>Categories: </strong>
+                            <%if (product.categories.length > 0) { %> <%
+                            product.categories.forEach((category)=> { %>
+                            <a href="/<%= category %>" class="btn btn-outline-dark"
+                              ><%= category %></a
+                            >
+                            <%})}%>
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                    <h4>
-                      Share:
-                      <button
-                        id="copy-btn"
-                        class="btn btn-outline-dark mt-auto"
-                        onclick="setClipboard('<%=base_url%>/products/<%= product.id %>')"
-                      >
-                        Copy URL
-                      </button>
+                      <h4>
+                        Share:
+                        <button
+                          id="copy-btn"
+                          class="btn btn-outline-dark mt-auto"
+                          onclick="setClipboard('<%=base_url%>/products/<%= product.id %>')"
+                        >
+                          Copy URL
+                        </button>
+                        <br />
+                        <div onclick="setMedia('<%=base_url%>/products/<%= product.id %>')">
+                          <ul class="product-share">
+                            <li>
+                              <a class="facebook" target="blank"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li>
+                              <a class="twitter" target="blank"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li>
+                              <a class="email" target="blank"><i class="fa fa-envelope"></i></a>
+                            </li>
+                            <li>
+                              <a class="linkedin" target="blank"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                            <li>
+                              <a class="telegram" target="blank"><i class="fa fa-telegram"></i></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </h4>
                       <br />
-                      <div onclick="setMedia('<%=base_url%>/products/<%= product.id %>')">
-                        <ul class="product-share">
-                          <li>
-                            <a class="facebook" target="blank"><i class="fa fa-facebook"></i></a>
-                          </li>
-                          <li>
-                            <a class="twitter" target="blank"><i class="fa fa-twitter"></i></a>
-                          </li>
-                          <li>
-                            <a class="email" target="blank"><i class="fa fa-envelope"></i></a>
-                          </li>
-                          <li>
-                            <a class="linkedin" target="blank"><i class="fa fa-linkedin"></i></a>
-                          </li>
-                          <li>
-                            <a class="telegram" target="blank"><i class="fa fa-telegram"></i></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </h4>
-                    <br />
-                    <p><span><%= product.date.toLocaleString()%></span></p>
-                    <%if (isAuth) {%>
-                    <div class="text-center">
-                      <form action="/favourite/add" method="POST" id="submit">
-                        <input type="hidden" name="productId" value="<%= product._id %>" />
-                        <input
-                          type="hidden"
-                          name="userInSession"
-                          value="<%= userInSession._id %>"
-                        />
+                      <p style="color: #fff"><span><%= product.date.toLocaleString()%></span></p>
+                      <%if (isAuth) {%>
+                      <div class="text-center">
+                        <form action="/favourite/add" method="POST" id="submit">
+                          <input type="hidden" name="productId" value="<%= product._id %>" />
+                          <input
+                            type="hidden"
+                            name="userInSession"
+                            value="<%= userInSession._id %>"
+                          />
 
-                        <a class="cart-btn" onclick="document.getElementById('submit').submit()">
-                          Add to favourite
-                          <i class="fa fa-heart"></i>
-                        </a>
-                      </form>
+                          <a class="cart-btn" onclick="document.getElementById('submit').submit()">
+                            Add to favourite
+                            <i class="fa fa-heart"></i>
+                          </a>
+                        </form>
+                      </div>
+                      <%}%>
                     </div>
-                    <%}%>
                   </div>
                 </div>
               </div>
@@ -170,7 +180,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
     <!-- end product section -->
 
     <!-- copyright -->

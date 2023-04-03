@@ -66,120 +66,135 @@
     </div>
     <!-- end header -->
 
-    <!-- hero area -->
-    <a id="hero"></a>
-    <!-- end hero area -->
-
-    <!-- product section -->
-    <div class="product-section mt-150 mb-150">
+    <section class="dark-banner">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 offset-lg-2 text-center">
+          <div class="col-md-7 text-center">
             <div class="section-title">
+              <br />
+              <br />
+              <br />
+              <br />
               <h3><span class="orange-text">All</span> Products</h3>
-              <p>
-                On this page you can see all products, so to see your own and add new products -
-                create your account.
-              </p>
+              <br />
+              <h4 style="color: #fff">
+                On this page you can see <b class="orange-text">all products</b>, so to see your own
+                and add new products -
+                <a href="/login" style="color: #000000">create your account.</a>
+              </h4>
             </div>
           </div>
-        </div>
-
-        <div class="row">
-          <%if (myProd.length > 0 || elseProd.length > 0) { %> <% elseProd.forEach((product)=> { %>
-          <div class="col-lg-4 col-md-6 text-center">
-            <div class="single-product-item">
-              <div class="product-image">
-                <a href="/products/<%= product.id %>"><img src="<%= product.img %>" alt="" /></a>
-              </div>
-              <h3><%= product.title %></h3>
-              <p class="product-price"><span>Expected salary</span> <%= product.price %>$</p>
-              <a href="/products/<%= product.id %>" class="cart-btn">Read</a>
-              <p><span><%= product.date.toLocaleString()%></span></p>
-              <button
-                id="copy-btn"
-                class="btn btn-outline-dark mt-auto"
-                onclick="setClipboard('<%=base_url%>/products/<%= product.id %>')"
-              >
-                Copy URL
-              </button>
-              <div onclick="setMedia('<%=base_url%>/products/<%= product.id %>')">
-                <ul class="product-share">
-                  <li>
-                    <a class="facebook" target="blank"><i class="fa fa-facebook"></i></a>
-                  </li>
-                  <li>
-                    <a class="twitter" target="blank"><i class="fa fa-twitter"></i></a>
-                  </li>
-                  <li>
-                    <a class="email" target="blank"><i class="fa fa-envelope"></i></a>
-                  </li>
-                  <li>
-                    <a class="linkedin" target="blank"><i class="fa fa-linkedin"></i></a>
-                  </li>
-                  <li>
-                    <a class="telegram" target="blank"><i class="fa fa-telegram"></i></a>
-                  </li>
-                </ul>
-              </div>
+          <div class="col-md-5">
+            <div class="single-product-img">
+              <img src="./assets/all.png" alt="" />
             </div>
           </div>
-          <% }) %> <% myProd.forEach((product)=> { %>
-          <div class="col-lg-4 col-md-6 text-center">
-            <div class="single-product-item">
-              <div class="product-image">
-                <a href="/products/<%= product.id %>"
-                  ><img src="<%= product.img %>" alt="" />
-                  <i class="fa fa-check"> Your product</i>
-                </a>
-              </div>
-              <h3><%= product.title %></h3>
-              <p class="product-price"><span>Expected salary</span> <%= product.price %>$</p>
-              <a href="/products/<%= product.id %>" class="cart-btn"
-                ><i class="fa fa-eye"> Read </i>
-              </a>
-              <p><span><%= product.date.toLocaleString()%></span></p>
-              <!-- Copy -->
-              <button
-                id="copy-btn"
-                class="btn btn-outline-dark mt-auto"
-                onclick="setClipboard('<%=base_url%>/products/<%= product.id %>')"
-              >
-                Copy URL
-              </button>
-              <!-- share-buttons -->
-              <div onclick="setMedia('<%=base_url%>/products/<%= product.id %>')">
-                <ul class="product-share">
-                  <li>
-                    <a class="facebook" target="blank"><i class="fa fa-facebook"></i></a>
-                  </li>
-                  <li>
-                    <a class="twitter" target="blank"><i class="fa fa-twitter"></i></a>
-                  </li>
-                  <li>
-                    <a class="email" target="blank"><i class="fa fa-envelope"></i></a>
-                  </li>
-                  <li>
-                    <a class="linkedin" target="blank"><i class="fa fa-linkedin"></i></a>
-                  </li>
-                  <li>
-                    <a class="telegram" target="blank"><i class="fa fa-telegram"></i></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <% }) %> <% } else {%>
-          <div class="col-lg-8 offset-lg-2 text-center">
-            <div class="section-title">
-              <h3><span class="orange-text">Opps</span>...</h3>
-              <b> At this moment, there are not any posts </b>
-            </div>
-          </div>
-          <%}%>
         </div>
       </div>
-    </div>
+
+      <!-- product section -->
+      <div class="product-section mt-150 mb-150">
+        <div class="container">
+          <div class="row">
+            <%if (myProd.length > 0 || elseProd.length > 0) { %> <% elseProd.forEach((product)=> {
+            %>
+            <div class="col-lg-4 col-md-6 text-center">
+              <div class="single-product-item">
+                <div class="product-image">
+                  <a href="/products/<%= product.id %>"><img src="<%= product.img %>" alt="" /></a>
+                </div>
+                <h3 style="color: #fff"><%= product.title %></h3>
+                <p class="product-price"><span>Expected salary</span> <%= product.price %>$</p>
+                <a href="/products/<%= product.id %>" class="cart-btn">
+                  <i class="fa fa-eye"> Read </i>
+                </a>
+                <p><span><%= product.date.toLocaleString()%></span></p>
+                <button
+                  id="copy-btn"
+                  class="btn btn-outline-dark mt-auto"
+                  onclick="setClipboard('<%=base_url%>/products/<%= product.id %>')"
+                >
+                  Copy URL
+                </button>
+                <div onclick="setMedia('<%=base_url%>/products/<%= product.id %>')">
+                  <ul class="product-share">
+                    <li>
+                      <a class="facebook" target="blank"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                      <a class="twitter" target="blank"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a class="email" target="blank"><i class="fa fa-envelope"></i></a>
+                    </li>
+                    <li>
+                      <a class="linkedin" target="blank"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                    <li>
+                      <a class="telegram" target="blank"><i class="fa fa-telegram"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <% }) %> <% myProd.forEach((product)=> { %>
+            <div class="col-lg-4 col-md-6 text-center">
+              <div class="single-product-item">
+                <div class="product-image">
+                  <a href="/products/<%= product.id %>"
+                    ><img src="<%= product.img %>" alt="" />
+                    <i class="fa fa-check" style="color: #f28123"> Your product</i>
+                  </a>
+                </div>
+                <h3 style="color: #fff"><%= product.title %></h3>
+                <p class="product-price"><span>Expected salary</span> <%= product.price %>$</p>
+                <a href="/products/<%= product.id %>" class="cart-btn"
+                  ><i class="fa fa-eye"> Read </i>
+                </a>
+                <p><span><%= product.date.toLocaleString()%></span></p>
+                <!-- Copy -->
+                <button
+                  id="copy-btn"
+                  class="btn btn-outline-dark mt-auto"
+                  onclick="setClipboard('<%=base_url%>/products/<%= product.id %>')"
+                >
+                  Copy URL
+                </button>
+                <!-- share-buttons -->
+                <div onclick="setMedia('<%=base_url%>/products/<%= product.id %>')">
+                  <ul class="product-share">
+                    <li>
+                      <a class="facebook" target="blank"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                      <a class="twitter" target="blank"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a class="email" target="blank"><i class="fa fa-envelope"></i></a>
+                    </li>
+                    <li>
+                      <a class="linkedin" target="blank"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                    <li>
+                      <a class="telegram" target="blank"><i class="fa fa-telegram"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <% }) %> <% } else {%>
+            <div class="col-lg-8 offset-lg-2 text-center">
+              <div class="section-title">
+                <h3><span class="orange-text">Opps</span>...</h3>
+                <b> At this moment, there are not any posts </b>
+              </div>
+            </div>
+            <%}%>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- end product section -->
 
     <!-- copyright -->

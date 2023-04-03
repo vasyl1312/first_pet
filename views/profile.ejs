@@ -66,86 +66,99 @@
     </div>
     <!-- end header -->
 
-    <!-- hero area -->
-    <a id="hero"></a>
-    <!-- end hero area -->
-
-    <!-- product section -->
-    <div class="product-section mt-150 mb-150">
+    <section class="dark-banner">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 offset-lg-2 text-center">
+          <div class="col-md-7 text-center">
             <div class="section-title">
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
               <h3><span class="orange-text">Profile</span> page</h3>
-              <p>Here you can change avatar or nickname and delete your <b> profile. </b></p>
+
+              <h4 style="color: #fff">
+                <br />
+                Here you can change avatar or nickname and delete your
+                <b class="orange-text"> profile. </b>
+              </h4>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="single-product-img">
+              <img src="./assets/profile.png" alt="" />
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="row">
-          <div class="single-product mt-150 mb-150">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-5">
-                  <div class="single-product-img">
-                    <% if (user.avatarUrl) {%>
-                    <img class="avatar" src="<%= user.avatarUrl %>" alt="avatar-<%= user.name %>" />
-                    <%} else {%>
-                    <img
-                      class="avatar"
-                      src="../images/emptyAvatar.png"
-                      alt="avatar-<%= user.name %>"
-                    />
-                    <p>You have no avatar photo</p>
-                    <%}%>
+      <!-- product section -->
+      <div class="product-section mt-150 mb-150">
+        <div class="container">
+          <div class="row">
+            <div class="single-product mt-150 mb-150">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-5">
+                    <div class="single-product-img">
+                      <% if (user.avatarUrl) {%>
+                      <img
+                        class="avatar"
+                        src="<%= user.avatarUrl %>"
+                        alt="avatar-<%= user.name %>"
+                      />
+                      <%} else {%>
+                      <img
+                        class="avatar"
+                        src="../images/emptyAvatar.png"
+                        alt="avatar-<%= user.name %>"
+                      />
+                      <p>You have no avatar photo</p>
+                      <%}%>
+                    </div>
                   </div>
-                </div>
-                <div class="col-md-7">
-                  <div class="single-product-content">
-                    <form action="/profile" method="POST" enctype="multipart/form-data">
-                      <p class="single-product-pricing">
-                        <span>Your email: </span> <%= user.email %>
-                      </p>
+                  <div class="col-md-7">
+                    <div class="single-product-content">
+                      <form action="/profile" method="POST" enctype="multipart/form-data">
+                        <p class="single-product-pricing">
+                          <span>Your email: </span> <%= user.email %>
+                        </p>
 
-                      <span>Change your nickname: </span>
-                      <p>
-                        <input
-                          class="validate"
-                          type="text"
-                          placeholder="Change your nickname"
-                          name="name"
-                          id="name"
-                          minlength="3"
-                          maxlength="20"
-                          value="<%= user.name %>"
-                          required
-                        />
-                      </p>
+                        <span>Change your nickname: </span>
+                        <p>
+                          <input
+                            class="validate"
+                            type="text"
+                            placeholder="Change your nickname"
+                            name="name"
+                            id="name"
+                            minlength="3"
+                            maxlength="20"
+                            value="<%= user.name %>"
+                            required
+                          />
+                        </p>
 
-                      <br />
-                      <div class="input-field">
-                        <label for="avatar">
-                          <h6>Change your avatar</h6>
-                        </label>
                         <br />
-                        <input type="file" name="avatar" />
-                      </div>
+                        <div class="input-field">
+                          <label for="avatar">
+                            <h6>Change your avatar</h6>
+                          </label>
+                          <br />
+                          <input type="file" name="avatar" />
+                        </div>
 
-                      <input type="hidden" name="img" value="<%= user.avatarUrl %>" />
-                      <br />
-                      <br />
+                        <input type="hidden" name="img" value="<%= user.avatarUrl %>" />
+                        <br />
+                        <br />
 
-                      <button type="submit" class="cart-btn">
-                        <i class="fa fa-refresh"></i>
-                        Update Profile Info
-                      </button>
-                    </form>
-                    <br />
-
-                    <hr />
-                    <!-- <button type="submit" class="bordered-btn">
-                      <i class="fa fa-trash" style="color: #000"> Delete this profile</i>
-                    </button> -->
+                        <button type="submit" class="cart-btn">
+                          <i class="fa fa-refresh"></i>
+                          Update Profile Info
+                        </button>
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -153,7 +166,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
     <!-- end product section -->
 
     <!-- copyright -->
