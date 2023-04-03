@@ -1501,7 +1501,7 @@ input[type='submit'] {
 }
 
 .hero-bg {
-  background-image: url(../../../images/background1.png);
+  background-image: url(../../assets/background1.png);
 }
 
 .homepage-slider {
@@ -2139,26 +2139,35 @@ a.video-play-btn {
 .shop-banner {
   position: relative;
   background-color: #f5f5f5;
-  background-image: url(../img/1.jpg);
   background-size: cover;
   padding: 110px 0px 115px;
 }
 
-.shop-banner h3 {
+.dark-banner {
+  position: relative;
+  background-image: url(../background1.png);
+  background-size: cover;
+  padding: 110px 0px 115px;
+}
+
+.shop-banner h3,
+.dark-banner h3 {
   position: relative;
   font-size: 50px;
   line-height: 1.2em;
   margin-bottom: 0px;
 }
 
-.shop-banner .sale-percent {
+.shop-banner .sale-percent,
+.dark-banner .sale-percent {
   position: relative;
   font-size: 60px;
   font-weight: 700;
   color: #f28123;
 }
 
-.shop-banner .sale-percent span {
+.shop-banner .sale-percent span,
+.dark-banner .sale-percent {
   position: relative;
   font-size: 24px;
   line-height: 1.1em;

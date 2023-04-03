@@ -66,113 +66,126 @@
     </div>
     <!-- end header -->
 
-    <!-- hero area -->
-    <a id="hero"></a>
-    <!-- end hero area -->
-
-    <!-- product section -->
-    <div class="product-section mt-150 mb-150">
+    <section class="dark-banner">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 offset-lg-2 text-center">
+          <div class="col-md-7 text-center">
             <div class="section-title">
-              <h3>
-                <span class="orange-text">It's your favourite </span
-                ><i class="fa fa-heart"></i> products page
-              </h3>
-              <p>
-                On this page, you can save posts<b> for the future</b>, and contact the owner (you
-                will send a letter and get some info about the owner)
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- alerts -->
-        <%if (alert.type.length > 0) { %>
-        <div class="container px-4 px-lg-5 my-5">
-          <div class="alert alert-<%=alert.type %> alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <div class="text-center"><strong>Message:</strong> <%=alert.message %></div>
-          </div>
-        </div>
-        <%}%>
-
-        <div class="row">
-          <%if (favourite.length > 0) { %> <% favourite.forEach((product)=> { %>
-          <div class="col-lg-4 col-md-6 text-center">
-            <div class="single-product-item">
-              <div class="product-image">
-                <a href="/products/<%= product.id %>"
-                  ><img src="<%= product.img %>" alt="" /><i class="fa fa-heart">
-                    Favourite product</i
-                  ></a
-                >
-              </div>
-              <h3><%= product.title %></h3>
-              <p class="product-price"><span>Expected salary</span> <%= product.price %>$</p>
-              <form action="/history" method="POST">
-                <input type="hidden" name="productId" value="<%= product._id %>" />
-                <input type="hidden" name="title" value="<%= product.title%>" />
-                <input type="hidden" name="img" value="<%= product.img%>" />
-                <input type="hidden" name="price" value="<%= product.price%>" />
-                <input type="hidden" name="ownerId" value="<%= product.ownerId%>" />
-                <input type="hidden" name="userInSession" value="<%= userInSession._id %>" />
-                <button type="submit" class="cart-btn">
-                  <i class="fa fa-send-o"> Contact this candidate </i>
-                </button>
-              </form>
-              <p><span><%= product.date.toLocaleString()%></span></p>
-              <!-- Copy -->
-              <button
-                id="copy-btn"
-                class="btn btn-outline-dark mt-auto"
-                onclick="setClipboard('<%=base_url%>/products/<%= product.id %>')"
-              >
-                Copy URL
-              </button>
-              <!-- share-buttons -->
-              <div onclick="setMedia('<%=base_url%>/products/<%= product.id %>')">
-                <ul class="product-share">
-                  <li>
-                    <a class="facebook" target="blank"><i class="fa fa-facebook"></i></a>
-                  </li>
-                  <li>
-                    <a class="twitter" target="blank"><i class="fa fa-twitter"></i></a>
-                  </li>
-                  <li>
-                    <a class="email" target="blank"><i class="fa fa-envelope"></i></a>
-                  </li>
-                  <li>
-                    <a class="linkedin" target="blank"><i class="fa fa-linkedin"></i></a>
-                  </li>
-                  <li>
-                    <a class="telegram" target="blank"><i class="fa fa-telegram"></i></a>
-                  </li>
-                </ul>
-              </div>
               <br />
-              <form action="favourite/remove/:id" method="POST">
-                <input type="hidden" name="productId" value="<%= product._id %>" />
-                <input type="hidden" name="userId" value="<%= product.userId %>" />
-                <input type="hidden" name="userInSession" value="<%= userInSession._id %>" />
-                <button type="submit" class="bordered-btn">
-                  <i class="fa fa-trash" style="color: #000"></i>
-                </button>
-              </form>
+              <br />
+              <br />
+              <br />
+              <h3>
+                <span class="orange-text">It's your <b style="color: #fff">favourite</b> </span
+                ><i class="fa fa-heart" style="color: #fff"></i> products page
+              </h3>
+              <h4 style="color: #fff">
+                <br />
+                On this page, you can save posts <b class="orange-text">for the future</b> , and
+                contact the owner (you will send a letter and get some info about the owner)
+              </h4>
             </div>
           </div>
-          <% }) %> <% } else {%>
-          <div class="col-lg-8 offset-lg-2 text-center">
-            <div class="section-title">
-              <h3><span class="orange-text">Opps</span>...</h3>
-              <b> At this moment, there are not any posts </b>
+          <div class="col-md-5">
+            <div class="single-product-img">
+              <img src="./assets/fav.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- product section -->
+      <div class="product-section mt-150 mb-150">
+        <div class="container">
+          <!-- alerts -->
+          <%if (alert.type.length > 0) { %>
+          <div class="container px-4 px-lg-5 my-5">
+            <div class="alert alert-<%=alert.type %> alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <div class="text-center"><strong>Message:</strong> <%=alert.message %></div>
             </div>
           </div>
           <%}%>
+
+          <div class="row">
+            <%if (favourite.length > 0) { %> <% favourite.forEach((product)=> { %>
+            <div class="col-lg-4 col-md-6 text-center">
+              <div class="single-product-item">
+                <div class="product-image">
+                  <a href="/products/<%= product.id %>"
+                    ><img src="<%= product.img %>" alt="" /><i
+                      class="fa fa-heart"
+                      style="color: #f28123"
+                    >
+                      Favourite product</i
+                    ></a
+                  >
+                </div>
+                <h3 style="color: #fff"><%= product.title %></h3>
+                <p class="product-price"><span>Expected salary</span> <%= product.price %>$</p>
+                <form action="/history" method="POST">
+                  <input type="hidden" name="productId" value="<%= product._id %>" />
+                  <input type="hidden" name="title" value="<%= product.title%>" />
+                  <input type="hidden" name="img" value="<%= product.img%>" />
+                  <input type="hidden" name="price" value="<%= product.price%>" />
+                  <input type="hidden" name="ownerId" value="<%= product.ownerId%>" />
+                  <input type="hidden" name="userInSession" value="<%= userInSession._id %>" />
+                  <button type="submit" class="cart-btn">
+                    <i class="fa fa-send-o"> Contact this candidate </i>
+                  </button>
+                </form>
+                <p><span><%= product.date.toLocaleString()%></span></p>
+                <!-- Copy -->
+                <button
+                  id="copy-btn"
+                  class="btn btn-outline-dark mt-auto"
+                  onclick="setClipboard('<%=base_url%>/products/<%= product.id %>')"
+                >
+                  Copy URL
+                </button>
+                <!-- share-buttons -->
+                <div onclick="setMedia('<%=base_url%>/products/<%= product.id %>')">
+                  <ul class="product-share">
+                    <li>
+                      <a class="facebook" target="blank"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                      <a class="twitter" target="blank"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a class="email" target="blank"><i class="fa fa-envelope"></i></a>
+                    </li>
+                    <li>
+                      <a class="linkedin" target="blank"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                    <li>
+                      <a class="telegram" target="blank"><i class="fa fa-telegram"></i></a>
+                    </li>
+                  </ul>
+                </div>
+                <br />
+                <form action="favourite/remove/:id" method="POST">
+                  <input type="hidden" name="productId" value="<%= product._id %>" />
+                  <input type="hidden" name="userId" value="<%= product.userId %>" />
+                  <input type="hidden" name="userInSession" value="<%= userInSession._id %>" />
+                  <button type="submit" class="bordered-btn">
+                    <i class="fa fa-trash" style="color: #000"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+            <% }) %> <% } else {%>
+            <div class="col-lg-8 offset-lg-2 text-center">
+              <div class="section-title">
+                <h3><span class="orange-text">Opps</span>...</h3>
+                <b> At this moment, there are not any posts </b>
+              </div>
+            </div>
+            <%}%>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
     <!-- end product section -->
 
     <!-- copyright -->

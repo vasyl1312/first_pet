@@ -126,4 +126,6 @@ On this website are more features, and about these, you can see below:
 15. Reset password
 16. Main page
 17. Reset password
-    <!-- fix deploy -->
+18. To all pages hide cosmos, add background
+
+<!-- fix deploy -->

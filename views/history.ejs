@@ -66,81 +66,96 @@
     </div>
     <!-- end header -->
 
-    <!-- hero area -->
-    <a id="hero"></a>
-    <!-- end hero area -->
-
-    <!--  history -->
-    <div class="product-section mt-150 mb-150">
+    <section class="dark-banner">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 offset-lg-2 text-center">
+          <div class="col-md-7 text-center">
             <div class="section-title">
+              <br />
+              <br />
+              <br />
+              <br />
               <h3>
                 <span class="orange-text">It's your history </span><i class="fa fa-history"></i> of
                 communication:
               </h3>
-              <p>On this page, you can read with which candidate you started communication</p>
+              <h4 style="color: #fff">
+                <br />
+                On this page, you can read with which candidate you started communication
+              </h4>
             </div>
           </div>
-
-          <%if (alert.type.length > 0) { %>
-          <div class="container">
-            <div class="alert alert-<%=alert.type %> alert-dismissible">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>
-              <div class="text-center"><strong>Message:</strong> <%=alert.message %></div>
-            </div>
-          </div>
-          <%}%>
-          <!-- table history -->
-          <div class="col-lg-8 offset-lg-2 text-center">
-            <div class="cart-table-wrap">
-              <table class="cart-table">
-                <%if (history.length > 0) { %>
-                <thead class="cart-table-head">
-                  <tr class="table-head-row">
-                    <th class="product-name"><b>Product title</b></th>
-                    <th class="owner-name"><b>Owner Name</b></th>
-                    <th class="owner-email"><b>Owner Email</b></th>
-                    <th class="expected-salary"><b>Expected salary</b></th>
-                    <th class="date"><b>Date, when message was sent</b></th>
-                    <th class="product-remove">Delete</th>
-                  </tr>
-                </thead>
-                <% history.forEach((product)=> { %>
-                <tbody>
-                  <tr class="table-body-row">
-                    <td class="product-name"><%= product.productTitle %></td>
-                    <td class="owner-name"><%= product.ownerName %></td>
-                    <td class="owner-email"><%= product.ownerEmail %></td>
-                    <td class="expected-salary"><%= product.productPrice %>$</td>
-                    <td class="date"><%= product.data %></td>
-                    <td class="product-remove">
-                      <form action="history/remove/:id" method="POST">
-                        <input type="hidden" name="productId" value="<%= product._id %>" />
-                        <input type="hidden" name="userId" value="<%= product.userInSession %>" />
-                        <button type="submit" class="cart-btn">
-                          <i class="fa fa-trash"></i>
-                        </button>
-                      </form>
-                    </td>
-                  </tr>
-                </tbody>
-                <% }) %> <% } else {%>
-                <div class="col-lg-8 offset-lg-2 text-center">
-                  <div class="section-title">
-                    <h3><span class="orange-text">Opps</span>...</h3>
-                    <b> At this moment, there are not any posts </b>
-                  </div>
-                </div>
-                <%}%>
-              </table>
+          <div class="col-md-5">
+            <div class="single-product-img">
+              <img src="./assets/history.png" alt="" />
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <!--  history -->
+      <div class="product-section mt-150 mb-150">
+        <div class="container">
+          <div class="row">
+            <%if (alert.type.length > 0) { %>
+            <div class="container">
+              <div class="alert alert-<%=alert.type %> alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <div class="text-center"><strong>Message:</strong> <%=alert.message %></div>
+              </div>
+            </div>
+            <%}%>
+            <!-- table history -->
+            <div class="col-lg-8 offset-lg-2 text-center">
+              <div class="cart-table-wrap">
+                <table class="cart-table">
+                  <%if (history.length > 0) { %>
+                  <thead class="cart-table-head">
+                    <tr class="table-head-row">
+                      <th class="product-name"><b>Product title</b></th>
+                      <th class="owner-name"><b>Owner Name</b></th>
+                      <th class="owner-email"><b>Owner Email</b></th>
+                      <th class="expected-salary"><b>Expected salary</b></th>
+                      <th class="date"><b>Date, when message was sent</b></th>
+                      <th class="product-remove">Delete</th>
+                    </tr>
+                  </thead>
+                  <% history.forEach((product)=> { %>
+                  <tbody>
+                    <tr class="table-body-row">
+                      <td class="product-name"><b><%= product.productTitle %></b></td>
+                      <td class="owner-name"><%= product.ownerName %></td>
+                      <td class="owner-email"><%= product.ownerEmail %></td>
+                      <td class="expected-salary"><%= product.productPrice %>$</td>
+                      <td class="date"><%= product.data %></td>
+                      <td class="product-remove">
+                        <form action="history/remove/:id" method="POST">
+                          <input type="hidden" name="productId" value="<%= product._id %>" />
+                          <input type="hidden" name="userId" value="<%= product.userInSession %>" />
+                          <button type="submit" class="cart-btn">
+                            <i class="fa fa-trash"></i>
+                          </button>
+                        </form>
+                      </td>
+                    </tr>
+                  </tbody>
+                  <% }) %> <% } else {%>
+                  <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="section-title">
+                      <h3><span class="orange-text">Opps</span>...</h3>
+                      <b> At this moment, there are not any posts </b>
+                    </div>
+                  </div>
+                  <%}%>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- end history  -->
+
     <!-- copyright -->
     <a id="copyright"></a>
     <!-- end copyright -->
