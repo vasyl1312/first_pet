@@ -15,6 +15,11 @@ router.get('/', isAuth, (req, res) => {
 router.post('/', isAuth, async (req, res) => {
   try {
     let { title, price, img, description, categories } = req.body
+    if (!description) {
+      alert.type = 'info'
+      alert.message = 'You should write description more than 50 letters'
+      return res.redirect('/add')
+    }
     if (!categories) {
       alert.type = 'info'
       alert.message = 'You should select at least one category'
