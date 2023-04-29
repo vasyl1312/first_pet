@@ -83,34 +83,39 @@
     </div>
     <!-- end header -->
 
-    <section class="dark-banner">
+    <div class="hero-area hero-bg">
       <div class="container">
         <div class="row">
           <div class="col-md-7 text-center">
-            <div class="section-title">
-              <br />
-              <br />
-              <br />
-              <br />
-              <h3>
-                <span class="orange-text">Editing product:</span>
-                <br /><b> <%= product.title %> </b>
-              </h3>
-              <h4 style="color: #fff">
+            <div class="hero-text">
+              <div class="hero-text-tablecell">
+                <h2 style="color: #ffffff">
+                  <span class="orange-text">Editing product:</span>
+                  <br /><b> <%= product.title %> </b>
+                </h2>
                 <br />
-                Here you can <b class="orange-text"> edit </b> the title, expected salary,
-                technologies, photos, description and more...
-              </h4>
+                <h4 style="color: #413a3a">
+                  Here you can <b class="orange-text"> edit </b> the title, expected salary,
+                  technologies, photos, description and more...
+                </h4>
+              </div>
             </div>
           </div>
           <div class="col-md-5">
             <div class="single-product-img">
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
               <img src="../../assets/edit.png" alt="" />
             </div>
           </div>
         </div>
       </div>
+    </div>
 
+    <section class="dark-banner">
       <!--  form -->
       <div class="contact-from-section mt-150 mb-150">
         <div class="container">
@@ -166,14 +171,18 @@
                   </p>
                   <input type="hidden" name="img" value="<%= product.img %>" />
 
-                  <strong>Categories: </strong>
+                  <strong style="color: #646464">Categories: </strong>
                   <%if (product.categories.length > 0) { %> <%
                   product.categories.forEach((category)=> { %>
-                  <a href="/<%= category %>" class="btn btn-outline-dark"><%= category %></a>
+                  <a href="/<%= category %>" class="btn btn-outline-dark" style="color: #fff"
+                    ><%= category %></a
+                  >
                   <%})}%>
                   <br />
                   <br />
-                  <label for="categories"><h6>Please select new categories</h6> </label>
+                  <label for="categories"
+                    ><h5 style="color: #fff">Please select new categories</h5>
+                  </label>
                   <br />
                   <select
                     data-placeholder="Start write..."
@@ -198,10 +207,15 @@
 
                   <div class="input-field">
                     <label for="avatar">
-                      <h6>Please select another image (jpg/png/jpeg)</h6>
+                      <h5 style="color: #646464">Please select another image (jpg/png/jpeg)</h5>
                     </label>
                     <br />
-                    <input type="file" name="avatar" value="<%= product.img %>" />
+                    <input
+                      type="file"
+                      name="avatar"
+                      style="color: #646464"
+                      value="<%= product.img %>"
+                    />
                   </div>
                   <br /><br />
 
@@ -214,7 +228,8 @@
                 </form>
               </div>
               <hr />
-              <h3>Or</h3>
+              <h3 style="color: #646464">Or</h3>
+              <br />
               <form action="remove" method="POST">
                 <input type="hidden" name="productId" value="<%= product._id %>" />
                 <input type="hidden" name="img" value="<%= product.img %>" />

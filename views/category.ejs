@@ -66,35 +66,39 @@
     </div>
     <!-- end header -->
 
-    <section class="dark-banner">
+    <div class="hero-area hero-bg">
       <div class="container">
         <div class="row">
           <div class="col-md-7 text-center">
-            <div class="section-title">
-              <br />
-              <br />
-              <br />
-              <br />
-              <h3>
-                <span class="orange-text">Category: </span><i class="fa fa-list-alt"></i> <%=
-                category %>
-              </h3>
-              <h4 style="color: #fff">
+            <div class="hero-text">
+              <div class="hero-text-tablecell">
+                <h2 style="color: #ffffff">
+                  <span class="orange-text">Category:</span>
+                  <%= category %>
+                </h2>
                 <br />
-                On this page, you can see all filtred products with the category
                 <br />
-                <b class="orange-text"><%= category %></b>
-              </h4>
+                <h4 style="color: #646464">
+                  On this page, you can see all filtred products with the category
+                  <b style="color: #fff"> <%= category %></b>
+                </h4>
+              </div>
             </div>
           </div>
           <div class="col-md-5">
             <div class="single-product-img">
+              <br />
+              <br />
+              <br />
+              <br />
               <img src="./assets/category.png" alt="" />
             </div>
           </div>
         </div>
       </div>
+    </div>
 
+    <section class="dark-banner">
       <!-- product section -->
       <div class="product-section mt-150 mb-150">
         <div class="container">
@@ -108,12 +112,20 @@
                     <i class="fa fa-list-alt" style="color: #f28123"> <%= category %> </i>
                   </a>
                 </div>
-                <h3 style="color: #fff"><%= product.title %></h3>
-                <p class="product-price"><span>Expected salary</span> <%= product.price %>$</p>
+                <h3 style="color: #fff"><b> <%= product.title %> </b></h3>
+                <p class="product-price orange-text">
+                  <br />
+                  <span style="color: #001eff">Expected salary:</span> <%= product.price %>$
+                </p>
                 <a href="/products/<%= product.id %>" class="cart-btn"
                   ><i class="fa fa-eye"> Read </i></a
                 >
-                <p><span><%= product.date.toLocaleString()%></span></p>
+                <p>
+                  <span style="color: #646464">
+                    <br />
+                    <%= product.date.toLocaleString()%></span
+                  >
+                </p>
                 <!-- Copy -->
                 <button
                   id="copy-btn"
@@ -122,9 +134,13 @@
                 >
                   Copy URL
                 </button>
+
                 <!-- share-buttons -->
-                <div onclick="setMedia('<%=base_url%>/products/<%= product.id %>')">
-                  <ul class="product-share">
+                <div
+                  class="social-icons"
+                  onclick="setMedia('<%=base_url%>/products/<%= product.id %>')"
+                >
+                  <ul>
                     <li>
                       <a class="facebook" target="blank"><i class="fa fa-facebook"></i></a>
                     </li>
@@ -147,8 +163,8 @@
             <% }) %> <% } else {%>
             <div class="col-lg-8 offset-lg-2 text-center">
               <div class="section-title">
-                <h3><span class="orange-text">Opps</span>...</h3>
-                <b> At this moment, there are not any posts </b>
+                <h3 style="color: #646464"><span class="orange-text">Opps</span>...</h3>
+                <b style="color: #646464"> At this moment, there are not any posts </b>
               </div>
             </div>
             <%}%>

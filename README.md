@@ -128,5 +128,6 @@ On this website are more features, and about these, you can see below:
 17. Reset password
 18. To all pages hide cosmos, add background
 19. Add more possibilities to the description of products
+20. Change styles and colors to pages
 
 <!-- fix deploy -->

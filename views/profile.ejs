@@ -66,33 +66,36 @@
     </div>
     <!-- end header -->
 
-    <section class="dark-banner">
+    <div class="hero-area hero-bg">
       <div class="container">
         <div class="row">
           <div class="col-md-7 text-center">
-            <div class="section-title">
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <h3><span class="orange-text">Profile</span> page</h3>
-
-              <h4 style="color: #fff">
+            <div class="hero-text">
+              <div class="hero-text-tablecell">
+                <h2 style="color: #ffffff"><span class="orange-text">Profile</span> page</h2>
                 <br />
-                Here you can change avatar or nickname and delete your
-                <b class="orange-text"> profile. </b>
-              </h4>
+                <h4 style="color: #646464">
+                  Here you can change avatar or nickname and delete your
+                  <b class="orange-text"> profile. </b>
+                </h4>
+              </div>
             </div>
           </div>
           <div class="col-md-5">
             <div class="single-product-img">
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
               <img src="./assets/profile.png" alt="" />
             </div>
           </div>
         </div>
       </div>
+    </div>
 
+    <section class="dark-banner">
       <!-- product section -->
       <div class="product-section mt-150 mb-150">
         <div class="container">
@@ -114,7 +117,7 @@
                         src="../images/emptyAvatar.png"
                         alt="avatar-<%= user.name %>"
                       />
-                      <p>You have no avatar photo</p>
+                      <p style="color: #646464">You have no avatar photo</p>
                       <%}%>
                     </div>
                   </div>
@@ -122,10 +125,10 @@
                     <div class="single-product-content">
                       <form action="/profile" method="POST" enctype="multipart/form-data">
                         <p class="single-product-pricing">
-                          <span>Your email: </span> <%= user.email %>
+                          <span style="color: #646464">Your email: </span> <%= user.email %>
                         </p>
 
-                        <span>Change your nickname: </span>
+                        <span style="color: #646464">Change your nickname: </span>
                         <p>
                           <input
                             class="validate"
@@ -143,10 +146,10 @@
                         <br />
                         <div class="input-field">
                           <label for="avatar">
-                            <h6>Change your avatar</h6>
+                            <h6 style="color: #646464">Change your avatar</h6>
                           </label>
                           <br />
-                          <input type="file" name="avatar" />
+                          <input style="color: #646464" type="file" name="avatar" />
                         </div>
 
                         <input type="hidden" name="img" value="<%= user.avatarUrl %>" />
