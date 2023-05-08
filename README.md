@@ -130,4 +130,8 @@ On this website are more features, and about these, you can see below:
 19. Add more possibilities to the description of products
 20. Change styles and colors to pages
 
+`Upgrade due plans.txt`
+
+1. Editpage add top navbar and style for select
+
 <!-- fix deploy -->

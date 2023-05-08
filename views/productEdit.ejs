@@ -28,6 +28,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
     <script src="https://cdn.tiny.cloud/1/jtypyuj9zafop37vzzdiq2j9tsyldw451muqsnsq3z5q129y/tinymce/6/tinymce.min.js"></script>
     <script>
       tinymce.init({
@@ -37,8 +39,6 @@
         toolbar_sticky: true,
       })
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
     <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet" />
   </head>
   <body>
@@ -129,6 +129,7 @@
                   id="submit"
                 >
                   <p>
+                    <strong style="color: #646464">Title: </strong>
                     <input
                       class="validate"
                       type="text"
@@ -139,8 +140,9 @@
                       value="<%= product.title %>"
                       required
                     />
-
                     <br />
+                    <br />
+                    <strong style="color: #646464">Expected salary: </strong>
                     <br />
                     <input
                       type="number"
@@ -153,7 +155,9 @@
                       required
                     />
                   </p>
-
+                  <br />
+                  <strong style="color: #646464">Description: </strong>
+                  <br />
                   <p>
                     <textarea
                       name="description"
@@ -248,6 +252,11 @@
     <!-- copyright -->
     <a id="copyright"></a>
     <!-- end copyright -->
-    <a id="scripts"></a>
+    <script src="/../assets/js/jquery.isotope-3.0.6.min.js"></script>
+    <script src="/../assets/js/owl.carousel.min.js"></script>
+    <script src="/../assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="/../assets/js/sticker.js"></script>
+    <script src="/../assets/js/main.js"></script>
+    <script src="/../js/scripts.js"></script>
   </body>
 </html>

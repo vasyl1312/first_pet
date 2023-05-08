@@ -46,21 +46,3 @@ function setMedia(value) {
     telegram.href = `https://telegram.me/share/url?url=${link}`
   })
 }
-
-// var ascendingOrder = true
-
-// function sortObjects(allObj) {
-//   console.log(allObj)
-
-//   // замість цього масиву можна використовувати будь-який масив об'єктів з ключами дати
-//   const objects = [{ date: '2022-01-01' }, { date: '2022-01-03' }, { date: '2022-01-02' }]
-
-//   if (ascendingOrder) {
-//     objects.sort((a, b) => new Date(a.date) - new Date(b.date))
-//   } else {
-//     objects.sort((a, b) => new Date(b.date) - new Date(a.date))
-//   }
-
-//   console.log(objects)
-//   ascendingOrder = !ascendingOrder
-// }
