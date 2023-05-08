@@ -133,5 +133,6 @@ On this website are more features, and about these, you can see below:
 `Upgrade due plans.txt`
 
 1. Editpage add top navbar and style for select
+2. Style for letters
 
 <!-- fix deploy -->

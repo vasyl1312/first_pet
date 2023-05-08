@@ -15,7 +15,7 @@ function setClipboard(value) {
   tempInput.select()
   document.execCommand('copy')
   document.body.removeChild(tempInput)
-  alert('Copied')
+  // alert('Copied')
 }
 
 function setMedia(value) {
