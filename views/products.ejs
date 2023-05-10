@@ -107,7 +107,9 @@
             <%if (myProd.length > 0 || elseProd.length > 0) { %> <% elseProd.forEach((product)=> {
             %>
             <div class="col-lg-4 col-md-6 text-center">
-              <div class="single-product-item">
+              <div
+                class="single-product-item <%= (product.myCheckbox == false) ? 'inactive-product' : '' %>"
+              >
                 <div class="product-image">
                   <a href="/products/<%= product.id %>"><img src="<%= product.img %>" alt="" /></a>
                 </div>
@@ -126,6 +128,7 @@
                     <%= product.date.toLocaleString()%></span
                   >
                 </p>
+                <% if (product.myCheckbox == true) { %>
                 <button
                   id="copy-btn"
                   class="btn btn-outline-dark mt-auto"
@@ -156,12 +159,28 @@
                     </li>
                   </ul>
                 </div>
-                <br />
+                <% } else { %>
+                <h5 style="color: #000000">
+                  This product <b class="product-price orange-text"> is not active, </b> you cannot
+                  communicate with the author
+                </h5>
+                <div class="social-icons">
+                  <ul>
+                    <li>
+                      <a class="telegram" style="color: #000000"
+                        >But you can read info about this</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <%}%>
               </div>
             </div>
             <% }) %> <% myProd.forEach((product)=> { %>
             <div class="col-lg-4 col-md-6 text-center">
-              <div class="single-product-item">
+              <div
+                class="single-product-item <%= (product.myCheckbox == false) ? 'inactive-product' : '' %>"
+              >
                 <div class="product-image">
                   <a href="/products/<%= product.id %>"
                     ><img src="<%= product.img %>" alt="" />
@@ -183,6 +202,7 @@
                     <%= product.date.toLocaleString()%></span
                   >
                 </p>
+                <% if (product.myCheckbox == true) { %>
                 <button
                   id="copy-btn"
                   class="btn btn-outline-dark mt-auto"
@@ -213,6 +233,12 @@
                     </li>
                   </ul>
                 </div>
+                <% } else { %>
+                <h3 style="color: #000000">
+                  This product <b class="product-price orange-text"> is not active, </b> you cannot
+                  communicate with the author
+                </h3>
+                <%}%>
               </div>
             </div>
             <% }) %> <% } else {%>

@@ -134,5 +134,5 @@ On this website are more features, and about these, you can see below:
 
 1. Editpage add top navbar and style for select
 2. Style for letters
-
+3. Active product or not
 <!-- fix deploy -->

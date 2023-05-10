@@ -27,7 +27,7 @@
       tinymce.init({
         selector: '#description',
         plugins:
-          'preview powerpaste casechange searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link media mediaembed template codesample advtable table charmap pagebreak nonbreaking anchor advlist lists checklist wordcount tinymcespellchecker a11ychecker help formatpainter permanentpen pageembed linkchecker emoticons export',
+          'preview   searchreplace autolink autosave save directionality  visualblocks visualchars fullscreen image link media  template codesample  table charmap pagebreak nonbreaking anchor advlist lists  wordcount   help    emoticons ',
         toolbar_sticky: true,
       })
     </script>
@@ -163,6 +163,7 @@
                           </p>
                         </div>
                       </div>
+                      <% if (product.myCheckbox == true) { %>
                       <h4 style="color: #fff">
                         Share:
                         <button
@@ -215,6 +216,12 @@
                           </a>
                         </form>
                       </div>
+                      <%}%> <% } else { %>
+                      <h3 style="color: #ffffff">
+                        <br /><br />
+                        This product <b class="product-price orange-text"> is not active, </b> you
+                        cannot communicate with the author
+                      </h3>
                       <%}%>
                     </div>
                   </div>

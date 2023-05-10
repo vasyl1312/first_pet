@@ -35,7 +35,7 @@
       tinymce.init({
         selector: '#description',
         plugins:
-          'preview powerpaste casechange searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link media mediaembed template codesample advtable table charmap pagebreak nonbreaking anchor advlist lists checklist wordcount tinymcespellchecker a11ychecker help formatpainter permanentpen pageembed linkchecker emoticons export',
+          'preview   searchreplace autolink autosave save directionality  visualblocks visualchars fullscreen image link media  template codesample  table charmap pagebreak nonbreaking anchor advlist lists  wordcount   help    emoticons ',
         toolbar_sticky: true,
       })
     </script>
@@ -184,8 +184,11 @@
                   <%})}%>
                   <br />
                   <br />
+                  <hr style="background-color: #ffffff" />
                   <label for="categories"
-                    ><h5 style="color: #fff">Please select new categories</h5>
+                    ><h5 style="color: #646464">
+                      Please select <b class="orange-text"> new categories </b>
+                    </h5>
                   </label>
                   <br />
                   <select
@@ -211,7 +214,9 @@
 
                   <div class="input-field">
                     <label for="avatar">
-                      <h5 style="color: #646464">Please select another image (jpg/png/jpeg)</h5>
+                      <h5 style="color: #646464">
+                        Please select <b class="orange-text"> another image </b> (jpg/png/jpeg)
+                      </h5>
                     </label>
                     <br />
                     <input
@@ -223,6 +228,21 @@
                   </div>
                   <br /><br />
 
+                  <div class="checkbox-wrapper-5">
+                    <h5 style="color: #646464">
+                      Your product will <b class="orange-text"> active</b>, do you want to make it
+                      passive(everyone will read your resume but is not able to contact you)?
+                    </h5>
+                    <div class="check">
+                      <input id="check-5" type="checkbox" name="myCheckbox" value="true" checked />
+                      <label for="check-5"></label>
+                      <input type="hidden" name="myCheckbox" value="false" />
+                    </div>
+                  </div>
+
+                  <hr style="background-color: #ffffff" />
+                  <br /><br />
+
                   <input type="hidden" name="id" value="<%= product.id %>" />
                   <input type="hidden" name="userId" value="<%= product.userId %>" />
                   <button type="submit" class="cart-btn">
@@ -231,7 +251,6 @@
                   </button>
                 </form>
               </div>
-              <hr />
               <h3 style="color: #646464">Or</h3>
               <br />
               <form action="remove" method="POST">

@@ -116,7 +116,9 @@
           <div class="row">
             <%if (favourite.length > 0) { %> <% favourite.forEach((product)=> { %>
             <div class="col-lg-4 col-md-6 text-center">
-              <div class="single-product-item">
+              <div
+                class="single-product-item <%= (product.myCheckbox == false) ? 'inactive-product' : '' %>"
+              >
                 <div class="product-image">
                   <a href="/products/<%= product.id %>"
                     ><img src="<%= product.img %>" alt="" /><i
@@ -133,6 +135,7 @@
                   <span style="color: #001eff">Expected salary:</span> <%= product.price %>$
                 </p>
                 <br />
+                <% if (product.myCheckbox == true) { %>
                 <form action="/history" method="POST">
                   <input type="hidden" name="productId" value="<%= product._id %>" />
                   <input type="hidden" name="title" value="<%= product.title%>" />
@@ -159,8 +162,11 @@
                   Copy URL
                 </button>
                 <!-- share-buttons -->
-                <div class="social-icons" onclick="setMedia('<%=base_url%>/products/<%= product.id %>')">
-                  <ul >
+                <div
+                  class="social-icons"
+                  onclick="setMedia('<%=base_url%>/products/<%= product.id %>')"
+                >
+                  <ul>
                     <li>
                       <a class="facebook" target="blank"><i class="fa fa-facebook"></i></a>
                     </li>
@@ -178,6 +184,15 @@
                     </li>
                   </ul>
                 </div>
+                <% } else { %>
+                <h3 style="color: #000000">
+                  This product <b class="product-price orange-text"> is not active, </b> you cannot
+                  communicate with the author
+                </h3>
+                <h3 style="color: #000000">
+                  <b> Maybe in the future, it will be activated </b>
+                </h3>
+                <%}%>
                 <br />
                 <form action="favourite/remove/:id" method="POST">
                   <input type="hidden" name="productId" value="<%= product._id %>" />
