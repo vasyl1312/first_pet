@@ -52,6 +52,9 @@ router.post('/edit', isAuth, async (req, res) => {
   try {
     const { id } = req.body //забираємо нижнє _ щоб було не _id а id
     delete req.body.id //щоб передати все оновлене окрім id-його залишити
+    if (req.body.myCheckbox.length == 2) {
+      req.body.myCheckbox = true //перевіряємо чи активний продукт чи ні
+    }
 
     if (req.file) {
       if (req.body.img != '/images/empty.png') {

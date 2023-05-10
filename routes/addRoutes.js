@@ -40,7 +40,9 @@ router.post('/', isAuth, async (req, res) => {
       categories,
       userId: req.user,
       date: new Date(),
+      myCheckbox: true,
     })
+
     await product.save()
 
     //в модель користувача додаємо продукт

@@ -66,33 +66,40 @@
     </div>
     <!-- end header -->
 
-    <section class="dark-banner">
+    <div class="hero-area hero-bg">
       <div class="container">
         <div class="row">
           <div class="col-md-7 text-center">
-            <div class="section-title">
-              <br />
-              <br />
-              <br />
-              <br />
-              <h3>
-                <span class="orange-text">It's your history </span><i class="fa fa-history"></i> of
-                communication:
-              </h3>
-              <h4 style="color: #fff">
+            <div class="hero-text">
+              <div class="hero-text-tablecell">
+                <h2 style="color: #ffffff">
+                  <span class="orange-text">It's your history </span
+                  ><i class="fa fa-history"></i> of communication:
+                </h2>
                 <br />
-                On this page, you can read with which candidate you started communication
-              </h4>
+                <h4 style="color: #413a3a">
+                  <br />
+                  On this page, you can read with which candidate you started
+                  <b style="color: #fff"> communication </b>
+                </h4>
+              </div>
             </div>
           </div>
           <div class="col-md-5">
             <div class="single-product-img">
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
               <img src="./assets/history.png" alt="" />
             </div>
           </div>
         </div>
       </div>
+    </div>
 
+    <section class="dark-banner">
       <!--  history -->
       <div class="product-section mt-150 mb-150">
         <div class="container">
@@ -123,11 +130,17 @@
                   <% history.forEach((product)=> { %>
                   <tbody>
                     <tr class="table-body-row">
-                      <td class="product-name"><b><%= product.productTitle %></b></td>
-                      <td class="owner-name"><%= product.ownerName %></td>
-                      <td class="owner-email"><%= product.ownerEmail %></td>
-                      <td class="expected-salary"><%= product.productPrice %>$</td>
-                      <td class="date"><%= product.data %></td>
+                      <td class="product-name">
+                        <b class="orange-text"><%= product.productTitle %></b>
+                      </td>
+                      <td class="owner-name" style="color: #fff"><%= product.ownerName %></td>
+                      <td class="owner-email" style="color: #fff">
+                        <b> <%= product.ownerEmail %> </b>
+                      </td>
+                      <td class="expected-salary" style="color: #fff">
+                        <%= product.productPrice %>$
+                      </td>
+                      <td class="date" style="color: #fff"><%= product.data %></td>
                       <td class="product-remove">
                         <form action="history/remove/:id" method="POST">
                           <input type="hidden" name="productId" value="<%= product._id %>" />
@@ -142,8 +155,8 @@
                   <% }) %> <% } else {%>
                   <div class="col-lg-8 offset-lg-2 text-center">
                     <div class="section-title">
-                      <h3><span class="orange-text">Opps</span>...</h3>
-                      <b> At this moment, there are not any posts </b>
+                      <h3 style="color: #413a3a"><span class="orange-text">Opps</span>...</h3>
+                      <b style="color: #413a3a"> At this moment, there are not any posts </b>
                     </div>
                   </div>
                   <%}%>

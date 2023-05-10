@@ -28,17 +28,17 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
     <script src="https://cdn.tiny.cloud/1/jtypyuj9zafop37vzzdiq2j9tsyldw451muqsnsq3z5q129y/tinymce/6/tinymce.min.js"></script>
     <script>
       tinymce.init({
         selector: '#description',
         plugins:
-          'preview powerpaste casechange searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link media mediaembed template codesample advtable table charmap pagebreak nonbreaking anchor advlist lists checklist wordcount tinymcespellchecker a11ychecker help formatpainter permanentpen pageembed linkchecker emoticons export',
+          'preview   searchreplace autolink autosave save directionality  visualblocks visualchars fullscreen image link media  template codesample  table charmap pagebreak nonbreaking anchor advlist lists  wordcount   help    emoticons ',
         toolbar_sticky: true,
       })
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
     <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet" />
   </head>
   <body>
@@ -83,34 +83,39 @@
     </div>
     <!-- end header -->
 
-    <section class="dark-banner">
+    <div class="hero-area hero-bg">
       <div class="container">
         <div class="row">
           <div class="col-md-7 text-center">
-            <div class="section-title">
-              <br />
-              <br />
-              <br />
-              <br />
-              <h3>
-                <span class="orange-text">Editing product:</span>
-                <br /><b> <%= product.title %> </b>
-              </h3>
-              <h4 style="color: #fff">
+            <div class="hero-text">
+              <div class="hero-text-tablecell">
+                <h2 style="color: #ffffff">
+                  <span class="orange-text">Editing product:</span>
+                  <br /><b> <%= product.title %> </b>
+                </h2>
                 <br />
-                Here you can <b class="orange-text"> edit </b> the title, expected salary,
-                technologies, photos, description and more...
-              </h4>
+                <h4 style="color: #413a3a">
+                  Here you can <b class="orange-text"> edit </b> the title, expected salary,
+                  technologies, photos, description and more...
+                </h4>
+              </div>
             </div>
           </div>
           <div class="col-md-5">
             <div class="single-product-img">
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
               <img src="../../assets/edit.png" alt="" />
             </div>
           </div>
         </div>
       </div>
+    </div>
 
+    <section class="dark-banner">
       <!--  form -->
       <div class="contact-from-section mt-150 mb-150">
         <div class="container">
@@ -124,6 +129,7 @@
                   id="submit"
                 >
                   <p>
+                    <strong style="color: #646464">Title: </strong>
                     <input
                       class="validate"
                       type="text"
@@ -134,8 +140,9 @@
                       value="<%= product.title %>"
                       required
                     />
-
                     <br />
+                    <br />
+                    <strong style="color: #646464">Expected salary: </strong>
                     <br />
                     <input
                       type="number"
@@ -148,7 +155,9 @@
                       required
                     />
                   </p>
-
+                  <br />
+                  <strong style="color: #646464">Description: </strong>
+                  <br />
                   <p>
                     <textarea
                       name="description"
@@ -166,14 +175,21 @@
                   </p>
                   <input type="hidden" name="img" value="<%= product.img %>" />
 
-                  <strong>Categories: </strong>
+                  <strong style="color: #646464">Categories: </strong>
                   <%if (product.categories.length > 0) { %> <%
                   product.categories.forEach((category)=> { %>
-                  <a href="/<%= category %>" class="btn btn-outline-dark"><%= category %></a>
+                  <a href="/<%= category %>" class="btn btn-outline-dark" style="color: #fff"
+                    ><%= category %></a
+                  >
                   <%})}%>
                   <br />
                   <br />
-                  <label for="categories"><h6>Please select new categories</h6> </label>
+                  <hr style="background-color: #ffffff" />
+                  <label for="categories"
+                    ><h5 style="color: #646464">
+                      Please select <b class="orange-text"> new categories </b>
+                    </h5>
+                  </label>
                   <br />
                   <select
                     data-placeholder="Start write..."
@@ -198,11 +214,33 @@
 
                   <div class="input-field">
                     <label for="avatar">
-                      <h6>Please select another image (jpg/png/jpeg)</h6>
+                      <h5 style="color: #646464">
+                        Please select <b class="orange-text"> another image </b> (jpg/png/jpeg)
+                      </h5>
                     </label>
                     <br />
-                    <input type="file" name="avatar" value="<%= product.img %>" />
+                    <input
+                      type="file"
+                      name="avatar"
+                      style="color: #646464"
+                      value="<%= product.img %>"
+                    />
                   </div>
+                  <br /><br />
+
+                  <div class="checkbox-wrapper-5">
+                    <h5 style="color: #646464">
+                      Your product will <b class="orange-text"> active</b>, do you want to make it
+                      passive(everyone will read your resume but is not able to contact you)?
+                    </h5>
+                    <div class="check">
+                      <input id="check-5" type="checkbox" name="myCheckbox" value="true" checked />
+                      <label for="check-5"></label>
+                      <input type="hidden" name="myCheckbox" value="false" />
+                    </div>
+                  </div>
+
+                  <hr style="background-color: #ffffff" />
                   <br /><br />
 
                   <input type="hidden" name="id" value="<%= product.id %>" />
@@ -213,8 +251,8 @@
                   </button>
                 </form>
               </div>
-              <hr />
-              <h3>Or</h3>
+              <h3 style="color: #646464">Or</h3>
+              <br />
               <form action="remove" method="POST">
                 <input type="hidden" name="productId" value="<%= product._id %>" />
                 <input type="hidden" name="img" value="<%= product.img %>" />
@@ -233,6 +271,11 @@
     <!-- copyright -->
     <a id="copyright"></a>
     <!-- end copyright -->
-    <a id="scripts"></a>
+    <script src="/../assets/js/jquery.isotope-3.0.6.min.js"></script>
+    <script src="/../assets/js/owl.carousel.min.js"></script>
+    <script src="/../assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="/../assets/js/sticker.js"></script>
+    <script src="/../assets/js/main.js"></script>
+    <script src="/../js/scripts.js"></script>
   </body>
 </html>

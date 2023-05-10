@@ -30,12 +30,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
-    <script src="https://cdn.tiny.cloud/1/jtypyuj9zafop37vzzdiq2j9tsyldw451muqsnsq3z5q129y/tinymce/6/tinymce.min.js"></script>
+    <script
+      src="https://cdn.tiny.cloud/1/jtypyuj9zafop37vzzdiq2j9tsyldw451muqsnsq3z5q129y/tinymce/6/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
     <script>
       tinymce.init({
         selector: '#description',
         plugins:
-          'preview powerpaste casechange searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link media mediaembed template codesample advtable table charmap pagebreak nonbreaking anchor advlist lists checklist wordcount tinymcespellchecker a11ychecker help formatpainter permanentpen pageembed linkchecker emoticons export',
+          'preview   searchreplace autolink autosave save directionality  visualblocks visualchars fullscreen image link media  template codesample  table charmap pagebreak nonbreaking anchor advlist lists  wordcount   help    emoticons ',
         toolbar_sticky: true,
       })
     </script>
@@ -79,35 +82,41 @@
     </div>
     <!-- end header -->
 
-    <section class="dark-banner">
+    <div class="hero-area hero-bg">
       <div class="container">
+        <br />
+        <br />
         <div class="row">
           <div class="col-md-7 text-center">
-            <div class="section-title">
-              <br />
-              <br />
-              <br />
-              <br />
-              <h3>
-                <span class="orange-text">Do you want to</span><b style="color: #fff"> add </b>
-                <i class="fa fa-plus"></i> a new resume?
-              </h3>
-              <h4 style="color: #fff">
-                Here you can <b class="orange-text">add</b> the title, expected salary,
-                technologies, photos, and description, where you can describe your experience, study
-                steps, link to pet projects and social media, and other your wish(what you search
-                for or who you are)...
-              </h4>
+            <div class="hero-text">
+              <div class="hero-text-tablecell">
+                <h2 style="color: #ffffff">
+                  <span class="orange-text">Do you want to</span
+                  ><b style="color: #001eff"> add </b> <i class="fa fa-plus"></i> a new resume?
+                </h2>
+                <br />
+                <h4 style="color: #646464">
+                  Here you can <b class="orange-text">add</b> the title, expected salary,
+                  technologies, photos, and description, where you can describe your experience,
+                  study steps, link to pet projects and social media, and other your wish(what you
+                  search for or who you are...)
+                </h4>
+              </div>
             </div>
           </div>
           <div class="col-md-5">
             <div class="single-product-img">
+              <br />
+              <br />
+              <br />
               <img src="./assets/add.png" alt="" />
             </div>
           </div>
         </div>
       </div>
+    </div>
 
+    <section class="dark-banner">
       <!--  form -->
       <div class="contact-from-section mt-150 mb-150">
         <div class="container">
@@ -159,7 +168,9 @@
                     </textarea>
                   </p>
 
-                  <label for="categories"><h6>Please select categories</h6> </label>
+                  <label for="categories"
+                    ><h5 style="color: #646464">Please select categories</h5>
+                  </label>
                   <br />
                   <select
                     data-placeholder="Start write..."
@@ -178,16 +189,13 @@
                     <option>web_design</option>
                     <option>other</option>
                   </select>
-
-                  <br />
-                  <br />
-
+                  <br /><br />
                   <div class="input-field">
                     <label for="avatar">
-                      <h6>Please select photo of product (jpg/png/jpeg)</h6>
+                      <h5 style="color: #646464">Please select photo of product (jpg/png/jpeg)</h5>
                     </label>
                     <br />
-                    <input type="file" name="avatar" />
+                    <input type="file" name="avatar" style="color: #646464" />
                   </div>
                   <br /><br />
                   <button type="submit" class="cart-btn">Add new <i class="fa fa-plus"></i></button>

@@ -23,6 +23,10 @@ const productSchema = new Schema({
     required: true,
   },
 
+  myCheckbox:{
+    type: Boolean,
+  },
+
   userId: {
     type: Schema.Types.ObjectId,
     ref: 'User', //взаємодія між продуктом та користувачем
