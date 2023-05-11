@@ -22,8 +22,8 @@ module.exports = async function (passport) {
         {
           clientID: process.env.CLIENT_ID,
           clientSecret: process.env.CLIENT_SECRET,
-          // callbackURL: `/google/callback`, //прихостингу є помилки
-          callbackURL: `${process.env.BASE_URL_PORT}/google/callback`,
+          callbackURL: `/google/callback`, //прихостингу є помилки
+          // callbackURL: `${process.env.BASE_URL_PORT}/google/callback`,
         },
         async function (accessToken, refreshToken, profile, done) {
           // find if a user exist with this email or not
