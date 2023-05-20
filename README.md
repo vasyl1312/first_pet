@@ -1,8 +1,12 @@
-# pet `Keps'ko site`
+# `Kepsko website`
 
-Link to course-work about the internship: https://drive.google.com/file/d/1dNQmQY97-azema0hALnX--UmrC6OiFNP/view?usp=sharing
+<!-- **[Link] ()** to presentation with demonstration -->
 
-### This website is written on Node.js/Express/MongoDB/Google Auth/JS-frontend/REST API/SendinBlue - with CRUD operations and more.
+**[Link] ()** to dyploma-work (`Second` part of developing)
+
+**[Link](https://drive.google.com/file/d/1dNQmQY97-azema0hALnX--UmrC6OiFNP/view?usp=sharing)** to course-work (`First` part of developing)
+
+## This website is written on Node.js/Express/MongoDB/Bootstrap/Vercel/Google Auth/SendinBlue and more.
 
 On this website, you can sign in/up with email or googleAuth, and reset your forgotten password.
 Users can add their own resume with information, cv, technologies, photos, expected salary, and more. Everyone can see all candidates, how they studied, where, and what to be in this position. Other people or companies can add good candidates to their favorite page and communicate with the owner by email(SendinBlue). And on the website are a history page of communication, a page of our own products, and pages with filtres by technologies. Also, all products have sharing page on social media this resume will be useful for applying to offers and the candidate won't send a cv in pdf-will send a complete cv with studying steps and pet projects.
@@ -135,4 +139,3 @@ On this website are more features, and about these, you can see below:
 1. Editpage add top navbar and style for select
 2. Style for letters
 3. Active product or not
-
