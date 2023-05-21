@@ -1,8 +1,8 @@
 # `Kepsko website`
 
-**[Link] (https://www.canva.com/design/DAFjZKISeAU/EVTJ-idh8u6-83AZ9GIS8w/view?utm_content=DAFjZKISeAU&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1)** to presentation with demonstration (DEMO)
+**[Link](https://www.canva.com/design/DAFjZKISeAU/EVTJ-idh8u6-83AZ9GIS8w/view?utm_content=DAFjZKISeAU&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1)** to presentation with demonstration (DEMO)
 
-**[Link] (https://drive.google.com/file/d/18R2RykjXdwj0V6Km3dphepR3xpfCEDf0/view?usp=sharing)** to dyploma-work (`Second` part of developing)
+**[Link](https://drive.google.com/file/d/18R2RykjXdwj0V6Km3dphepR3xpfCEDf0/view?usp=sharing)** to dyploma-work (`Second` part of developing)
 
 **[Link](https://drive.google.com/file/d/1dNQmQY97-azema0hALnX--UmrC6OiFNP/view?usp=sharing)** to course-work (`First` part of developing)
 
