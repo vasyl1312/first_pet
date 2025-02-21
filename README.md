@@ -1,6 +1,6 @@
 # [`Kepsko website`](https://first-pet.vercel.app/)
 
-**[Link](https://www.canva.com/design/DAFjZKISeAU/EVTJ-idh8u6-83AZ9GIS8w/view?utm_content=DAFjZKISeAU&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1)** to presentation with demonstration (DEMO)
+**[Link](https://www.canva.com/design/DAFjZKISeAU/UiBcOHsTwHI5t-wUXETFlg/view?utm_content=DAFjZKISeAU&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h00fbf416c7)** to presentation with demonstration (DEMO)
 
 **[Link](https://drive.google.com/file/d/129xZmY5aTfFtLpheEAPuNjmKeE4b11so/view?usp=sharing)** to dyploma-work (`Second` part of developing)
 
